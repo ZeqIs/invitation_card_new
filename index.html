@@ -527,8 +527,8 @@
       </div>
 
       <div class="mt-4 mb-6">
-        <h4 class="font-serif tracking-[0.2em] text-xs sm:text-sm font-semibold uppercase text-white">RESERVE YOUR SEAT</h4>
-        <p class="font-serif italic text-[11px] sm:text-xs text-white/80 mt-1">Please reply by [Date]</p>
+        <h4 class="font-serif tracking-[0.2em] text-xs sm:text-sm font-semibold uppercase text-white">RSVP</h4>
+        <p class="font-serif italic text-[11px] sm:text-xs text-white/80 mt-1">Please reply by 17th October 2026</p>
       </div>
 
       <form id="rsvpForm" class="w-full max-w-md space-y-4 text-left">
@@ -539,7 +539,7 @@
         </div>
 
         <div class="bg-white rounded-xl p-4 sm:p-5 shadow-lg text-slate-800">
-          <label class="block text-xs sm:text-sm font-semibold font-sans mb-2 text-slate-700">Coming ?</label>
+          <label class="block text-xs sm:text-sm font-semibold font-sans mb-2 text-slate-700">Attendance</label>
           <div class="space-y-2">
             <label class="flex items-center gap-2 text-xs sm:text-sm text-slate-600 cursor-pointer">
               <input type="radio" name="attendance" value="yes" checked class="text-cerulean focus:ring-cerulean">
@@ -553,7 +553,13 @@
         </div>
 
         <div class="bg-white rounded-xl p-4 sm:p-5 shadow-lg text-slate-800">
-          <label class="block text-xs sm:text-sm font-semibold font-sans mb-1 text-slate-700">Your wishes to the couple</label>
+          <label class="block text-xs sm:text-sm font-semibold font-sans mb-1 text-slate-700">Pax</label>
+          <!-- Added name="pax" -->
+          <input type="number" name="pax" min="1" required placeholder="Number of guests" class="w-full text-xs sm:text-sm text-slate-600 border-b border-dashed border-slate-300 pb-1.5 focus:outline-none focus:border-cerulean bg-transparent">
+        </div>
+
+        <div class="bg-white rounded-xl p-4 sm:p-5 shadow-lg text-slate-800">
+          <label class="block text-xs sm:text-sm font-semibold font-sans mb-1 text-slate-700">Send them your wishes</label>
           <!-- Added name="wishes" -->
           <input type="text" name="wishes" placeholder="Write your wish..." class="w-full text-xs sm:text-sm text-slate-600 border-b border-dashed border-slate-300 pb-1.5 focus:outline-none focus:border-cerulean bg-transparent">
         </div>
