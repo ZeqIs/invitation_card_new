@@ -235,42 +235,49 @@
   </audio>
 
   <!-- ==================== FRONT COVER VIEW (PAGE 1) ==================== -->
-  <main id="frontCover" class="w-full min-h-screen bg-[#1B7895] flex flex-col justify-between items-center py-8 md:py-12 px-4 md:px-8 text-center relative overflow-hidden">
-    <!-- Top Title -->
-    <div class="pt-4 md:pt-8">
-      <p data-i18n="gettingMarried" class="font-serif tracking-[0.25em] text-xs md:text-sm text-white/90 uppercase mb-2">We're Getting Married</p>
-      <h1 class="font-script text-5xl md:text-7xl lg:text-8xl text-white tracking-wide">Is | Mimi</h1>
-    </div>
+  <main id="frontCover" class="w-full min-h-screen bg-[#1B7895] flex flex-col justify-center items-center py-8 px-4 md:px-8 text-center relative overflow-hidden">
+    <div class="w-full max-w-lg flex flex-col items-center justify-center space-y-5 md:space-y-6">
+      <!-- Top Title -->
+      <div>
+        <p data-i18n="gettingMarried" class="font-serif tracking-[0.25em] text-xs md:text-sm text-white/90 uppercase mb-1.5">We're Getting Married</p>
+        <h1 class="font-script text-5xl md:text-7xl lg:text-8xl text-white tracking-wide">Is | Mimi</h1>
+      </div>
 
-    <!-- Photobooth Dispenser Tray Box -->
-    <div class="my-auto py-4 flex flex-col items-center">
-      <div class="tray-rim p-2.5 md:p-3 rounded-2xl border border-white/20 relative shadow-2xl">
-        
-        <!-- Slot Exit -->
-        <div class="w-full h-3 md:h-4 bg-black rounded-t-md mb-0.5 relative z-20 shadow-inner flex items-center justify-center overflow-hidden">
-          <div class="w-4/5 h-0.5 bg-white/15 rounded-full"></div>
-        </div>
+      <!-- Photobooth Dispenser Tray Box -->
+      <div class="flex flex-col items-center">
+        <div class="tray-rim p-2.5 md:p-3 rounded-2xl border border-white/20 relative shadow-2xl">
+          
+          <!-- Slot Exit -->
+          <div class="w-full h-3 md:h-4 bg-black rounded-t-md mb-0.5 relative z-20 shadow-inner flex items-center justify-center overflow-hidden">
+            <div class="w-4/5 h-0.5 bg-white/15 rounded-full"></div>
+          </div>
 
-        <!-- Dispense Cavity -->
-        <div class="w-48 sm:w-56 md:w-64 h-[360px] sm:h-[400px] md:h-[460px] photobooth-chamber rounded-b-md relative overflow-hidden flex justify-center">
-          <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black/60 pointer-events-none z-10"></div>
-          <div class="absolute bottom-0 inset-x-0 h-4 bg-white/5 border-t border-white/10 pointer-events-none z-10"></div>
+          <!-- Dispense Cavity -->
+          <div class="w-48 sm:w-56 md:w-64 h-[360px] sm:h-[400px] md:h-[460px] photobooth-chamber rounded-b-md relative overflow-hidden flex justify-center">
+            <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black/60 pointer-events-none z-10"></div>
+            <div class="absolute bottom-0 inset-x-0 h-4 bg-white/5 border-t border-white/10 pointer-events-none z-10"></div>
 
-          <!-- Photobooth Strip -->
-          <div class="dispensing-strip absolute top-2 w-36 sm:w-44 md:w-48 bg-white p-2 md:p-2.5 flex flex-col gap-2 rounded-sm shadow-2xl">
-            <!-- Strip Photo 1 -->
-            <div class="h-[68px] sm:h-[78px] md:h-[90px] bg-slate-200 overflow-hidden relative grayscale contrast-125 rounded-xs">
-              <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=400&q=80" alt="Couple 1" class="w-full h-full object-cover">
-            </div>
-            <!-- Strip Photo 2 -->
-            <div class="h-[68px] sm:h-[78px] md:h-[90px] bg-slate-200 overflow-hidden relative grayscale contrast-125 rounded-xs">
-              <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=400&q=80" alt="Couple 2" class="w-full h-full object-cover">
-            </div>
-            <!-- Strip Photo 3 -->
-            <div class="h-[68px] sm:h-[78px] md:h-[90px] bg-slate-200 overflow-hidden relative grayscale contrast-125 flex items-center justify-center rounded-xs">
-              <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=400&q=80" alt="Couple 3" class="w-full h-full object-cover">
-              <div class="absolute inset-0 bg-black/20 flex items-center justify-center">
-                <span data-i18n="saveTheDate" class="bg-white/95 text-slate-900 px-2 py-0.5 text-[9px] md:text-[10px] font-bold font-serif tracking-widest uppercase shadow-md">Save the Date!</span>
+            <!-- Photobooth Strip -->
+            <div class="dispensing-strip absolute top-2 w-36 sm:w-44 md:w-48 bg-white p-2 md:p-2.5 flex flex-col gap-2 rounded-sm shadow-2xl">
+              <!-- Strip Photo 1 -->
+              <div class="h-[68px] sm:h-[78px] md:h-[90px] bg-slate-200 overflow-hidden relative grayscale contrast-125 rounded-xs">
+                <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=400&q=80" alt="Couple 1" class="w-full h-full object-cover">
+              </div>
+              <!-- Strip Photo 2 -->
+              <div class="h-[68px] sm:h-[78px] md:h-[90px] bg-slate-200 overflow-hidden relative grayscale contrast-125 rounded-xs">
+                <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=400&q=80" alt="Couple 2" class="w-full h-full object-cover">
+              </div>
+              <!-- Strip Photo 3 -->
+              <div class="h-[68px] sm:h-[78px] md:h-[90px] bg-slate-200 overflow-hidden relative grayscale contrast-125 flex items-center justify-center rounded-xs">
+                <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=400&q=80" alt="Couple 3" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-black/20 flex items-center justify-center">
+                  <span data-i18n="saveTheDate" class="bg-white/95 text-slate-900 px-2 py-0.5 text-[9px] md:text-[10px] font-bold font-serif tracking-widest uppercase shadow-md">Save the Date!</span>
+                </div>
+              </div>
+              <!-- Strip Photo 4 -->
+              <div class="h-[68px] sm:h-[78px] md:h-[90px] bg-slate-200 overflow-hidden relative grayscale contrast-125 flex items-center justify-center rounded-xs">
+                <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=400&q=80" alt="Couple 4" class="w-full h-full object-cover">
+                <div class="absolute bottom-1 bg-white/95 text-slate-900 px-2 py-0.5 text-[10px] md:text-xs font-bold font-serif shadow-md">24.10.26</div>
               </div>
             </div>
             <!-- Strip Photo 4 -->
@@ -283,11 +290,12 @@
       </div>
     </div>
 
-    <!-- Tap Button -->
-    <div class="pb-6">
-      <button onclick="openInvitation()" data-i18n="tapToOpen" class="font-serif tracking-[0.2em] text-sm md:text-base text-white/95 uppercase border-b border-white/60 pb-1 hover:text-white transition duration-300 transform hover:scale-105 active:scale-95 cursor-pointer">
-        Tap to Open Invitation
-      </button>
+      <!-- Tap Button -->
+      <div class="pt-2">
+        <button onclick="openInvitation()" data-i18n="tapToOpen" class="font-serif tracking-[0.2em] text-sm md:text-base text-white/95 uppercase border-b border-white/60 pb-1 hover:text-white transition duration-300 transform hover:scale-105 active:scale-95 cursor-pointer">
+          Tap to Open Invitation
+        </button>
+      </div>
     </div>
   </main>
 
