@@ -201,6 +201,21 @@
       animation: dispenseStrip 2.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
       filter: drop-shadow(0 6px 12px rgba(0,0,0,0.6));
     }
+
+    /* Subtle custom scrollbar for fixed-height wishes cards */
+    .wish-content-scroll::-webkit-scrollbar {
+      width: 4px;
+    }
+    .wish-content-scroll::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .wish-content-scroll::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.35);
+      border-radius: 9999px;
+    }
+    .wish-content-scroll::-webkit-scrollbar-thumb:hover {
+      background: rgba(255, 255, 255, 0.65);
+    }
   </style>
 </head>
   <!-- Floating Language Toggle Button -->
@@ -519,18 +534,25 @@
     <section id="rsvp" class="py-16 md:py-24 px-6 text-center flex flex-col items-center fade-in max-w-2xl mx-auto w-full">
       <h3 data-i18n="wishesTitle" class="font-script text-4xl sm:text-5xl md:text-6xl text-white mb-6">Wishes for the couple</h3>
 
-      <div class="max-w-md mx-auto text-center mb-8">
-        <p data-i18n="sampleWish" class="font-serif italic text-xs sm:text-sm md:text-base leading-relaxed text-white/95">
-          "Wishing you both a lifetime of love, laughter, and endless happiness! So excited to celebrate your special day with you!"
-        </p>
-        <p data-i18n="sampleWishAuthor" class="font-serif italic text-xs sm:text-sm text-white/80 mt-2">James & family</p>
+      <!-- Wishes Carousel Container -->
+      <div class="w-full max-w-md mx-auto mb-8 relative">
+        <!-- Slide Track (1 item per view, horizontal snap) -->
+        <div 
+          id="wishesCarousel" 
+          class="flex overflow-x-auto snap-x snap-mandatory no-scrollbar scroll-smooth w-full"
+        >
+          <!-- Loading state placeholder -->
+          <div class="w-full shrink-0 snap-center px-2">
+            <div class="h-36 sm:h-40 flex flex-col justify-center items-center p-4 bg-white/10 rounded-2xl backdrop-blur-sm border border-white/20 text-center">
+              <i class="fa-solid fa-spinner fa-spin text-white/70 text-lg mb-2"></i>
+              <p class="font-serif italic text-xs sm:text-sm text-white/80">Loading wishes...</p>
+            </div>
+          </div>
+        </div>
 
-        <div class="flex justify-center items-center gap-1.5 mt-4">
-          <span class="w-1.5 h-1.5 rounded-full bg-white"></span>
-          <span class="w-1.5 h-1.5 rounded-full bg-white/40"></span>
-          <span class="w-1.5 h-1.5 rounded-full bg-white/40"></span>
-          <span class="w-1.5 h-1.5 rounded-full bg-white/40"></span>
-          <span class="w-1.5 h-1.5 rounded-full bg-white/40"></span>
+        <!-- Dynamic Carousel Dots Indicator -->
+        <div id="wishesDots" class="flex justify-center items-center gap-1.5 mt-4">
+          <!-- Handled by JavaScript -->
         </div>
       </div>
 
@@ -615,8 +637,6 @@
         event3: "Cake Cutting & Lunch",
         event4: "End of Ceremony",
         wishesTitle: "Wishes for the couple",
-        sampleWish: "\"Wishing you both a lifetime of love, laughter, and endless happiness! So excited to celebrate your special day with you!\"",
-        sampleWishAuthor: "James & family",
         rsvpHeading: "RSVP",
         rsvpDeadline: "Please reply by 17th October 2026",
         labelName: "Name",
@@ -656,8 +676,6 @@
         event3: "Upacara Memotong Kek & Makan Beradab",
         event4: "Majlis Bersurai",
         wishesTitle: "Ucapan & Doa",
-        sampleWish: "\"Selamat menempuh alam perkahwinan, semoga berkekalan hingga ke anak cucu dan sentiasa dirahmati Allah!\"",
-        sampleWishAuthor: "James & keluarga",
         rsvpHeading: "Pengesahan Kehadiran",
         rsvpDeadline: "Sila sahkan sebelum 17 Oktober 2026",
         labelName: "Nama",
@@ -861,7 +879,125 @@
     carousel.addEventListener('scroll', updateCenterItem, { passive: true });
     window.addEventListener('load', updateCenterItem);
 
+    // ==================== WISHES HORIZONTAL CAROUSEL & GOOGLE SHEETS ====================
+    const wishesCarousel = document.getElementById('wishesCarousel');
+    const wishesDots = document.getElementById('wishesDots');
     const scriptURL = 'https://script.google.com/macros/s/AKfycbwdUS6BTqcEUSB7EOyPvPQfEcTQ0Ull-FALUKurEico6cJBAYMGR8Ig7nNkRLhQXMn_VQ/exec';
+
+    function escapeHtml(text) {
+      if (!text) return '';
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    function createWishCardHtml(name, wish) {
+      return `
+        <div class="w-full shrink-0 snap-center px-2">
+          <div class="h-36 sm:h-40 flex flex-col justify-between p-4 bg-white/10 rounded-2xl backdrop-blur-sm border border-white/20 text-center">
+            <div class="overflow-y-auto wish-content-scroll pr-1 my-auto">
+              <p class="font-serif italic text-xs sm:text-sm md:text-base leading-relaxed text-white/95">
+                "${escapeHtml(wish)}"
+              </p>
+            </div>
+            <p class="font-serif italic text-xs sm:text-sm text-white/80 mt-2 shrink-0 font-medium">${escapeHtml(name || 'Guest')}</p>
+          </div>
+        </div>`;
+    }
+
+    function renderWishes(wishesArray) {
+      if (!wishesCarousel || !Array.isArray(wishesArray) || wishesArray.length === 0) return;
+      wishesCarousel.innerHTML = wishesArray.map(item => createWishCardHtml(item.name, item.wish)).join('');
+      updateWishesDots();
+    }
+
+    async function loadWishesFromSheet() {
+      if (!wishesCarousel) return;
+      try {
+        const res = await fetch(scriptURL);
+        const data = await res.json();
+        if (Array.isArray(data) && data.length > 0) {
+          renderWishes(data);
+        } else {
+          // If no wishes submitted yet
+          wishesCarousel.innerHTML = `
+            <div class="w-full shrink-0 snap-center px-2">
+              <div class="h-36 sm:h-40 flex flex-col justify-center items-center p-4 bg-white/10 rounded-2xl backdrop-blur-sm border border-white/20 text-center">
+                <p class="font-serif italic text-xs sm:text-sm text-white/90">Be the first to leave a wish for the happy couple below!</p>
+              </div>
+            </div>`;
+          updateWishesDots();
+        }
+      } catch (err) {
+        console.warn('Could not load live wishes from Google Sheets:', err);
+      }
+    }
+
+    function updateWishesDots() {
+      if (!wishesCarousel || !wishesDots) return;
+      const cards = wishesCarousel.querySelectorAll('.snap-center');
+      const total = cards.length;
+      if (total <= 1) {
+        wishesDots.innerHTML = '';
+        return;
+      }
+
+      const scrollLeft = wishesCarousel.scrollLeft;
+      const cardWidth = wishesCarousel.offsetWidth || 1;
+      const activeIdx = Math.min(total - 1, Math.max(0, Math.round(scrollLeft / cardWidth)));
+
+      wishesDots.innerHTML = '';
+
+      // Windowing parameters: show up to 7 dots max
+      const maxDots = 7;
+      let startIdx = 0;
+      let endIdx = total;
+
+      if (total > maxDots) {
+        const half = Math.floor(maxDots / 2);
+        startIdx = Math.max(0, activeIdx - half);
+        endIdx = startIdx + maxDots;
+
+        if (endIdx > total) {
+          endIdx = total;
+          startIdx = total - maxDots;
+        }
+      }
+
+      for (let i = startIdx; i < endIdx; i++) {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.setAttribute('aria-label', `Go to wish ${i + 1}`);
+
+        // Distance from current active index in the visible window
+        const isCurrent = i === activeIdx;
+        const isEdge = total > maxDots && ((i === startIdx && startIdx > 0) || (i === endIdx - 1 && endIdx < total));
+
+        let sizeClasses = 'w-2 h-2';
+        let bgClasses = isCurrent ? 'bg-white scale-125' : 'bg-white/40 hover:bg-white/70';
+
+        if (isEdge) {
+          sizeClasses = 'w-1 h-1';
+          bgClasses = 'bg-white/30';
+        }
+
+        dot.className = `${sizeClasses} rounded-full transition-all duration-300 ${bgClasses}`;
+        dot.addEventListener('click', () => {
+          wishesCarousel.scrollTo({ left: i * cardWidth, behavior: 'smooth' });
+        });
+        wishesDots.appendChild(dot);
+      }
+    }
+
+    if (wishesCarousel) {
+      wishesCarousel.addEventListener('scroll', updateWishesDots, { passive: true });
+      window.addEventListener('load', () => {
+        updateWishesDots();
+        loadWishesFromSheet();
+      });
+      window.addEventListener('resize', updateWishesDots);
+    }
+
     const form = document.getElementById('rsvpForm');
     const successDiv = document.getElementById('rsvpSuccess');
     const submitBtn = document.getElementById('submitBtn');
@@ -890,6 +1026,18 @@
       })
       .then(() => {
         successDiv.classList.remove('hidden');
+
+        // If guest left a wish, instantly insert it at the front of the carousel
+        if (data.wishes && data.wishes.trim() !== '' && wishesCarousel) {
+          const newWishHtml = createWishCardHtml(data.name, data.wishes);
+          wishesCarousel.insertAdjacentHTML('afterbegin', newWishHtml);
+          wishesCarousel.scrollTo({ left: 0, behavior: 'smooth' });
+          updateWishesDots();
+        }
+
+        // Re-fetch in background after short delay to sync with Google Sheet
+        setTimeout(loadWishesFromSheet, 2500);
+
         form.reset();
         submitBtn.disabled = false;
         submitBtn.textContent = dict.submitBtn || 'Submit';
