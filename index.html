@@ -67,71 +67,74 @@
 
     /* Custom 4-Sided Silver Lace Border from assets/lace_border.svg */
     .custom-lace-section {
-      position: relative;
-      background-color: #1B7895;
-    }
+    position: relative;
+    background-color: #1B7895;
+    /* Ensure padding matches the 48px border height so content doesn't overlap */
+    padding: 48px; 
+}
 
-    .custom-lace-border {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      z-index: 15;
-    }
+.custom-lace-border {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 15;
+}
 
-    .silver-lace-filter {
-      filter: invert(85%) sepia(8%) saturate(150%) hue-rotate(180deg) brightness(105%) contrast(90%) drop-shadow(0 0 1px rgba(255,255,255,0.7));
-    }
+.silver-lace-filter {
+    filter: invert(85%) sepia(8%) saturate(150%) hue-rotate(180deg) brightness(105%) contrast(90%) drop-shadow(0 0 1px rgba(255,255,255,0.7));
+}
 
-    .lace-strip-top {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 48px;
-      background-image: url('./assets/lace_border.svg');
-      background-repeat: repeat-x;
-      background-size: auto 48px;
-    }
+/* Top Border (Crown faces down into section) */
+.lace-strip-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 48px;
+    background-image: url('./assets/lace_border_tile.svg');
+    background-repeat: repeat-x;
+    /* [Tile Width] [Fixed Height] */
+    background-size: 54.1px 48px; 
+}
 
-    .lace-strip-bottom {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 48px;
-      background-image: url('./assets/lace_border.svg');
-      background-repeat: repeat-x;
-      background-size: auto 48px;
-      transform: scaleY(-1);
-    }
+/* Bottom Border (Crown faces up into section) */
+.lace-strip-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 48px;
+    background-image: url('./assets/lace_border_tile.svg');
+    background-repeat: repeat-x;
+    background-size: 54.1px 48px;
+    transform: scaleY(-1);
+}
 
-    .lace-strip-left {
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 48px;
-      width: 100vh;
-      max-width: 100%;
-      background-image: url('./assets/lace_border.svg');
-      background-repeat: repeat-x;
-      background-size: auto 48px;
-      transform: rotate(90deg) translateY(-100%);
-      transform-origin: top left;
-    }
+/* Left Border (Crown faces right into section) */
+.lace-strip-left {
+    position: absolute;
+    top: 0px;    /* Starts at the top */
+    bottom: 0px; /* Ends at the bottom */
+    left: 0;
+    width: 48px;  /* Thickness matches border height */
+    background-image: url('./assets/lace_border_tile_vertical.svg');
+    background-repeat: repeat-y;
+    /* Swapped dimensions for vertical repeat: [Fixed Height] [Tile Width] */
+    background-size: 48px 54.1px;
+}
 
-    .lace-strip-right {
-      position: absolute;
-      top: 0;
-      right: 0;
-      height: 48px;
-      width: 100vh;
-      max-width: 100%;
-      background-image: url('./assets/lace_border.svg');
-      background-repeat: repeat-x;
-      background-size: auto 48px;
-      transform: rotate(90deg);
-      transform-origin: top right;
-    }
+/* Right Border (Crown faces left into section) */
+.lace-strip-right {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    right: 0;
+    width: 48px;
+    background-image: url('./assets/lace_border_tile_vertical.svg');
+    background-repeat: repeat-y;
+    background-size: 48px 54.1px;
+    transform: scaleX(-1);
+}
     
     /* Silver tray effect */
     .silver-tray {
