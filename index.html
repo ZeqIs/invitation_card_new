@@ -50,14 +50,10 @@
   </script>
 
   <style>
-    /* Safely hide YouTube iframe without breaking browser JS rendering execution */
-    #youtube-player {
-      position: absolute;
-      width: 0;
-      height: 0;
-      border: 0;
-      opacity: 0;
-      pointer-events: none;
+
+    /* Audio element styling */
+    #bg-audio {
+      display: none;
     }
 
     /* Inward vignette shadow */
@@ -214,8 +210,10 @@
     <i id="musicIcon" class="fa-solid fa-compact-disc fa-spin text-lg"></i>
   </button>
 
-  <!-- Hidden YouTube Player Container -->
-  <div id="youtube-player"></div>
+  <!-- Background Audio Player -->
+  <audio id="bg-audio" loop preload="auto">
+    <source src="./assets/music.mp3" type="audio/mpeg">
+  </audio>
 
   <!-- ==================== FRONT COVER VIEW (PAGE 1) ==================== -->
   <main id="frontCover" class="w-full min-h-screen bg-[#1B7895] flex flex-col justify-between items-center py-8 md:py-12 px-4 md:px-8 text-center relative overflow-hidden">
@@ -591,54 +589,28 @@
   </div>
 
   <script>
-    let player;
-    let isPlaying = false;
-
-    // Load the YouTube Iframe API asynchronously
-    const tag = document.createElement('script');
-    tag.src = "https://www.youtube.com/iframe_api";
-    const firstScriptTag = document.getElementsByTagName('script')[0];
-    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-    // Initialize YouTube Player
-    function onYouTubeIframeAPIReady() {
-      player = new YT.Player('youtube-player', {
-        height: '0',
-        width: '0',
-        videoId: 'CvFDVBTiPh4', // Replace with your YouTube Video ID
-        playerVars: {
-          'playsinline': 1,
-          'controls': 0,
-          'loop': 1,               // Enables looping
-          'playlist': 'CvFDVBTiPh4' // Required for loop to work on a single video
-        },
-        events: {
-          'onStateChange': onPlayerStateChange
         }
       });
     }
 
     // Keep floating button icon in sync with playback state
-    function onPlayerStateChange(event) {
-      const musicIcon = document.getElementById('musicIcon');
-      if (event.data === YT.PlayerState.PLAYING) {
-        isPlaying = true;
+    if (audioPlayer) {
+      audioPlayer.addEventListener('play', () => {
         if (musicIcon) musicIcon.classList.add('fa-spin');
-      } else if (event.data === YT.PlayerState.PAUSED || event.data === YT.PlayerState.ENDED) {
-        isPlaying = false;
+      });
+      audioPlayer.addEventListener('pause', () => {
         if (musicIcon) musicIcon.classList.remove('fa-spin');
-      }
+      });
     }
 
     // Toggle Play/Pause on music button click
     function toggleAudio() {
-      if (!player || typeof player.getPlayerState !== 'function') return;
+      if (!audioPlayer) return;
 
-      const state = player.getPlayerState();
-      if (state === YT.PlayerState.PLAYING || state === YT.PlayerState.BUFFERING) {
-        player.pauseVideo();
+      if (audioPlayer.paused) {
+        audioPlayer.play().catch(e => console.error("Playback error:", e));
       } else {
-        player.playVideo();
+        audioPlayer.pause();
       }
     }
 
@@ -657,15 +629,11 @@
 
       window.scrollTo({ top: 0, behavior: 'instant' });
 
-      // Start YouTube audio on user tap (satisfies browser autoplay restriction)
-      if (player && typeof player.playVideo === 'function') {
-        try {
-          player.unMute();
-          player.setVolume(100);
-          player.playVideo();
-        } catch(e) {
+      // Start audio playback on user tap (satisfies browser autoplay restriction)
+      if (audioPlayer) {
+        audioPlayer.play().catch(e => {
           console.error("Playback error:", e);
-        }
+        });
       }
 
       initInvitation();
