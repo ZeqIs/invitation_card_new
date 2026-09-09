@@ -295,61 +295,63 @@
   <div id="invitationBody" class="hidden w-full min-h-screen bg-[#1B7895] text-white">
 
     <!-- SECTION 1: SUMMARY / HERO COVER (WITH INWARD SHADOW) -->
-    <section class="min-h-screen flex flex-col justify-between items-center px-6 py-12 md:py-20 text-center relative border-b border-white/10 w-full inset-vignette-shadow">
-      <div class="pt-6">
-        <h2 data-i18n="weddingOf" class="font-script text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-white">Wedding of</h2>
-      </div>
-
-      <!-- Collage & Playlist Art -->
-      <div class="relative w-full max-w-[320px] sm:max-w-md my-8 flex justify-center items-center">
-        <!-- 4-Grid Photobooth Polaroid -->
-        <div class="bg-white p-2.5 sm:p-3 shadow-2xl rounded-sm w-48 sm:w-60 rotate-[-6deg] z-10 border border-slate-200">
-          <div class="grid grid-cols-2 gap-1.5 grayscale">
-            <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=300&q=80" class="w-full h-20 sm:h-24 object-cover" />
-            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=300&q=80" class="w-full h-20 sm:h-24 object-cover" />
-            <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=300&q=80" class="w-full h-20 sm:h-24 object-cover" />
-            <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=300&q=80" class="w-full h-20 sm:h-24 object-cover" />
-          </div>
+    <section class="min-h-screen flex flex-col justify-center items-center px-6 py-12 text-center relative border-b border-white/10 w-full inset-vignette-shadow">
+      <div class="w-full max-w-lg flex flex-col items-center justify-center space-y-6 md:space-y-8">
+        <div>
+          <h2 data-i18n="weddingOf" class="font-script text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-white">Wedding of</h2>
         </div>
 
-        <!-- Vintage Audio Card -->
-        <div class="absolute -right-2 sm:-right-6 top-4 sm:top-6 w-36 sm:w-44 bg-[#f7f4ed] text-slate-800 p-2.5 sm:p-3 rounded shadow-xl rotate-[8deg] z-20 border border-amber-200/50">
-          <div class="flex justify-between items-center text-[9px] sm:text-xs font-serif font-semibold text-cerulean mb-1.5 px-1">
-            <span>Love</span>
-            <span>❤❤</span>
-            <span>Playlist</span>
-          </div>
-          <div class="w-full h-20 sm:h-24 bg-stone-300 overflow-hidden relative grayscale rounded">
-            <img src="https://images.unsplash.com/photo-1532712938310-34cb3982ef74?auto=format&fit=crop&w=300&q=80" class="w-full h-full object-cover" />
-          </div>
-          <div class="flex justify-center items-center gap-3 text-[10px] sm:text-xs text-cerulean mt-2">
-            <i class="fa-solid fa-backward-step"></i>
-            <i class="fa-solid fa-play"></i>
-            <i class="fa-solid fa-forward-step"></i>
-          </div>
-        </div>
-
-        <!-- Silver Heart Locket -->
-        <div class="absolute -bottom-5 z-30 flex items-center justify-center filter drop-shadow-xl">
-          <div class="flex -space-x-1 sm:-space-x-2">
-            <div class="w-10 h-10 sm:w-12 sm:h-12 bg-slate-300 rounded-full border-2 border-slate-100 flex items-center justify-center overflow-hidden grayscale">
-              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" class="w-full h-full object-cover">
-            </div>
-            <div class="w-10 h-10 sm:w-12 sm:h-12 bg-slate-300 rounded-full border-2 border-slate-100 flex items-center justify-center overflow-hidden grayscale">
-              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" class="w-full h-full object-cover">
+        <!-- Collage & Playlist Art -->
+        <div class="relative w-full max-w-[320px] sm:max-w-md my-2 flex justify-center items-center">
+          <!-- 4-Grid Photobooth Polaroid -->
+          <div class="bg-white p-2.5 sm:p-3 shadow-2xl rounded-sm w-48 sm:w-60 rotate-[-6deg] z-10 border border-slate-200">
+            <div class="grid grid-cols-2 gap-1.5 grayscale">
+              <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=300&q=80" class="w-full h-20 sm:h-24 object-cover" />
+              <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=300&q=80" class="w-full h-20 sm:h-24 object-cover" />
+              <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=300&q=80" class="w-full h-20 sm:h-24 object-cover" />
+              <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=300&q=80" class="w-full h-20 sm:h-24 object-cover" />
             </div>
           </div>
-        </div>
-      </div>
 
-      <div class="pb-6">
-        <h1 class="font-script text-5xl sm:text-6xl md:text-7xl text-white">Is & Mimi</h1>
-        <p data-i18n="heroDateLocation" class="font-serif italic text-sm sm:text-base text-white/90 mt-2 tracking-wide">24 Oct 2026 | Ideal Convention Centre, Shah Alam</p>
+          <!-- Vintage Audio Card -->
+          <div class="absolute -right-2 sm:-right-6 top-4 sm:top-6 w-36 sm:w-44 bg-[#f7f4ed] text-slate-800 p-2.5 sm:p-3 rounded shadow-xl rotate-[8deg] z-20 border border-amber-200/50">
+            <div class="flex justify-between items-center text-[9px] sm:text-xs font-serif font-semibold text-cerulean mb-1.5 px-1">
+              <span>Love</span>
+              <span>❤❤</span>
+              <span>Playlist</span>
+            </div>
+            <div class="w-full h-20 sm:h-24 bg-stone-300 overflow-hidden relative grayscale rounded">
+              <img src="https://images.unsplash.com/photo-1532712938310-34cb3982ef74?auto=format&fit=crop&w=300&q=80" class="w-full h-full object-cover" />
+            </div>
+            <div class="flex justify-center items-center gap-3 text-[10px] sm:text-xs text-cerulean mt-2">
+              <i class="fa-solid fa-backward-step"></i>
+              <i class="fa-solid fa-play"></i>
+              <i class="fa-solid fa-forward-step"></i>
+            </div>
+          </div>
+
+          <!-- Silver Heart Locket -->
+          <div class="absolute -bottom-5 z-30 flex items-center justify-center filter drop-shadow-xl">
+            <div class="flex -space-x-1 sm:-space-x-2">
+              <div class="w-10 h-10 sm:w-12 sm:h-12 bg-slate-300 rounded-full border-2 border-slate-100 flex items-center justify-center overflow-hidden grayscale heart-image">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" class="w-full h-full object-cover">
+              </div>
+              <div class="w-10 h-10 sm:w-12 sm:h-12 bg-slate-300 rounded-full border-2 border-slate-100 flex items-center justify-center overflow-hidden grayscale heart-image">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" class="w-full h-full object-cover">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-2">
+          <h1 class="font-script text-5xl sm:text-6xl md:text-7xl text-white">Is & Mimi</h1>
+          <p data-i18n="heroDateLocation" class="font-serif italic text-sm sm:text-base text-white/90 mt-2 tracking-wide">24 Oct 2026 | Ideal Convention Centre, Shah Alam</p>
+        </div>
       </div>
     </section>
 
     <!-- SECTION 2: EVENT DETAIL WITH 4-SIDED SILVER LACE BORDER & UPDATED FAMILY DETAILS -->
-    <section class="min-h-screen relative px-8 sm:px-14 md:px-20 py-16 md:py-24 text-center flex flex-col justify-between items-center custom-lace-section fade-in w-full overflow-hidden">
+    <section class="min-h-screen relative px-8 sm:px-14 md:px-20 py-12 text-center flex flex-col justify-center items-center custom-lace-section fade-in w-full overflow-hidden">
       
       <!-- 4-Sided Silver Lace Border -->
       <div class="custom-lace-border">
@@ -359,49 +361,51 @@
         <div class="lace-strip-right silver-lace-filter"></div>
       </div>
 
-      <!-- Basmalah & Gratitude -->
-      <div class="pt-6 relative z-20 max-w-xl mx-auto">
-        <p class="font-arabic text-3xl sm:text-4xl md:text-5xl text-white/95 font-medium tracking-wide">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
-        <p data-i18n="introGratitude" class="font-serif italic text-xs sm:text-sm md:text-base text-white/90 mt-3 leading-relaxed">
-          With hearts full of gratitude to Almighty Allah,<br>we
+      <div class="w-full max-w-xl mx-auto flex flex-col items-center justify-center space-y-4 md:space-y-6 relative z-20">
+        <!-- Basmalah & Gratitude -->
+        <div>
+          <p class="font-arabic text-3xl sm:text-4xl md:text-5xl text-white/95 font-medium tracking-wide">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
+          <p data-i18n="introGratitude" class="font-serif italic text-xs sm:text-sm md:text-base text-white/90 mt-2 leading-relaxed">
+            With hearts full of gratitude to Almighty Allah,<br>we
+          </p>
+        </div>
+
+        <!-- Groom's Parents -->
+        <div class="space-y-0.5">
+          <p class="font-serif tracking-[0.16em] text-xs sm:text-sm md:text-base font-semibold uppercase text-white">ZURAIDY BIN ZAINAL ABIDIN</p>
+          <p data-i18n="fatherGroom" class="font-serif italic text-[11px] sm:text-xs text-white/80">( Father of the Groom )</p>
+          <p class="font-serif italic text-xs text-white/90 py-0.5">&</p>
+          <p class="font-serif tracking-[0.16em] text-xs sm:text-sm md:text-base font-semibold uppercase text-white">ZURAIDA BINTI MAT RUZKI</p>
+          <p data-i18n="motherGroom" class="font-serif italic text-[11px] sm:text-xs text-white/80">( Mother of the Groom )</p>
+        </div>
+
+        <p class="font-serif italic text-xs sm:text-sm text-white/85" style="display: none;">together with</p>
+
+        <!-- Bride's Family & Guardian -->
+        <div class="space-y-0.5" style="display: none;">
+          <p class="font-serif tracking-[0.16em] text-xs sm:text-sm md:text-base font-semibold uppercase text-white">HAMIMAH BINTI MUDA</p>
+          <p class="font-serif italic text-[11px] sm:text-xs text-white/80">( Grandmother & Guardian of the Bride )</p>
+          <p class="font-serif italic text-xs text-white/90 py-0.5">&</p>
+          <p class="font-serif tracking-[0.16em] text-xs sm:text-sm md:text-base font-semibold uppercase text-white">AHMAD SAIFUDIN BIN AB RAHMAN</p>
+          <p class="font-serif italic text-[11px] sm:text-xs text-white/80">( Father of the Bride )</p>
+          <p class="font-serif italic text-xs text-white/90 py-0.5">&</p>
+          <p class="font-serif tracking-[0.16em] text-xs sm:text-sm md:text-base font-semibold uppercase text-white">YUSMI MAIZURA BINTI MOHAMAD YUSOF</p>
+          <p class="font-serif italic text-[11px] sm:text-xs text-white/80">( Mother of the Bride )</p>
+        </div>
+
+        <!-- Invitation Wording -->
+        <p data-i18n="invitationHonor" class="font-serif italic text-xs sm:text-sm md:text-base text-white/90 leading-relaxed max-w-md mx-auto">
+          request the honour of the presence of<br>
+          <span class="font-sans font-medium text-[11px] sm:text-xs md:text-sm tracking-wider">YBhg. Dato' / Datin / Mr. / Mrs. / Ms.</span><br>
+          at the reception of our beloved children
         </p>
-      </div>
 
-      <!-- Groom's Parents -->
-      <div class="space-y-0.5 relative z-20 max-w-xl mx-auto">
-        <p class="font-serif tracking-[0.16em] text-xs sm:text-sm md:text-base font-semibold uppercase text-white">ZURAIDY BIN ZAINAL ABIDIN</p>
-        <p data-i18n="fatherGroom" class="font-serif italic text-[11px] sm:text-xs text-white/80">( Father of the Groom )</p>
-        <p class="font-serif italic text-xs text-white/90 py-0.5">&</p>
-        <p class="font-serif tracking-[0.16em] text-xs sm:text-sm md:text-base font-semibold uppercase text-white">ZURAIDA BINTI MAT RUZKI</p>
-        <p data-i18n="motherGroom" class="font-serif italic text-[11px] sm:text-xs text-white/80">( Mother of the Groom )</p>
-      </div>
-
-      <p class="font-serif italic text-xs sm:text-sm text-white/85 relative z-20" style="display: none;">together with</p>
-
-      <!-- Bride's Family & Guardian -->
-      <div class="space-y-0.5 relative z-20 max-w-xl mx-auto" style="display: none;">
-        <p class="font-serif tracking-[0.16em] text-xs sm:text-sm md:text-base font-semibold uppercase text-white">HAMIMAH BINTI MUDA</p>
-        <p class="font-serif italic text-[11px] sm:text-xs text-white/80">( Grandmother & Guardian of the Bride )</p>
-        <p class="font-serif italic text-xs text-white/90 py-0.5">&</p>
-        <p class="font-serif tracking-[0.16em] text-xs sm:text-sm md:text-base font-semibold uppercase text-white">AHMAD SAIFUDIN BIN AB RAHMAN</p>
-        <p class="font-serif italic text-[11px] sm:text-xs text-white/80">( Father of the Bride )</p>
-        <p class="font-serif italic text-xs text-white/90 py-0.5">&</p>
-        <p class="font-serif tracking-[0.16em] text-xs sm:text-sm md:text-base font-semibold uppercase text-white">YUSMI MAIZURA BINTI MOHAMAD YUSOF</p>
-        <p class="font-serif italic text-[11px] sm:text-xs text-white/80">( Mother of the Bride )</p>
-      </div>
-
-      <!-- Invitation Wording -->
-      <p data-i18n="invitationHonor" class="font-serif italic text-xs sm:text-sm md:text-base text-white/90 leading-relaxed max-w-md mx-auto relative z-20">
-        request the honour of the presence of<br>
-        <span class="font-sans font-medium text-[11px] sm:text-xs md:text-sm tracking-wider">YBhg. Dato' / Datin / Mr. / Mrs. / Ms.</span><br>
-        at the reception of our beloved children
-      </p>
-
-      <!-- Full Names of Couple -->
-      <div class="pb-6 space-y-1 relative z-20 max-w-xl mx-auto mt-6">
-        <h2 class="font-script text-4xl sm:text-5xl md:text-6xl text-white">Zeqry Iskandar</h2>
-        <p class="font-script text-2xl sm:text-3xl text-white/90">&</p>
-        <h2 class="font-script text-4xl sm:text-5xl md:text-6xl text-white leading-tight">Fatini Syamimi</h2>
+        <!-- Full Names of Couple -->
+        <div class="space-y-1 mt-2">
+          <h2 class="font-script text-4xl sm:text-5xl md:text-6xl text-white">Zeqry Iskandar</h2>
+          <p class="font-script text-2xl sm:text-3xl text-white/90">&</p>
+          <h2 class="font-script text-4xl sm:text-5xl md:text-6xl text-white leading-tight">Fatini Syamimi</h2>
+        </div>
       </div>
     </section>
 
