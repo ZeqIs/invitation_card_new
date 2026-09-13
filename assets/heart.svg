@@ -2,7 +2,7 @@
 <svg
 xmlns="http://www.w3.org/2000/svg"
 xmlns:xlink="http://www.w3.org/1999/xlink"
-version="1.1" height="315" width="342" >
+version="1.1" height="315" width="342" viewBox="0 0 342 315">
  <defs>
   <style type="text/css"><![CDATA[
     .outline { stroke:none; stroke-width:0 }

@@ -50,6 +50,31 @@
   </script>
 
   <style>
+    /* Proper Heart Shape Masking with assets/heart.svg */
+    .heart-mask {
+      -webkit-mask-image: url('./assets/heart.svg');
+      mask-image: url('./assets/heart.svg');
+      -webkit-mask-size: contain;
+      mask-size: contain;
+      -webkit-mask-repeat: no-repeat;
+      mask-repeat: no-repeat;
+      -webkit-mask-position: center;
+      mask-position: center;
+    }
+
+    /* Silver Heart Locket Frame */
+    .silver-heart-frame {
+      position: relative;
+      filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.5));
+    }
+
+    .silver-heart-bezel {
+      background: linear-gradient(135deg, #ffffff 0%, #d8dfe5 30%, #7a8b99 70%, #f0f4f8 100%);
+      padding: 3px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
 
     /* Audio element styling */
     #bg-audio {
@@ -61,24 +86,66 @@
       box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.45);
     }
 
+    /* Dynamic Theme CSS Variables */
+    :root {
+      /* Bride Theme: Cerulean Primary & Silver Secondary */
+      --color-primary: #1B7895;
+      --color-primary-dark: #135c73;
+      --color-primary-deep: #0d4253;
+      --color-secondary-bg: #f8f5ee;
+      --color-card-inner: #faf6ee;
+      --color-accent-text: #1B7895;
+      --lace-filter: invert(85%) sepia(8%) saturate(150%) hue-rotate(180deg) brightness(105%) contrast(90%) drop-shadow(0 0 1px rgba(255,255,255,0.7));
+    }
+
+    html.theme-groom {
+      /* Groom Theme: Steel Grey Primary & Same Silver Secondary */
+      --color-primary: #46535E;
+      --color-primary-dark: #35404B;
+      --color-primary-deep: #252E36;
+      --color-secondary-bg: #f8f5ee;
+      --color-card-inner: #faf6ee;
+      --color-accent-text: #46535E;
+      --lace-filter: invert(85%) sepia(8%) saturate(150%) hue-rotate(180deg) brightness(105%) contrast(90%) drop-shadow(0 0 1px rgba(255,255,255,0.7));
+    }
+
+    html.theme-groom .text-cerulean {
+      color: var(--color-primary) !important;
+    }
+    html.theme-groom .text-cerulean-deep,
+    html.theme-groom .text-cerulean-dark {
+      color: var(--color-primary-deep) !important;
+    }
+    html.theme-groom .focus\:border-cerulean:focus {
+      border-color: var(--color-primary) !important;
+    }
+
+    .bg-theme-primary {
+      background-color: var(--color-primary) !important;
+    }
+
+    .bg-theme-secondary {
+      background-color: var(--color-secondary-bg) !important;
+    }
+
     /* Custom 4-Sided Silver Lace Border from assets/lace_border.svg */
     .custom-lace-section {
-    position: relative;
-    background-color: #1B7895;
-    /* Ensure padding matches the 48px border height so content doesn't overlap */
-    padding: 48px; 
-}
+      position: relative;
+      background-color: var(--color-primary);
+      /* Ensure padding matches the 48px border height so content doesn't overlap */
+      padding: 48px; 
+    }
 
-.custom-lace-border {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    z-index: 15;
-}
+    .custom-lace-border {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 15;
+    }
 
-.silver-lace-filter {
-    filter: invert(85%) sepia(8%) saturate(150%) hue-rotate(180deg) brightness(105%) contrast(90%) drop-shadow(0 0 1px rgba(255,255,255,0.7));
-}
+    .silver-lace-filter {
+      filter: var(--lace-filter);
+    }
 
 /* Top Border (Crown faces down into section) */
 .lace-strip-top {
@@ -235,7 +302,7 @@
   </audio>
 
   <!-- ==================== FRONT COVER VIEW (PAGE 1) ==================== -->
-  <main id="frontCover" class="w-full min-h-screen bg-[#1B7895] flex flex-col justify-center items-center py-8 px-4 md:px-8 text-center relative overflow-hidden">
+  <main id="frontCover" class="w-full min-h-screen bg-theme-primary flex flex-col justify-center items-center py-8 px-4 md:px-8 text-center relative overflow-hidden">
     <div class="w-full max-w-lg flex flex-col items-center justify-center space-y-5 md:space-y-6">
       <!-- Top Title -->
       <div>
@@ -294,7 +361,7 @@
   </main>
 
   <!-- ==================== MAIN INVITATION CONTENT (PAGE 2 - LONG STRIP) ==================== -->
-  <div id="invitationBody" class="hidden w-full min-h-screen bg-[#1B7895] text-white">
+  <div id="invitationBody" class="hidden w-full min-h-screen bg-theme-primary text-white">
 
     <!-- SECTION 1: SUMMARY / HERO COVER (WITH INWARD SHADOW) -->
     <section class="min-h-screen flex flex-col justify-center items-center px-6 py-12 text-center relative border-b border-white/10 w-full inset-vignette-shadow">
@@ -333,13 +400,24 @@
           </div>
 
           <!-- Silver Heart Locket -->
-          <div class="absolute -bottom-5 z-30 flex items-center justify-center filter drop-shadow-xl">
-            <div class="flex -space-x-1 sm:-space-x-2">
-              <div class="w-10 h-10 sm:w-12 sm:h-12 bg-slate-300 rounded-full border-2 border-slate-100 flex items-center justify-center overflow-hidden grayscale heart-image">
-                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" class="w-full h-full object-cover">
+          <div class="absolute -bottom-6 z-30 flex items-center justify-center pointer-events-auto">
+            <div class="flex -space-x-2.5 sm:-space-x-3 items-center">
+              <!-- Left Heart (Bride / Mimi) -->
+              <div class="silver-heart-frame transform -rotate-12 hover:scale-105 transition-transform duration-300">
+                <div class="w-12 h-12 sm:w-14 sm:h-14 silver-heart-bezel heart-mask shadow-lg">
+                  <div class="w-full h-full p-0.5 bg-slate-200 heart-mask">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80" alt="Mimi" class="w-full h-full object-cover grayscale contrast-110">
+                  </div>
+                </div>
               </div>
-              <div class="w-10 h-10 sm:w-12 sm:h-12 bg-slate-300 rounded-full border-2 border-slate-100 flex items-center justify-center overflow-hidden grayscale heart-image">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" class="w-full h-full object-cover">
+
+              <!-- Right Heart (Groom / Is) -->
+              <div class="silver-heart-frame transform rotate-12 hover:scale-105 transition-transform duration-300">
+                <div class="w-12 h-12 sm:w-14 sm:h-14 silver-heart-bezel heart-mask shadow-lg">
+                  <div class="w-full h-full p-0.5 bg-slate-200 heart-mask">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80" alt="Is" class="w-full h-full object-cover grayscale contrast-110">
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -367,13 +445,13 @@
         <!-- Basmalah & Gratitude -->
         <div>
           <p class="font-arabic text-3xl sm:text-4xl md:text-5xl text-white/95 font-medium tracking-wide">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
-          <p data-i18n="introGratitude" class="font-serif italic text-xs sm:text-sm md:text-base text-white/90 mt-2 leading-relaxed">
+          <p data-i18n="introGratitude" class="font-serif italic text-xs sm:text-sm md:text-base text-white/90 mt-6 leading-relaxed">
             With hearts full of gratitude to Almighty Allah,<br>we
           </p>
         </div>
 
         <!-- Groom's Parents -->
-        <div class="space-y-0.5">
+        <div id="groomFamily" class="space-y-0.25">
           <p class="font-serif tracking-[0.16em] text-xs sm:text-sm md:text-base font-semibold uppercase text-white">ZURAIDY BIN ZAINAL ABIDIN</p>
           <p data-i18n="fatherGroom" class="font-serif italic text-[11px] sm:text-xs text-white/80">( Father of the Groom )</p>
           <p class="font-serif italic text-xs text-white/90 py-0.5">&</p>
@@ -381,25 +459,30 @@
           <p data-i18n="motherGroom" class="font-serif italic text-[11px] sm:text-xs text-white/80">( Mother of the Groom )</p>
         </div>
 
-        <p class="font-serif italic text-xs sm:text-sm text-white/85" style="display: none;">together with</p>
-
         <!-- Bride's Family & Guardian -->
-        <div class="space-y-0.5" style="display: none;">
+        <div id="brideFamily" class="space-y-0.25 hidden">
           <p class="font-serif tracking-[0.16em] text-xs sm:text-sm md:text-base font-semibold uppercase text-white">HAMIMAH BINTI MUDA</p>
-          <p class="font-serif italic text-[11px] sm:text-xs text-white/80">( Grandmother & Guardian of the Bride )</p>
+          <p data-i18n="guardianBride" class="font-serif italic text-[11px] sm:text-xs text-white/80">( Grandmother & Guardian of the Bride )</p>
           <p class="font-serif italic text-xs text-white/90 py-0.5">&</p>
           <p class="font-serif tracking-[0.16em] text-xs sm:text-sm md:text-base font-semibold uppercase text-white">AHMAD SAIFUDIN BIN AB RAHMAN</p>
-          <p class="font-serif italic text-[11px] sm:text-xs text-white/80">( Father of the Bride )</p>
+          <p data-i18n="fatherBride" class="font-serif italic text-[11px] sm:text-xs text-white/80">( Father of the Bride )</p>
           <p class="font-serif italic text-xs text-white/90 py-0.5">&</p>
           <p class="font-serif tracking-[0.16em] text-xs sm:text-sm md:text-base font-semibold uppercase text-white">YUSMI MAIZURA BINTI MOHAMAD YUSOF</p>
-          <p class="font-serif italic text-[11px] sm:text-xs text-white/80">( Mother of the Bride )</p>
+          <p data-i18n="motherBride" class="font-serif italic text-[11px] sm:text-xs text-white/80">( Mother of the Bride )</p>
         </div>
 
-        <!-- Invitation Wording -->
-        <p data-i18n="invitationHonor" class="font-serif italic text-xs sm:text-sm md:text-base text-white/90 leading-relaxed max-w-md mx-auto">
+        <!-- Invitation Wording Groom -->
+        <p id="groomInvitation" data-i18n="invitationHonorGroom" class="font-serif italic text-xs sm:text-sm md:text-base text-white/90 leading-relaxed max-w-md mx-auto">
           request the honour of the presence of<br>
           <span class="font-sans font-medium text-[11px] sm:text-xs md:text-sm tracking-wider">YBhg. Dato' / Datin / Mr. / Mrs. / Ms.</span><br>
-          at the reception of our beloved children
+          at the reception of our son and the love of his life
+        </p>
+
+        <!-- Invitation Wording Bride -->
+        <p id="brideInvitation" data-i18n="invitationHonorBride" class="font-serif italic text-xs sm:text-sm md:text-base text-white/90 leading-relaxed max-w-md mx-auto">
+          request the honour of the presence of<br>
+          <span class="font-sans font-medium text-[11px] sm:text-xs md:text-sm tracking-wider">YBhg. Dato' / Datin / Mr. / Mrs. / Ms.</span><br>
+          at the reception of our daughter and the love of her life
         </p>
 
         <!-- Full Names of Couple -->
@@ -412,7 +495,7 @@
     </section>
 
     <!-- SECTION 3: DATE, TIME & LOCATION (WITH INWARD SHADOW) -->
-    <section class="py-16 md:py-24 px-6 text-center flex flex-col items-center space-y-8 max-w-full mx-auto fade-in inset-vignette-shadow bg-[#1B7895]">
+    <section class="py-16 md:py-24 px-6 text-center flex flex-col items-center space-y-8 max-w-full mx-auto fade-in inset-vignette-shadow bg-theme-primary">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-4xl">
         <div class="flex flex-col items-center">
           <i class="fa-regular fa-calendar text-2xl md:text-3xl text-white/90 mb-2"></i>
@@ -451,8 +534,8 @@
       </div>
     </section>
 
-    <!-- SECTION 4A: COUNTDOWN SECTION (CAROUSEL BG COLOR: #f8f5ee) -->
-    <section class="py-16 md:py-20 px-6 text-center flex flex-col items-center fade-in w-full bg-[#f8f5ee] text-slate-800 border-b border-stone-200">
+    <!-- SECTION 4A: COUNTDOWN SECTION -->
+    <section class="py-16 md:py-20 px-6 text-center flex flex-col items-center fade-in w-full bg-theme-secondary text-slate-800 border-b border-stone-200">
       <h3 data-i18n="countdownTitle" class="font-script text-4xl sm:text-5xl md:text-6xl text-cerulean mb-6">Counting on the big days</h3>
 
       <!-- Countdown Display -->
@@ -480,7 +563,7 @@
     </section>
 
     <!-- SECTION 4B: ORDER OF EVENTS / AGENDA SECTION (CERULEAN BG WITH SILVER TRAY) -->
-    <section class="py-16 md:py-24 px-6 text-center flex flex-col items-center fade-in w-full bg-[#1B7895] text-white">
+    <section class="py-16 md:py-24 px-6 text-center flex flex-col items-center fade-in w-full bg-theme-primary text-white">
       <div class="relative w-full max-w-md sm:max-w-lg flex justify-center items-center py-2">
         <div class="silver-tray w-full rounded-[40px] p-6 sm:p-8 text-slate-800 relative border-4 border-slate-300 shadow-2xl">
           <div class="absolute -left-4 top-1/2 -translate-y-1/2 w-4 h-16 bg-slate-300 rounded-l-md border-y border-l border-slate-400"></div>
@@ -514,7 +597,7 @@
     </section>
 
     <!-- SECTION 5: PHOTO CAROUSEL SECTION -->
-    <section class="py-16 md:py-24 bg-[#f8f5ee] text-slate-800 fade-in w-full overflow-hidden">
+    <section class="py-16 md:py-24 bg-theme-secondary text-slate-800 fade-in w-full overflow-hidden">
       <div class="w-full max-w-4xl mx-auto px-4">
         <div 
           id="carousel" 
@@ -629,7 +712,11 @@
         introGratitude: "With hearts full of gratitude to Almighty Allah,<br>we",
         fatherGroom: "( Father of the Groom )",
         motherGroom: "( Mother of the Groom )",
-        invitationHonor: "request the honour of the presence of<br><span class=\"font-sans font-medium text-[11px] sm:text-xs md:text-sm tracking-wider\">YBhg. Dato' / Datin / Mr. / Mrs. / Ms.</span><br>at the reception of our beloved children",
+        guardianBride: "( Grandmother & Guardian of the Bride )",
+        fatherBride: "( Father of the Bride )",
+        motherBride: "( Mother of the Bride )",
+        invitationHonorGroom: "request the honour of the presence of<br><span class=\"font-sans font-medium text-[11px] sm:text-xs md:text-sm tracking-wider\">YBhg. Dato' / Datin / Mr. / Mrs. / Ms.</span><br>at the reception of our son and the love of his life",
+        invitationHonorBride: "request the honour of the presence of<br><span class=\"font-sans font-medium text-[11px] sm:text-xs md:text-sm tracking-wider\">YBhg. Dato' / Datin / Mr. / Mrs. / Ms.</span><br>at the reception of our daughter and the love of her life",
         eventDate: "Saturday | 24 October 2026",
         addToCalendar: "Add to Calendar",
         countdownTitle: "Counting on the big days",
@@ -668,7 +755,11 @@
         introGratitude: "Dengan penuh rasa kesyukuran ke hadrat Ilahi,<br>kami",
         fatherGroom: "( Bapa Pengantin Lelaki )",
         motherGroom: "( Ibu Pengantin Lelaki )",
-        invitationHonor: "menjemput serta mempersilakan<br><span class=\"font-sans font-medium text-[11px] sm:text-xs md:text-sm tracking-wider\">YBhg. Dato' / Datin / Tuan / Puan / Encik / Cik</span><br>ke majlis perkahwinan putera puteri kami",
+        guardianBride: "( Nenek & Penjaga Pengantin Perempuan )",
+        fatherBride: "( Bapa Pengantin Perempuan )",
+        motherBride: "( Ibu Pengantin Perempuan )",
+        invitationHonorGroom: "menjemput serta mempersilakan<br><span class=\"font-sans font-medium text-[11px] sm:text-xs md:text-sm tracking-wider\">YBhg. Dato' / Datin / Tuan / Puan / Encik / Cik</span><br>ke majlis perkahwinan putera kami bersama pasangan hidupnya",
+        invitationHonorBride: "menjemput serta mempersilakan<br><span class=\"font-sans font-medium text-[11px] sm:text-xs md:text-sm tracking-wider\">YBhg. Dato' / Datin / Tuan / Puan / Encik / Cik</span><br>ke majlis perkahwinan puteri kami bersama pasangan hidupnya",
         eventDate: "Sabtu | 24 Oktober 2026",
         addToCalendar: "Tambah ke Kalendar",
         countdownTitle: "Menghitung Hari Bahagia",
@@ -737,10 +828,41 @@
       setLanguage(currentLang === 'en' ? 'ms' : 'en');
     }
 
-    // Auto-detect language on load: query parameter ?lang=ms/en takes priority, then localStorage
+    // ==================== SIDE / VERSION THEME TOGGLING ====================
+    let currentSide = 'bride';
+
+    function applySideTheme(side) {
+      currentSide = (side && side.toLowerCase() === 'groom') ? 'groom' : 'bride';
+      const isGroom = currentSide === 'groom';
+      const root = document.documentElement;
+      const groomEl = document.getElementById('groomFamily');
+      const brideEl = document.getElementById('brideFamily');
+      const groomInvitationEl = document.getElementById('groomInvitation');
+      const brideInvitationEl = document.getElementById('brideInvitation');
+
+      if (isGroom) {
+        root.classList.add('theme-groom');
+        if (groomEl) groomEl.classList.remove('hidden');
+        if (brideEl) brideEl.classList.add('hidden');
+        if (groomInvitationEl) groomInvitationEl.classList.remove('hidden');
+        if (brideInvitationEl) brideInvitationEl.classList.add('hidden');
+      } else {
+        root.classList.remove('theme-groom');
+        if (brideEl) brideEl.classList.remove('hidden');
+        if (groomEl) groomEl.classList.add('hidden');
+        if (brideInvitationEl) brideInvitationEl.classList.remove('hidden');
+        if (groomInvitationEl) groomInvitationEl.classList.add('hidden');
+      }
+    }
+
+    // Auto-detect language and side theme on load:
+    // Supports query parameters: ?side=groom / ?side=bride (also accepts ?from=groom or ?v=groom)
+    // Supports language parameter: ?lang=ms / ?lang=en
     window.addEventListener('DOMContentLoaded', () => {
       const urlParams = new URLSearchParams(window.location.search);
       const langParam = urlParams.get('lang');
+      const sideParam = urlParams.get('side') || urlParams.get('from') || urlParams.get('v');
+
       let savedLang = null;
       try {
         savedLang = localStorage.getItem('preferredLang');
@@ -748,6 +870,8 @@
 
       const initialLang = (langParam === 'ms' || langParam === 'en') ? langParam : (savedLang || 'en');
       setLanguage(initialLang);
+
+      applySideTheme(sideParam);
     });
 
     const audioPlayer = document.getElementById('bg-audio');
