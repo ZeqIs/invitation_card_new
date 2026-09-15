@@ -849,29 +849,33 @@
       currentSide = (side && side.toLowerCase() === 'groom') ? 'groom' : 'bride';
       const isGroom = currentSide === 'groom';
       const root = document.documentElement;
-      const groomEl = document.getElementById('groomFamily');
-      const brideEl = document.getElementById('brideFamily');
-      const groomInvitationEl = document.getElementById('groomInvitation');
-      const brideInvitationEl = document.getElementById('brideInvitation');
-      const groomName = document.getElementById('groomName');
-      const brideName = document.getElementById('brideName');
+      const groomEl = document.getElementsByClassName('sideGroom');
+      const brideEl = document.getElementsByClassName('sideBride');
 
       if (isGroom) {
         root.classList.add('theme-groom');
-        if (groomEl) groomEl.classList.remove('hidden');
-        if (brideEl) brideEl.classList.add('hidden');
-        if (groomInvitationEl) groomInvitationEl.classList.remove('hidden');
-        if (brideInvitationEl) brideInvitationEl.classList.add('hidden');
-        if (groomName) groomName.classList.remove('hidden');
-        if (brideName) brideName.classList.add('hidden');
+        if (groomEl) {
+          for (let i = 0; i < groomEl.length; i++) {
+            groomEl[i].classList.remove('hidden');
+          }
+        }
+        if (brideEl) {
+          for (let i = 0; i < brideEl.length; i++) {
+            brideEl[i].classList.add('hidden');
+          }
+        }
       } else {
         root.classList.remove('theme-groom');
-        if (brideEl) brideEl.classList.remove('hidden');
-        if (groomEl) groomEl.classList.add('hidden');
-        if (brideInvitationEl) brideInvitationEl.classList.remove('hidden');
-        if (groomInvitationEl) groomInvitationEl.classList.add('hidden');
-        if (groomName) groomName.classList.add('hidden');
-        if (brideName) brideName.classList.remove('hidden');
+        if (brideEl) {
+          for (let i = 0; i < brideEl.length; i++) {
+            brideEl[i].classList.remove('hidden');
+          }
+        }
+        if (groomEl) {
+          for (let i = 0; i < groomEl.length; i++) {
+            groomEl[i].classList.add('hidden');
+          }
+        }
       }
     }
 
