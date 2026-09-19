@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>#MimiIsinlove</title>
-  
+
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  
+
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Alex+Brush&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600&family=Amiri:ital,wght@0,400;0,700;1,400&family=Italianno&display=swap" rel="stylesheet">
-  
+  <link
+    href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Alex+Brush&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600&family=Amiri:ital,wght@0,400;0,700;1,400&family=Italianno&display=swap"
+    rel="stylesheet">
+
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
+
   <script>
     tailwind.config = {
       theme: {
@@ -95,7 +98,7 @@
       --color-secondary-bg: #f8f5ee;
       --color-card-inner: #faf6ee;
       --color-accent-text: #1B7895;
-      --lace-filter: invert(85%) sepia(8%) saturate(150%) hue-rotate(180deg) brightness(105%) contrast(90%) drop-shadow(0 0 1px rgba(255,255,255,0.7));
+      --lace-filter: invert(85%) sepia(8%) saturate(150%) hue-rotate(180deg) brightness(105%) contrast(90%) drop-shadow(0 0 1px rgba(255, 255, 255, 0.7));
     }
 
     html.theme-groom {
@@ -106,16 +109,18 @@
       --color-secondary-bg: #f8f5ee;
       --color-card-inner: #faf6ee;
       --color-accent-text: #46535E;
-      --lace-filter: invert(85%) sepia(8%) saturate(150%) hue-rotate(180deg) brightness(105%) contrast(90%) drop-shadow(0 0 1px rgba(255,255,255,0.7));
+      --lace-filter: invert(85%) sepia(8%) saturate(150%) hue-rotate(180deg) brightness(105%) contrast(90%) drop-shadow(0 0 1px rgba(255, 255, 255, 0.7));
     }
 
     html.theme-groom .text-cerulean {
       color: var(--color-primary) !important;
     }
+
     html.theme-groom .text-cerulean-deep,
     html.theme-groom .text-cerulean-dark {
       color: var(--color-primary-deep) !important;
     }
+
     html.theme-groom .focus\:border-cerulean:focus {
       border-color: var(--color-primary) !important;
     }
@@ -133,7 +138,7 @@
       position: relative;
       background-color: var(--color-primary);
       /* Ensure padding matches the 48px border height so content doesn't overlap */
-      padding: 48px; 
+      padding: 48px;
     }
 
     .custom-lace-border {
@@ -147,69 +152,73 @@
       filter: var(--lace-filter);
     }
 
-/* Top Border (Crown faces down into section) */
-.lace-strip-top {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 48px;
-    background-image: url('./assets/lace_border_tile.svg');
-    background-repeat: repeat-x;
-    /* [Tile Width] [Fixed Height] */
-    background-size: 54.1px 48px; 
-}
+    /* Top Border (Crown faces down into section) */
+    .lace-strip-top {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 48px;
+      background-image: url('./assets/lace_border_tile.svg');
+      background-repeat: repeat-x;
+      /* [Tile Width] [Fixed Height] */
+      background-size: 54.1px 48px;
+    }
 
-/* Bottom Border (Crown faces up into section) */
-.lace-strip-bottom {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 48px;
-    background-image: url('./assets/lace_border_tile.svg');
-    background-repeat: repeat-x;
-    background-size: 54.1px 48px;
-    transform: scaleY(-1);
-}
+    /* Bottom Border (Crown faces up into section) */
+    .lace-strip-bottom {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 48px;
+      background-image: url('./assets/lace_border_tile.svg');
+      background-repeat: repeat-x;
+      background-size: 54.1px 48px;
+      transform: scaleY(-1);
+    }
 
-/* Left Border (Crown faces right into section) */
-.lace-strip-left {
-    position: absolute;
-    top: 0px;    /* Starts at the top */
-    bottom: 0px; /* Ends at the bottom */
-    left: 0;
-    width: 48px;  /* Thickness matches border height */
-    background-image: url('./assets/lace_border_tile_vertical.svg');
-    background-repeat: repeat-y;
-    /* Swapped dimensions for vertical repeat: [Fixed Height] [Tile Width] */
-    background-size: 48px 54.1px;
-}
+    /* Left Border (Crown faces right into section) */
+    .lace-strip-left {
+      position: absolute;
+      top: 0px;
+      /* Starts at the top */
+      bottom: 0px;
+      /* Ends at the bottom */
+      left: 0;
+      width: 48px;
+      /* Thickness matches border height */
+      background-image: url('./assets/lace_border_tile_vertical.svg');
+      background-repeat: repeat-y;
+      /* Swapped dimensions for vertical repeat: [Fixed Height] [Tile Width] */
+      background-size: 48px 54.1px;
+    }
 
-/* Right Border (Crown faces left into section) */
-.lace-strip-right {
-    position: absolute;
-    top: 0px;
-    bottom: 0px;
-    right: 0;
-    width: 48px;
-    background-image: url('./assets/lace_border_tile_vertical.svg');
-    background-repeat: repeat-y;
-    background-size: 48px 54.1px;
-    transform: scaleX(-1);
-}
-    
+    /* Right Border (Crown faces left into section) */
+    .lace-strip-right {
+      position: absolute;
+      top: 0px;
+      bottom: 0px;
+      right: 0;
+      width: 48px;
+      background-image: url('./assets/lace_border_tile_vertical.svg');
+      background-repeat: repeat-y;
+      background-size: 48px 54.1px;
+      transform: scaleX(-1);
+    }
+
     /* Silver tray effect */
     .silver-tray {
       background: linear-gradient(145deg, #eef1f3 0%, #bcc7ce 30%, #ffffff 50%, #9aa8b2 75%, #dee5e8 100%);
-      box-shadow: 0 15px 35px rgba(0,0,0,0.4), inset 0 2px 6px rgba(255,255,255,0.9), inset 0 -3px 8px rgba(0,0,0,0.3);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), inset 0 2px 6px rgba(255, 255, 255, 0.9), inset 0 -3px 8px rgba(0, 0, 0, 0.3);
     }
-    
+
     .fade-in {
       opacity: 0;
       transform: translateY(20px);
       transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
     }
+
     .fade-in.is-visible {
       opacity: 1;
       transform: translateY(0);
@@ -218,6 +227,7 @@
     .no-scrollbar::-webkit-scrollbar {
       display: none;
     }
+
     .no-scrollbar {
       -ms-overflow-style: none;
       scrollbar-width: none;
@@ -226,7 +236,7 @@
     /* 3D Photobooth Dispenser Slot & Tray Chamber */
     .photobooth-chamber {
       background: linear-gradient(180deg, #10171d 0%, #1e293b 15%, #0f172a 100%);
-      box-shadow: 
+      box-shadow:
         inset 0 14px 22px rgba(0, 0, 0, 0.9),
         inset 0 -8px 16px rgba(0, 0, 0, 0.7),
         inset 10px 0 16px rgba(0, 0, 0, 0.6),
@@ -245,19 +255,24 @@
         transform: translateY(-90%);
         opacity: 0.2;
       }
+
       25% {
         transform: translateY(-55%);
         opacity: 1;
       }
+
       60% {
         transform: translateY(-15%);
       }
+
       85% {
         transform: translateY(2px);
       }
+
       92% {
         transform: translateY(-4px);
       }
+
       100% {
         transform: translateY(0);
         opacity: 1;
@@ -266,423 +281,683 @@
 
     .dispensing-strip {
       animation: dispenseStrip 2.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-      filter: drop-shadow(0 6px 12px rgba(0,0,0,0.6));
+      filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.6));
     }
 
     /* Subtle custom scrollbar for fixed-height wishes cards */
     .wish-content-scroll::-webkit-scrollbar {
       width: 4px;
     }
+
     .wish-content-scroll::-webkit-scrollbar-track {
       background: transparent;
     }
+
     .wish-content-scroll::-webkit-scrollbar-thumb {
       background: rgba(255, 255, 255, 0.35);
       border-radius: 9999px;
     }
+
     .wish-content-scroll::-webkit-scrollbar-thumb:hover {
       background: rgba(255, 255, 255, 0.65);
     }
   </style>
 </head>
-  <!-- Floating Language Toggle Button -->
-  <button id="langToggleBtn" onclick="toggleLanguage()" class="fixed bottom-6 left-6 z-50 px-3.5 py-2 rounded-full bg-white/30 hover:bg-white/45 text-cerulean-deep backdrop-blur-lg shadow-xl transition-all duration-300 transform hover:scale-105 active:scale-95 flex items-center gap-1.5 border border-white/40 cursor-pointer font-serif text-xs uppercase tracking-wider font-semibold">
-    <i class="fa-solid fa-globe text-xs text-cerulean-dark"></i>
-    <span id="currentLangLabel">BM</span>
-  </button>
+<!-- Floating Language Toggle Button -->
+<button id="langToggleBtn" onclick="toggleLanguage()"
+  class="fixed bottom-6 left-6 z-50 px-3.5 py-2 rounded-full bg-white/30 hover:bg-white/45 text-cerulean-deep backdrop-blur-lg shadow-xl transition-all duration-300 transform hover:scale-105 active:scale-95 flex items-center gap-1.5 border border-white/40 cursor-pointer font-serif text-xs uppercase tracking-wider font-semibold">
+  <i class="fa-solid fa-globe text-xs text-cerulean-dark"></i>
+  <span id="currentLangLabel">BM</span>
+</button>
 
-  <!-- Floating Music Toggle Button -->
-  <button id="musicToggleBtn" onclick="toggleAudio()" class="hidden fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full bg-white/30 hover:bg-white/45 text-cerulean-deep backdrop-blur-lg shadow-xl transition-all duration-300 transform hover:scale-110 flex items-center justify-center border border-white/40 cursor-pointer">
-    <i id="musicIcon" class="fa-solid fa-compact-disc fa-spin text-lg text-cerulean-dark"></i>
-  </button>
+<!-- Floating Music Toggle Button -->
+<button id="musicToggleBtn" onclick="toggleAudio()"
+  class="hidden fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full bg-white/30 hover:bg-white/45 text-cerulean-deep backdrop-blur-lg shadow-xl transition-all duration-300 transform hover:scale-110 flex items-center justify-center border border-white/40 cursor-pointer">
+  <i id="musicIcon" class="fa-solid fa-compact-disc fa-spin text-lg text-cerulean-dark"></i>
+</button>
 
-  <!-- Background Audio Player -->
-  <audio id="bg-audio" loop preload="auto">
-    <source src="./assets/music.mp3" type="audio/mpeg">
-  </audio>
+<!-- Background Audio Player -->
+<audio id="bg-audio" loop preload="auto">
+  <source src="./assets/music.mp3" type="audio/mpeg">
+</audio>
 
-  <!-- ==================== FRONT COVER VIEW (PAGE 1) ==================== -->
-  <main id="frontCover" class="w-full min-h-screen bg-theme-primary flex flex-col justify-center items-center py-8 px-4 md:px-8 text-center relative overflow-hidden">
-    <div class="w-full max-w-lg flex flex-col items-center justify-center space-y-5 md:space-y-6">
-      <!-- Top Title -->
-      <div>
-        <p data-i18n="gettingMarried" class="font-serif tracking-[0.25em] text-xs md:text-sm text-white/90 uppercase mb-1.5">We're Getting Married</p>
-        <h1 class="sideGroom font-script text-5xl md:text-7xl lg:text-8xl text-white tracking-wide">Is | Mimi</h1>
-        <h1 class="sideBride font-script text-5xl md:text-7xl lg:text-8xl text-white tracking-wide">Mimi | Is</h1>
-      </div>
+<!-- ==================== FRONT COVER VIEW (PAGE 1) ==================== -->
+<main id="frontCover"
+  class="w-full min-h-screen bg-theme-primary flex flex-col justify-center items-center py-8 px-4 md:px-8 text-center relative overflow-hidden">
+  <div class="w-full max-w-lg flex flex-col items-center justify-center space-y-5 md:space-y-6">
+    <!-- Top Title -->
+    <div>
+      <p data-i18n="gettingMarried"
+        class="font-serif tracking-[0.25em] text-xs md:text-sm text-white/90 uppercase mb-1.5">We're Getting Married</p>
+      <h1 class="sideGroom font-script text-5xl md:text-7xl lg:text-8xl text-white tracking-wide">Is | Mimi</h1>
+      <h1 class="sideBride font-script text-5xl md:text-7xl lg:text-8xl text-white tracking-wide">Mimi | Is</h1>
+    </div>
 
-      <!-- Photobooth Dispenser Tray Box -->
-      <div class="flex flex-col items-center">
-        <div class="tray-rim p-2.5 md:p-3 rounded-2xl border border-white/20 relative shadow-2xl">
-          
-          <!-- Slot Exit -->
-          <div class="w-full h-3 md:h-4 bg-black rounded-t-md mb-0.5 relative z-20 shadow-inner flex items-center justify-center overflow-hidden">
-            <div class="w-4/5 h-0.5 bg-white/15 rounded-full"></div>
+    <!-- Photobooth Dispenser Tray Box -->
+    <div class="flex flex-col items-center">
+      <div class="tray-rim p-2.5 md:p-3 rounded-2xl border border-white/20 relative shadow-2xl">
+
+        <!-- Slot Exit -->
+        <div
+          class="w-full h-3 md:h-4 bg-black rounded-t-md mb-0.5 relative z-20 shadow-inner flex items-center justify-center overflow-hidden">
+          <div class="w-4/5 h-0.5 bg-white/15 rounded-full"></div>
+        </div>
+
+        <!-- Dispense Cavity -->
+        <div
+          class="w-48 sm:w-56 md:w-64 h-[360px] sm:h-[400px] md:h-[460px] photobooth-chamber rounded-b-md relative overflow-hidden flex justify-center">
+          <div
+            class="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black/60 pointer-events-none z-10">
+          </div>
+          <div class="absolute bottom-0 inset-x-0 h-4 bg-white/5 border-t border-white/10 pointer-events-none z-10">
           </div>
 
-          <!-- Dispense Cavity -->
-          <div class="w-48 sm:w-56 md:w-64 h-[360px] sm:h-[400px] md:h-[460px] photobooth-chamber rounded-b-md relative overflow-hidden flex justify-center">
-            <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black/60 pointer-events-none z-10"></div>
-            <div class="absolute bottom-0 inset-x-0 h-4 bg-white/5 border-t border-white/10 pointer-events-none z-10"></div>
-
-            <!-- Photobooth Strip -->
-            <div class="dispensing-strip absolute top-2 w-36 sm:w-44 md:w-48 bg-white p-2 md:p-2.5 flex flex-col gap-2 rounded-sm shadow-2xl">
-              <!-- Strip Photo 1 -->
-              <div class="h-[68px] sm:h-[78px] md:h-[90px] bg-slate-200 overflow-hidden relative grayscale contrast-125 rounded-xs">
-                <img src="assets\b_roll_9.jpeg" alt="Couple 1" class="w-full h-full object-cover">
+          <!-- Photobooth Strip -->
+          <div
+            class="dispensing-strip absolute top-2 w-36 sm:w-44 md:w-48 bg-white p-2 md:p-2.5 flex flex-col gap-2 rounded-sm shadow-2xl">
+            <!-- Strip Photo 1 -->
+            <div
+              class="h-[68px] sm:h-[78px] md:h-[90px] bg-slate-200 overflow-hidden relative grayscale contrast-125 rounded-xs">
+              <img src="assets\b_roll_9.jpeg" alt="Couple 1" class="w-full h-full object-cover">
+            </div>
+            <!-- Strip Photo 2 -->
+            <div
+              class="h-[68px] sm:h-[78px] md:h-[90px] bg-slate-200 overflow-hidden relative grayscale contrast-125 rounded-xs">
+              <img src="assets\b_roll_6.jpeg" alt="Couple 2" class="w-full h-full object-cover">
+            </div>
+            <!-- Strip Photo 3 -->
+            <div
+              class="h-[68px] sm:h-[78px] md:h-[90px] bg-slate-200 overflow-hidden relative grayscale contrast-125 flex items-center justify-center rounded-xs">
+              <img src="assets\b_roll_3.jpeg" alt="Couple 3" class="w-full h-full object-cover">
+              <div class="absolute inset-0 bg-black/20 flex items-center justify-center">
+                <span data-i18n="saveTheDate"
+                  class="bg-white/95 text-slate-900 px-2 py-0.5 text-[9px] md:text-[10px] font-bold font-serif tracking-widest uppercase shadow-md">Save
+                  the Date!</span>
               </div>
-              <!-- Strip Photo 2 -->
-              <div class="h-[68px] sm:h-[78px] md:h-[90px] bg-slate-200 overflow-hidden relative grayscale contrast-125 rounded-xs">
-                <img src="assets\b_roll_6.jpeg" alt="Couple 2" class="w-full h-full object-cover">
-              </div>
-              <!-- Strip Photo 3 -->
-              <div class="h-[68px] sm:h-[78px] md:h-[90px] bg-slate-200 overflow-hidden relative grayscale contrast-125 flex items-center justify-center rounded-xs">
-                <img src="assets\b_roll_3.jpeg" alt="Couple 3" class="w-full h-full object-cover">
-                <div class="absolute inset-0 bg-black/20 flex items-center justify-center">
-                  <span data-i18n="saveTheDate" class="bg-white/95 text-slate-900 px-2 py-0.5 text-[9px] md:text-[10px] font-bold font-serif tracking-widest uppercase shadow-md">Save the Date!</span>
-                </div>
-              </div>
-              <!-- Strip Photo 4 -->
-              <div class="h-[68px] sm:h-[78px] md:h-[90px] bg-slate-200 overflow-hidden relative grayscale contrast-125 flex items-center justify-center rounded-xs">
-                <img src="assets\b_roll_8.jpeg" alt="Couple 4" class="w-full h-full object-cover">
-                <div class="absolute bottom-1 bg-white/95 text-slate-900 px-2 py-0.5 text-[10px] md:text-xs font-bold font-serif shadow-md">24.10.26</div>
-              </div>
+            </div>
+            <!-- Strip Photo 4 -->
+            <div
+              class="h-[68px] sm:h-[78px] md:h-[90px] bg-slate-200 overflow-hidden relative grayscale contrast-125 flex items-center justify-center rounded-xs">
+              <img src="assets\b_roll_8.jpeg" alt="Couple 4" class="w-full h-full object-cover">
+              <div
+                class="absolute bottom-1 bg-white/95 text-slate-900 px-2 py-0.5 text-[10px] md:text-xs font-bold font-serif shadow-md">
+                24.10.26</div>
             </div>
           </div>
         </div>
-      </div>
-
-      <!-- Tap Button -->
-      <div class="pt-2">
-        <button onclick="openInvitation()" data-i18n="tapToOpen" class="font-serif tracking-[0.2em] text-sm md:text-base text-white/95 uppercase border-b border-white/60 pb-1 hover:text-white transition duration-300 transform hover:scale-105 active:scale-95 cursor-pointer">
-          Tap to Open Invitation
-        </button>
       </div>
     </div>
-  </main>
 
-  <!-- ==================== MAIN INVITATION CONTENT (PAGE 2 - LONG STRIP) ==================== -->
-  <div id="invitationBody" class="hidden w-full min-h-screen bg-theme-primary text-white">
+    <!-- Tap Button -->
+    <div class="pt-2">
+      <button onclick="openInvitation()" data-i18n="tapToOpen"
+        class="font-serif tracking-[0.2em] text-sm md:text-base text-white/95 uppercase border-b border-white/60 pb-1 hover:text-white transition duration-300 transform hover:scale-105 active:scale-95 cursor-pointer">
+        Tap to Open Invitation
+      </button>
+    </div>
+  </div>
+</main>
 
-    <!-- SECTION 1: SUMMARY / HERO COVER (WITH INWARD SHADOW) -->
-    <section class="min-h-screen flex flex-col justify-center items-center px-6 py-12 text-center relative border-b border-white/10 w-full inset-vignette-shadow">
-      <div class="w-full max-w-lg flex flex-col items-center justify-center space-y-6 md:space-y-8">
-        <div>
-          <h2 data-i18n="weddingOf" class="font-script text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-white">Wedding of</h2>
+<!-- ==================== MAIN INVITATION CONTENT (PAGE 2 - LONG STRIP) ==================== -->
+<div id="invitationBody" class="hidden w-full min-h-screen bg-theme-primary text-white">
+
+  <!-- SECTION 1: SUMMARY / HERO COVER (WITH INWARD SHADOW) -->
+  <section
+    class="min-h-screen flex flex-col justify-center items-center px-6 py-12 text-center relative border-b border-white/10 w-full inset-vignette-shadow">
+    <div class="w-full max-w-lg flex flex-col items-center justify-center space-y-6 md:space-y-8">
+      <div>
+        <h2 data-i18n="weddingOf" class="font-script text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-white">Wedding of
+        </h2>
+      </div>
+
+      <!-- Collage & Playlist Art -->
+      <div class="relative w-full max-w-[320px] sm:max-w-md my-2 flex justify-center items-center">
+        <!-- 4-Grid Photobooth Polaroid -->
+        <div
+          class="bg-white p-2.5 sm:p-3 shadow-2xl rounded-sm w-48 sm:w-60 rotate-[-6deg] z-10 border border-slate-200">
+          <div class="grid grid-cols-2 gap-1.5 grayscale">
+            <img src="assets\b_roll_7.jpeg" class="w-full h-20 sm:h-24 object-cover" />
+            <img src="assets\b_roll_2.jpeg" class="w-full h-20 sm:h-24 object-cover" />
+            <img src="assets\b_roll_3.jpeg" class="w-full h-20 sm:h-24 object-cover" />
+            <img src="assets\b_roll_4.jpeg" class="w-full h-20 sm:h-24 object-cover" />
+          </div>
         </div>
 
-        <!-- Collage & Playlist Art -->
-        <div class="relative w-full max-w-[320px] sm:max-w-md my-2 flex justify-center items-center">
-          <!-- 4-Grid Photobooth Polaroid -->
-          <div class="bg-white p-2.5 sm:p-3 shadow-2xl rounded-sm w-48 sm:w-60 rotate-[-6deg] z-10 border border-slate-200">
-            <div class="grid grid-cols-2 gap-1.5 grayscale">
-              <img src="assets\b_roll_7.jpeg" class="w-full h-20 sm:h-24 object-cover" />
-              <img src="assets\b_roll_2.jpeg" class="w-full h-20 sm:h-24 object-cover" />
-              <img src="assets\b_roll_3.jpeg" class="w-full h-20 sm:h-24 object-cover" />
-              <img src="assets\b_roll_4.jpeg" class="w-full h-20 sm:h-24 object-cover" />
-            </div>
+        <!-- Vintage Audio Card -->
+        <div
+          class="absolute -right-2 sm:-right-6 top-4 sm:top-6 w-36 sm:w-44 bg-[#f7f4ed] text-slate-800 p-2.5 sm:p-3 rounded shadow-xl rotate-[8deg] z-20 border border-amber-200/50">
+          <div
+            class="flex justify-between items-center text-[9px] sm:text-xs font-serif font-semibold text-cerulean mb-1.5 px-1">
+            <span>Love</span>
+            <span>❤❤</span>
+            <span>Playlist</span>
           </div>
-
-          <!-- Vintage Audio Card -->
-          <div class="absolute -right-2 sm:-right-6 top-4 sm:top-6 w-36 sm:w-44 bg-[#f7f4ed] text-slate-800 p-2.5 sm:p-3 rounded shadow-xl rotate-[8deg] z-20 border border-amber-200/50">
-            <div class="flex justify-between items-center text-[9px] sm:text-xs font-serif font-semibold text-cerulean mb-1.5 px-1">
-              <span>Love</span>
-              <span>❤❤</span>
-              <span>Playlist</span>
-            </div>
-            <div class="w-full h-20 sm:h-24 bg-stone-300 overflow-hidden relative grayscale rounded">
-              <img src="assets\b_roll_1.jpeg" class="w-full h-full object-cover" />
-            </div>
-            <div class="flex justify-center items-center gap-3 text-[10px] sm:text-xs text-cerulean mt-2">
-              <i class="fa-solid fa-backward-step"></i>
-              <i class="fa-solid fa-play"></i>
-              <i class="fa-solid fa-forward-step"></i>
-            </div>
+          <div class="w-full h-20 sm:h-24 bg-stone-300 overflow-hidden relative grayscale rounded">
+            <img src="assets\b_roll_1.jpeg" class="w-full h-full object-cover" />
           </div>
+          <div class="flex justify-center items-center gap-3 text-[10px] sm:text-xs text-cerulean mt-2">
+            <i class="fa-solid fa-backward-step"></i>
+            <i class="fa-solid fa-play"></i>
+            <i class="fa-solid fa-forward-step"></i>
+          </div>
+        </div>
 
-          <!-- Silver Heart Locket -->
-          <div class="absolute -bottom-6 z-30 flex items-center justify-center pointer-events-auto">
-            <div class="flex -space-x-2.5 sm:-space-x-3 items-center">
-              <!-- Left Heart (Bride / Mimi) -->
-              <div class="silver-heart-frame transform -rotate-12 hover:scale-105 transition-transform duration-300">
-                <div class="w-12 h-12 sm:w-14 sm:h-14 silver-heart-bezel heart-mask shadow-lg">
-                  <div class="w-full h-full p-0.5 bg-slate-200 heart-mask">
-                    <img src="assets\locket_mimi.jpeg" alt="Mimi" class="w-full h-full object-cover grayscale contrast-110">
-                  </div>
+        <!-- Silver Heart Locket -->
+        <div class="absolute -bottom-6 z-30 flex items-center justify-center pointer-events-auto">
+          <div class="flex -space-x-2.5 sm:-space-x-3 items-center">
+            <!-- Left Heart (Bride / Mimi) -->
+            <div class="silver-heart-frame transform -rotate-12 hover:scale-105 transition-transform duration-300">
+              <div class="w-12 h-12 sm:w-14 sm:h-14 silver-heart-bezel heart-mask shadow-lg">
+                <div class="w-full h-full p-0.5 bg-slate-200 heart-mask">
+                  <img src="assets\locket_mimi.jpeg" alt="Mimi"
+                    class="w-full h-full object-cover grayscale contrast-110">
                 </div>
               </div>
+            </div>
 
-              <!-- Right Heart (Groom / Is) -->
-              <div class="silver-heart-frame transform rotate-12 hover:scale-105 transition-transform duration-300">
-                <div class="w-12 h-12 sm:w-14 sm:h-14 silver-heart-bezel heart-mask shadow-lg">
-                  <div class="w-full h-full p-0.5 bg-slate-200 heart-mask">
-                    <img src="assets\locket_is.jpeg" alt="Is" class="w-full h-full object-cover grayscale contrast-110">
-                  </div>
+            <!-- Right Heart (Groom / Is) -->
+            <div class="silver-heart-frame transform rotate-12 hover:scale-105 transition-transform duration-300">
+              <div class="w-12 h-12 sm:w-14 sm:h-14 silver-heart-bezel heart-mask shadow-lg">
+                <div class="w-full h-full p-0.5 bg-slate-200 heart-mask">
+                  <img src="assets\locket_is.jpeg" alt="Is" class="w-full h-full object-cover grayscale contrast-110">
                 </div>
               </div>
             </div>
           </div>
         </div>
-
-        <div class="pt-2">
-          <h1 class="sideGroom font-script text-5xl sm:text-6xl md:text-7xl text-white">Is & Mimi</h1>
-          <h1 class="sideBride font-script text-5xl sm:text-6xl md:text-7xl text-white">Mimi & Is</h1>
-          <p data-i18n="heroDateLocation" class="font-serif italic text-sm sm:text-base text-white/90 mt-2 tracking-wide">24 Oct 2026 | Ideal Convention Centre, Shah Alam</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION 2: EVENT DETAIL WITH 4-SIDED SILVER LACE BORDER & UPDATED FAMILY DETAILS -->
-    <section class="min-h-screen relative px-8 sm:px-14 md:px-20 py-12 text-center flex flex-col justify-center items-center custom-lace-section fade-in w-full overflow-hidden">
-      
-      <!-- 4-Sided Silver Lace Border -->
-      <div class="custom-lace-border">
-        <div class="lace-strip-top silver-lace-filter"></div>
-        <div class="lace-strip-bottom silver-lace-filter"></div>
-        <div class="lace-strip-left silver-lace-filter"></div>
-        <div class="lace-strip-right silver-lace-filter"></div>
       </div>
 
-      <div class="w-full max-w-xl mx-auto flex flex-col items-center justify-center space-y-4 md:space-y-6 relative z-20">
-        <!-- Basmalah & Gratitude -->
-        <div>
-          <p class="font-arabic text-3xl sm:text-4xl md:text-5xl text-white/95 font-medium tracking-wide">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
-          <p data-i18n="introGratitude" class="font-serif italic text-xs sm:text-sm md:text-base text-white/90 mt-6 leading-relaxed">
-            With hearts full of gratitude to Almighty Allah,<br>we
-          </p>
-        </div>
+      <div class="pt-2">
+        <h1 class="sideGroom font-script text-5xl sm:text-6xl md:text-7xl text-white">Is & Mimi</h1>
+        <h1 class="sideBride font-script text-5xl sm:text-6xl md:text-7xl text-white">Mimi & Is</h1>
+        <p data-i18n="heroDateLocation" class="font-serif italic text-sm sm:text-base text-white/90 mt-2 tracking-wide">
+          24 Oct 2026 | Ideal Convention Centre, Shah Alam</p>
+      </div>
+    </div>
+  </section>
 
-        <!-- Groom's Parents -->
-        <div class="sideGroom space-y-0.25">
-          <p class="font-serif tracking-[0.16em] text-xs sm:text-sm md:text-base font-semibold uppercase text-white">ZURAIDY BIN ZAINAL ABIDIN</p>
-          <p data-i18n="fatherGroom" class="font-serif italic text-[11px] sm:text-xs text-white/80">( Father of the Groom )</p>
-          <p class="font-serif italic text-xs text-white/90 py-0.5">&</p>
-          <p class="font-serif tracking-[0.16em] text-xs sm:text-sm md:text-base font-semibold uppercase text-white">ZURAIDA BINTI MAT RUZKI</p>
-          <p data-i18n="motherGroom" class="font-serif italic text-[11px] sm:text-xs text-white/80">( Mother of the Groom )</p>
-        </div>
+  <!-- SECTION 2: EVENT DETAIL WITH 4-SIDED SILVER LACE BORDER & UPDATED FAMILY DETAILS -->
+  <section
+    class="min-h-screen relative px-8 sm:px-14 md:px-20 py-12 text-center flex flex-col justify-center items-center custom-lace-section fade-in w-full overflow-hidden">
 
-        <!-- Bride's Family & Guardian -->
-        <div class="sideBride space-y-0.25 hidden">
-          <p class="font-serif tracking-[0.16em] text-xs sm:text-sm md:text-base font-semibold uppercase text-white">HAMIMAH BINTI MUDA</p>
-          <p data-i18n="guardianBride" class="font-serif italic text-[11px] sm:text-xs text-white/80">( Grandmother & Guardian of the Bride )</p>
-          <p class="font-serif italic text-xs text-white/90 py-0.5">&</p>
-          <p class="font-serif tracking-[0.16em] text-xs sm:text-sm md:text-base font-semibold uppercase text-white">AHMAD SAIFUDIN BIN AB RAHMAN</p>
-          <p data-i18n="fatherBride" class="font-serif italic text-[11px] sm:text-xs text-white/80">( Father of the Bride )</p>
-          <p class="font-serif italic text-xs text-white/90 py-0.5">&</p>
-          <p class="font-serif tracking-[0.16em] text-xs sm:text-sm md:text-base font-semibold uppercase text-white">YUSMI MAIZURA<br>BINTI MOHAMAD YUSOF</p>
-          <p data-i18n="motherBride" class="font-serif italic text-[11px] sm:text-xs text-white/80">( Mother of the Bride )</p>
-        </div>
+    <!-- 4-Sided Silver Lace Border -->
+    <div class="custom-lace-border">
+      <div class="lace-strip-top silver-lace-filter"></div>
+      <div class="lace-strip-bottom silver-lace-filter"></div>
+      <div class="lace-strip-left silver-lace-filter"></div>
+      <div class="lace-strip-right silver-lace-filter"></div>
+    </div>
 
-        <!-- Invitation Wording Groom -->
-        <p data-i18n="invitationHonorGroom" class="sideGroom font-serif italic text-xs sm:text-sm md:text-base text-white/90 leading-relaxed max-w-md mx-auto">
-          request the honour of the presence of<br>
-          <span class="font-sans font-medium text-[11px] sm:text-xs md:text-sm tracking-wider">YBhg. Dato' / Datin / Mr. / Mrs. / Ms.</span><br>
-          at the reception of our son<br>
-          and the love of his life
+    <div class="w-full max-w-xl mx-auto flex flex-col items-center justify-center space-y-4 md:space-y-6 relative z-20">
+      <!-- Basmalah & Gratitude -->
+      <div>
+        <p class="font-arabic text-3xl sm:text-4xl md:text-5xl text-white/95 font-medium tracking-wide">بِسْمِ اللَّهِ
+          الرَّحْمَٰنِ الرَّحِيمِ</p>
+        <p data-i18n="introGratitude"
+          class="font-serif italic text-xs sm:text-sm md:text-base text-white/90 mt-6 leading-relaxed">
+          With hearts full of gratitude to Almighty Allah,<br>we
         </p>
-
-        <!-- Invitation Wording Bride -->
-        <p data-i18n="invitationHonorBride" class="sideBride font-serif italic text-xs sm:text-sm md:text-base text-white/90 leading-relaxed max-w-md mx-auto">
-          request the honour of the presence of<br>
-          <span class="font-sans font-medium text-[11px] sm:text-xs md:text-sm tracking-wider">YBhg. Dato' / Datin / Mr. / Mrs. / Ms.</span><br>
-          at the reception of our daughter<br>
-          and the love of her life
-        </p>
-
-        <!-- Full Names of Couple -->
-        <div class="sideGroom space-y-1 mt-2">
-          <h2 class="font-script text-4xl sm:text-5xl md:text-6xl text-white">Zeqry Iskandar</h2>
-          <p class="font-script text-2xl sm:text-3xl text-white/90">&</p>
-          <h2 class="font-script text-4xl sm:text-5xl md:text-6xl text-white leading-tight">Fatini Syamimi</h2>
-        </div>
-
-        <!-- Full Names of Couple -->
-        <div class="sideBride space-y-1 mt-2">
-          <h2 class="font-script text-4xl sm:text-5xl md:text-6xl text-white">Fatini Syamimi</h2>
-          <p class="font-script text-2xl sm:text-3xl text-white/90">&</p>
-          <h2 class="font-script text-4xl sm:text-5xl md:text-6xl text-white leading-tight">Zeqry Iskandar</h2>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION 3: DATE, TIME & LOCATION (WITH INWARD SHADOW) -->
-    <section class="py-16 md:py-24 px-6 text-center flex flex-col items-center space-y-8 max-w-full mx-auto fade-in inset-vignette-shadow bg-theme-primary">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-4xl">
-        <div class="flex flex-col items-center">
-          <i class="fa-regular fa-calendar text-2xl md:text-3xl text-white/90 mb-2"></i>
-          <p data-i18n="eventDate" class="font-serif italic text-lg md:text-xl text-white">Saturday | 24 October 2026</p>
-        </div>
-
-        <div class="flex flex-col items-center">
-          <i class="fa-regular fa-clock text-2xl md:text-3xl text-white/90 mb-2"></i>
-          <p class="font-serif italic text-lg md:text-xl text-white">11:00 am - 4:00 pm</p>
-        </div>
-
-        <div class="flex flex-col items-center">
-          <i class="fa-solid fa-location-dot text-2xl md:text-3xl text-white/90 mb-2"></i>
-          <p class="font-serif italic text-lg md:text-xl text-white">Ideal Convention Centre</p>
-          <p class="text-xs md:text-sm text-white/75 mt-1 font-serif">Shah Alam, Selangor</p>
-        </div>
       </div>
 
-      <!-- Action Buttons: Add to Calendar, Google Maps, Waze -->
-      <div class="flex flex-wrap gap-3.5 pt-4 justify-center items-center">
-        <!-- Add to Google Calendar Button -->
-        <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Wedding+of+Is+%26+Mimi&dates=20261024T030000Z/20261024T080000Z&details=Wedding+Celebration+of+Zeqry+Iskandar+%26+Fatini+Syamimi&location=Ideal+Convention+Centre%2C+Shah+Alam" target="_blank" class="sideGroom px-5 py-2.5 bg-white text-cerulean hover:bg-slate-100 rounded-full text-xs sm:text-sm font-semibold tracking-wider uppercase font-sans flex items-center gap-2 shadow-lg transition transform hover:scale-105 active:scale-95">
-          <i class="fa-solid fa-calendar-plus text-sm"></i> <span data-i18n="addToCalendar">Add to Calendar</span>
-        </a>
-        <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Wedding+of+Is+%26+Mimi&dates=20261024T030000Z/20261024T080000Z&details=Wedding+Celebration+of+Fatini+Syamimi+%26+Zeqry+Iskandar&location=Ideal+Convention+Centre%2C+Shah+Alam" target="_blank" class="sideBride px-5 py-2.5 bg-white text-cerulean hover:bg-slate-100 rounded-full text-xs sm:text-sm font-semibold tracking-wider uppercase font-sans flex items-center gap-2 shadow-lg transition transform hover:scale-105 active:scale-95">
-          <i class="fa-solid fa-calendar-plus text-sm"></i> <span data-i18n="addToCalendar">Add to Calendar</span>
-        </a>
+      <!-- Groom's Parents -->
+      <div class="sideGroom space-y-0.25">
+        <p class="font-serif tracking-[0.16em] text-xs sm:text-sm md:text-base font-semibold uppercase text-white">
+          ZURAIDY BIN ZAINAL ABIDIN</p>
+        <p data-i18n="fatherGroom" class="font-serif italic text-[11px] sm:text-xs text-white/80">( Father of the Groom
+          )</p>
+        <p class="font-serif italic text-xs text-white/90 py-0.5">&</p>
+        <p class="font-serif tracking-[0.16em] text-xs sm:text-sm md:text-base font-semibold uppercase text-white">
+          ZURAIDA BINTI MAT RUZKI</p>
+        <p data-i18n="motherGroom" class="font-serif italic text-[11px] sm:text-xs text-white/80">( Mother of the Groom
+          )</p>
       </div>
 
-      <div class="flex flex-wrap gap-3.5 pt-4 justify-center items-center">
-
-        <!-- Maps Links -->
-        <a href="https://maps.google.com/?q=Ideal+Convention+Centre+Shah+Alam" target="_blank" class="px-5 py-2.5 bg-white/10 hover:bg-white/20 border border-white/30 rounded-full text-xs sm:text-sm font-serif italic text-white flex items-center gap-2 transition transform hover:scale-105 active:scale-95">
-          <i class="fa-solid fa-map-pin text-[11px]"></i> Google Maps
-        </a>
-        <a href="https://waze.com/ul?q=Ideal+Convention+Centre+Shah+Alam" target="_blank" class="px-5 py-2.5 bg-white/10 hover:bg-white/20 border border-white/30 rounded-full text-xs sm:text-sm font-serif italic text-white flex items-center gap-2 transition transform hover:scale-105 active:scale-95">
-          <i class="fa-brands fa-waze text-[11px]"></i> Waze
-        </a>
+      <!-- Bride's Family & Guardian -->
+      <div class="sideBride space-y-0.25 hidden">
+        <p class="font-serif tracking-[0.16em] text-xs sm:text-sm md:text-base font-semibold uppercase text-white">
+          HAMIMAH BINTI MUDA</p>
+        <p data-i18n="guardianBride" class="font-serif italic text-[11px] sm:text-xs text-white/80">( Grandmother &
+          Guardian of the Bride )</p>
+        <p class="font-serif italic text-xs text-white/90 py-0.5">&</p>
+        <p class="font-serif tracking-[0.16em] text-xs sm:text-sm md:text-base font-semibold uppercase text-white">AHMAD
+          SAIFUDIN BIN AB RAHMAN</p>
+        <p data-i18n="fatherBride" class="font-serif italic text-[11px] sm:text-xs text-white/80">( Father of the Bride
+          )</p>
+        <p class="font-serif italic text-xs text-white/90 py-0.5">&</p>
+        <p class="font-serif tracking-[0.16em] text-xs sm:text-sm md:text-base font-semibold uppercase text-white">YUSMI
+          MAIZURA<br>BINTI MOHAMAD YUSOF</p>
+        <p data-i18n="motherBride" class="font-serif italic text-[11px] sm:text-xs text-white/80">( Mother of the Bride
+          )</p>
       </div>
-    </section>
 
-    <!-- SECTION 4A: COUNTDOWN SECTION -->
-    <section class="py-16 md:py-20 px-6 text-center flex flex-col items-center fade-in w-full bg-theme-secondary text-slate-800 border-b border-stone-200">
-      <h3 data-i18n="countdownTitle" class="font-script text-4xl sm:text-5xl md:text-6xl text-cerulean mb-6">Counting on the big days</h3>
+      <!-- Invitation Wording Groom -->
+      <p data-i18n="invitationHonorGroom"
+        class="sideGroom font-serif italic text-xs sm:text-sm md:text-base text-white/90 leading-relaxed max-w-md mx-auto">
+        request the honour of the presence of<br>
+        <span class="font-sans font-medium text-[11px] sm:text-xs md:text-sm tracking-wider">YBhg. Dato' / Datin / Mr. /
+          Mrs. / Ms.</span><br>
+        at the reception of our son<br>
+        and the love of his life
+      </p>
 
-      <!-- Countdown Display -->
-      <div class="flex items-center justify-center gap-3 sm:gap-6 text-center">
-        <div>
-          <span id="c-days" class="font-serif text-3xl sm:text-4xl md:text-5xl text-slate-800 font-medium block">00</span>
-          <span data-i18n="days" class="text-[10px] sm:text-xs uppercase font-serif tracking-wider text-slate-500">Days</span>
-        </div>
-        <span class="font-serif text-2xl sm:text-3xl text-slate-400 pb-4">:</span>
-        <div>
-          <span id="c-hours" class="font-serif text-3xl sm:text-4xl md:text-5xl text-slate-800 font-medium block">00</span>
-          <span data-i18n="hours" class="text-[10px] sm:text-xs uppercase font-serif tracking-wider text-slate-500">Hours</span>
-        </div>
-        <span class="font-serif text-2xl sm:text-3xl text-slate-400 pb-4">:</span>
-        <div>
-          <span id="c-mins" class="font-serif text-3xl sm:text-4xl md:text-5xl text-slate-800 font-medium block">00</span>
-          <span data-i18n="minutes" class="text-[10px] sm:text-xs uppercase font-serif tracking-wider text-slate-500">Minutes</span>
-        </div>
-        <span class="font-serif text-2xl sm:text-3xl text-slate-400 pb-4">:</span>
-        <div>
-          <span id="c-secs" class="font-serif text-3xl sm:text-4xl md:text-5xl text-slate-800 font-medium block">00</span>
-          <span data-i18n="seconds" class="text-[10px] sm:text-xs uppercase font-serif tracking-wider text-slate-500">Seconds</span>
-        </div>
+      <!-- Invitation Wording Bride -->
+      <p data-i18n="invitationHonorBride"
+        class="sideBride font-serif italic text-xs sm:text-sm md:text-base text-white/90 leading-relaxed max-w-md mx-auto">
+        request the honour of the presence of<br>
+        <span class="font-sans font-medium text-[11px] sm:text-xs md:text-sm tracking-wider">YBhg. Dato' / Datin / Mr. /
+          Mrs. / Ms.</span><br>
+        at the reception of our daughter<br>
+        and the love of her life
+      </p>
+
+      <!-- Full Names of Couple -->
+      <div class="sideGroom space-y-1 mt-2">
+        <h2 class="font-script text-4xl sm:text-5xl md:text-6xl text-white">Zeqry Iskandar</h2>
+        <p class="font-script text-2xl sm:text-3xl text-white/90">&</p>
+        <h2 class="font-script text-4xl sm:text-5xl md:text-6xl text-white leading-tight">Fatini Syamimi</h2>
       </div>
-    </section>
 
-    <!-- SECTION 4B: ORDER OF EVENTS / AGENDA SECTION (CERULEAN BG WITH SILVER TRAY) -->
-    <section class="py-16 md:py-24 px-6 text-center flex flex-col items-center fade-in w-full bg-theme-primary text-white">
-      <div class="relative w-full max-w-md sm:max-w-lg flex justify-center items-center py-2">
-        <div class="silver-tray w-full rounded-[40px] p-6 sm:p-8 text-slate-800 relative border-4 border-slate-300 shadow-2xl">
-          <div class="absolute -left-4 top-1/2 -translate-y-1/2 w-4 h-16 bg-slate-300 rounded-l-md border-y border-l border-slate-400"></div>
-          <div class="absolute -right-4 top-1/2 -translate-y-1/2 w-4 h-16 bg-slate-300 rounded-r-md border-y border-r border-slate-400"></div>
-          
-          <div class="bg-[#faf6ee] p-6 sm:p-8 rounded-3xl shadow-inner border border-amber-900/10 text-center space-y-6 sm:space-y-8">
-            <h4 data-i18n="orderOfEvents" class="font-serif italic font-bold text-xl sm:text-2xl text-cerulean-deep">Order of Events</h4>
+      <!-- Full Names of Couple -->
+      <div class="sideBride space-y-1 mt-2">
+        <h2 class="font-script text-4xl sm:text-5xl md:text-6xl text-white">Fatini Syamimi</h2>
+        <p class="font-script text-2xl sm:text-3xl text-white/90">&</p>
+        <h2 class="font-script text-4xl sm:text-5xl md:text-6xl text-white leading-tight">Zeqry Iskandar</h2>
+      </div>
+    </div>
+  </section>
 
-            <div class="space-y-1">
-              <p class="font-serif italic font-semibold text-xs sm:text-sm text-cerulean border-b border-cerulean/30 inline-block pb-0.5">11.00 am</p>
-              <p data-i18n="event1" class="font-serif italic text-xs sm:text-sm text-slate-700">Guest Arrival & Reception</p>
-            </div>
+  <!-- SECTION 3: DATE, TIME & LOCATION (WITH INWARD SHADOW) -->
+  <section
+    class="py-16 md:py-24 px-6 text-center flex flex-col items-center space-y-8 max-w-full mx-auto fade-in inset-vignette-shadow bg-theme-primary">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-4xl">
+      <div class="flex flex-col items-center">
+        <i class="fa-regular fa-calendar text-2xl md:text-3xl text-white/90 mb-2"></i>
+        <p data-i18n="eventDate" class="font-serif italic text-lg md:text-xl text-white">Saturday | 24 October 2026</p>
+      </div>
 
-            <div class="space-y-1">
-              <p class="font-serif italic font-semibold text-xs sm:text-sm text-cerulean border-b border-cerulean/30 inline-block pb-0.5">12.30 pm</p>
-              <p data-i18n="event2" class="font-serif italic text-xs sm:text-sm text-slate-700">Arrival of Bride & Groom</p>
-            </div>
+      <div class="flex flex-col items-center">
+        <i class="fa-regular fa-clock text-2xl md:text-3xl text-white/90 mb-2"></i>
+        <p class="font-serif italic text-lg md:text-xl text-white">11:30 am - 4:00 pm</p>
+      </div>
 
-            <div class="space-y-1">
-              <p class="font-serif italic font-semibold text-xs sm:text-sm text-cerulean border-b border-cerulean/30 inline-block pb-0.5">1.00 pm</p>
-              <p data-i18n="event3" class="font-serif italic text-xs sm:text-sm text-slate-700">Cake Cutting & Lunch</p>
-            </div>
+      <div class="flex flex-col items-center">
+        <i class="fa-solid fa-location-dot text-2xl md:text-3xl text-white/90 mb-2"></i>
+        <p class="font-serif italic text-lg md:text-xl text-white">Ideal Convention Centre</p>
+        <p class="text-xs md:text-sm text-white/75 mt-1 font-serif">Shah Alam, Selangor</p>
+      </div>
+    </div>
 
-            <div class="space-y-1">
-              <p class="font-serif italic font-semibold text-xs sm:text-sm text-cerulean border-b border-cerulean/30 inline-block pb-0.5">4.00 pm</p>
-              <p data-i18n="event4" class="font-serif italic text-xs sm:text-sm text-slate-700">End of Ceremony</p>
-            </div>
+    <!-- Action Buttons: Add to Calendar, Google Maps, Waze -->
+    <div class="flex flex-wrap gap-3.5 pt-4 justify-center items-center">
+      <!-- Add to Google Calendar Button -->
+      <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Wedding+of+Is+%26+Mimi&dates=20261024T030000Z/20261024T080000Z&details=Wedding+Celebration+of+Zeqry+Iskandar+%26+Fatini+Syamimi&location=Ideal+Convention+Centre%2C+Shah+Alam"
+        target="_blank"
+        class="sideGroom px-5 py-2.5 bg-white text-cerulean hover:bg-slate-100 rounded-full text-xs sm:text-sm font-semibold tracking-wider uppercase font-sans flex items-center gap-2 shadow-lg transition transform hover:scale-105 active:scale-95">
+        <i class="fa-solid fa-calendar-plus text-sm"></i> <span data-i18n="addToCalendar">Add to Calendar</span>
+      </a>
+      <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Wedding+of+Is+%26+Mimi&dates=20261024T030000Z/20261024T080000Z&details=Wedding+Celebration+of+Fatini+Syamimi+%26+Zeqry+Iskandar&location=Ideal+Convention+Centre%2C+Shah+Alam"
+        target="_blank"
+        class="sideBride px-5 py-2.5 bg-white text-cerulean hover:bg-slate-100 rounded-full text-xs sm:text-sm font-semibold tracking-wider uppercase font-sans flex items-center gap-2 shadow-lg transition transform hover:scale-105 active:scale-95">
+        <i class="fa-solid fa-calendar-plus text-sm"></i> <span data-i18n="addToCalendar">Add to Calendar</span>
+      </a>
+    </div>
+
+    <div class="flex flex-wrap gap-3.5 pt-4 justify-center items-center">
+
+      <!-- Maps Links -->
+      <a href="https://maps.google.com/?q=Ideal+Convention+Centre+Shah+Alam" target="_blank"
+        class="px-5 py-2.5 bg-white/10 hover:bg-white/20 border border-white/30 rounded-full text-xs sm:text-sm font-serif italic text-white flex items-center gap-2 transition transform hover:scale-105 active:scale-95">
+        <i class="fa-solid fa-map-pin text-[11px]"></i> Google Maps
+      </a>
+      <a href="https://waze.com/ul?q=Ideal+Convention+Centre+Shah+Alam" target="_blank"
+        class="px-5 py-2.5 bg-white/10 hover:bg-white/20 border border-white/30 rounded-full text-xs sm:text-sm font-serif italic text-white flex items-center gap-2 transition transform hover:scale-105 active:scale-95">
+        <i class="fa-brands fa-waze text-[11px]"></i> Waze
+      </a>
+    </div>
+  </section>
+
+  <!-- SECTION 4A: COUNTDOWN SECTION -->
+  <section
+    class="py-16 md:py-20 px-6 text-center flex flex-col items-center fade-in w-full bg-theme-secondary text-slate-800 border-b border-stone-200">
+    <h3 data-i18n="countdownTitle" class="font-script text-4xl sm:text-5xl md:text-6xl text-cerulean mb-6">Counting on
+      the big days</h3>
+
+    <!-- Countdown Display -->
+    <div class="flex items-center justify-center gap-3 sm:gap-6 text-center">
+      <div>
+        <span id="c-days" class="font-serif text-3xl sm:text-4xl md:text-5xl text-slate-800 font-medium block">00</span>
+        <span data-i18n="days"
+          class="text-[10px] sm:text-xs uppercase font-serif tracking-wider text-slate-500">Days</span>
+      </div>
+      <span class="font-serif text-2xl sm:text-3xl text-slate-400 pb-4">:</span>
+      <div>
+        <span id="c-hours"
+          class="font-serif text-3xl sm:text-4xl md:text-5xl text-slate-800 font-medium block">00</span>
+        <span data-i18n="hours"
+          class="text-[10px] sm:text-xs uppercase font-serif tracking-wider text-slate-500">Hours</span>
+      </div>
+      <span class="font-serif text-2xl sm:text-3xl text-slate-400 pb-4">:</span>
+      <div>
+        <span id="c-mins" class="font-serif text-3xl sm:text-4xl md:text-5xl text-slate-800 font-medium block">00</span>
+        <span data-i18n="minutes"
+          class="text-[10px] sm:text-xs uppercase font-serif tracking-wider text-slate-500">Minutes</span>
+      </div>
+      <span class="font-serif text-2xl sm:text-3xl text-slate-400 pb-4">:</span>
+      <div>
+        <span id="c-secs" class="font-serif text-3xl sm:text-4xl md:text-5xl text-slate-800 font-medium block">00</span>
+        <span data-i18n="seconds"
+          class="text-[10px] sm:text-xs uppercase font-serif tracking-wider text-slate-500">Seconds</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4B: ORDER OF EVENTS / AGENDA SECTION (CERULEAN BG WITH SILVER TRAY) -->
+  <section
+    class="py-16 md:py-24 px-6 text-center flex flex-col items-center fade-in w-full bg-theme-primary text-white">
+    <div class="relative w-full max-w-md sm:max-w-lg flex justify-center items-center py-2">
+      <div
+        class="silver-tray w-full rounded-[40px] p-6 sm:p-8 text-slate-800 relative border-4 border-slate-300 shadow-2xl">
+        <div
+          class="absolute -left-4 top-1/2 -translate-y-1/2 w-4 h-16 bg-slate-300 rounded-l-md border-y border-l border-slate-400">
+        </div>
+        <div
+          class="absolute -right-4 top-1/2 -translate-y-1/2 w-4 h-16 bg-slate-300 rounded-r-md border-y border-r border-slate-400">
+        </div>
+
+        <div
+          class="bg-[#faf6ee] p-6 sm:p-8 rounded-3xl shadow-inner border border-amber-900/10 text-center space-y-6 sm:space-y-8">
+          <h4 data-i18n="orderOfEvents" class="font-serif italic font-bold text-xl sm:text-2xl text-cerulean-deep">Order
+            of Events</h4>
+
+          <div class="space-y-1">
+            <p
+              class="font-serif italic font-semibold text-xs sm:text-sm text-cerulean border-b border-cerulean/30 inline-block pb-0.5">
+              11.30 am</p>
+            <p data-i18n="event1" class="font-serif italic text-xs sm:text-sm text-slate-700">Guest Arrival & Reception
+            </p>
+          </div>
+
+          <div class="space-y-1">
+            <p
+              class="font-serif italic font-semibold text-xs sm:text-sm text-cerulean border-b border-cerulean/30 inline-block pb-0.5">
+              12.30 pm</p>
+            <p data-i18n="event2" class="font-serif italic text-xs sm:text-sm text-slate-700">Arrival of Bride & Groom
+            </p>
+          </div>
+
+          <div class="space-y-1">
+            <p
+              class="font-serif italic font-semibold text-xs sm:text-sm text-cerulean border-b border-cerulean/30 inline-block pb-0.5">
+              1.00 pm</p>
+            <p data-i18n="event3" class="font-serif italic text-xs sm:text-sm text-slate-700">Cake Cutting & Lunch</p>
+          </div>
+
+          <div class="space-y-1">
+            <p
+              class="font-serif italic font-semibold text-xs sm:text-sm text-cerulean border-b border-cerulean/30 inline-block pb-0.5">
+              4.00 pm</p>
+            <p data-i18n="event4" class="font-serif italic text-xs sm:text-sm text-slate-700">End of Ceremony</p>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- SECTION 5: PHOTO CAROUSEL SECTION -->
-    <section class="py-16 md:py-24 bg-theme-secondary text-slate-800 fade-in w-full overflow-hidden">
-      <div class="w-full max-w-4xl mx-auto px-4">
-        <div 
-          id="carousel" 
-          class="flex overflow-x-auto snap-x snap-mandatory no-scrollbar scroll-smooth gap-4 py-8 px-[20vw] sm:px-[25vw] lg:px-[20vw] items-center"
-        >
+  <!-- SECTION 5: PHOTO CAROUSEL SECTION -->
+  <section class="py-16 md:py-24 bg-theme-secondary text-slate-800 fade-in w-full overflow-hidden">
+    <div class="w-full max-w-4xl mx-auto px-4">
+      <div id="carousel"
+        class="flex overflow-x-auto snap-x snap-mandatory no-scrollbar scroll-smooth gap-4 py-8 px-[20vw] sm:px-[25vw] lg:px-[20vw] items-center">
 
-          <div class="carousel-item snap-center shrink-0 w-[60vw] sm:w-[50vw] lg:w-[30vw] aspect-[4/3] rounded-2xl overflow-hidden shadow-md border border-stone-200 transition-all duration-500 ease-out cursor-pointer">
+        <div
+          class="carousel-item snap-center shrink-0 w-[68vw] sm:w-[50vw] lg:w-[26vw] bg-white rounded-2xl p-3 sm:p-3.5 pb-4 sm:pb-5 shadow-xl border border-stone-200/90 flex flex-col justify-between transition-all duration-500 ease-out cursor-pointer">
+
+          <div class="w-full aspect-[4/3] rounded-xl overflow-hidden bg-slate-100 shadow-inner">
             <img src="assets/gallery_1.jpeg" alt="Wedding Moments 1" class="w-full h-full object-cover">
           </div>
 
-          <div class="carousel-item snap-center shrink-0 w-[60vw] sm:w-[50vw] lg:w-[30vw] aspect-[4/3] rounded-2xl overflow-hidden shadow-md border border-stone-200 transition-all duration-500 ease-out cursor-pointer">
+          <div class="pt-3 pb-1 text-center px-1">
+            <p class="font-serif italic text-xs sm:text-sm text-slate-700 tracking-wide">
+              Where our story began ✨
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="carousel-item snap-center shrink-0 w-[68vw] sm:w-[50vw] lg:w-[26vw] bg-white rounded-2xl p-3 sm:p-3.5 pb-4 sm:pb-5 shadow-xl border border-stone-200/90 flex flex-col justify-between transition-all duration-500 ease-out cursor-pointer">
+
+          <div class="w-full aspect-[4/3] rounded-xl overflow-hidden bg-slate-100 shadow-inner">
             <img src="assets/gallery_11.jpeg" alt="Wedding Moments 11" class="w-full h-full object-cover">
           </div>
 
-          <div class="carousel-item snap-center shrink-0 w-[60vw] sm:w-[50vw] lg:w-[30vw] aspect-[3/4] rounded-2xl overflow-hidden shadow-md border border-stone-200 transition-all duration-500 ease-out cursor-pointer">
+          <div class="pt-3 pb-1 text-center px-1">
+            <p class="font-serif italic text-xs sm:text-sm text-slate-700 tracking-wide">
+              Where our story began ✨
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="carousel-item snap-center shrink-0 w-[68vw] sm:w-[50vw] lg:w-[26vw] bg-white rounded-2xl p-3 sm:p-3.5 pb-4 sm:pb-5 shadow-xl border border-stone-200/90 flex flex-col justify-between transition-all duration-500 ease-out cursor-pointer">
+          <div class="w-full aspect-[1/1] rounded-xl overflow-hidden bg-slate-100 shadow-inner">
             <img src="assets/gallery_12.jpeg" alt="Wedding Moments 12" class="w-full h-full object-cover">
           </div>
+          <div class="pt-3 pb-1 text-center px-1">
+            <p class="font-serif italic text-xs sm:text-sm text-slate-700 tracking-wide">
+              Where our story began ✨
+            </p>
+          </div>
+        </div>
 
-          <div class="carousel-item snap-center shrink-0 w-[60vw] sm:w-[50vw] lg:w-[30vw] aspect-[3/4] rounded-2xl overflow-hidden shadow-md border border-stone-200 transition-all duration-500 ease-out cursor-pointer">
+        <div
+          class="carousel-item snap-center shrink-0 w-[68vw] sm:w-[50vw] lg:w-[26vw] bg-white rounded-2xl p-3 sm:p-3.5 pb-4 sm:pb-5 shadow-xl border border-stone-200/90 flex flex-col justify-between transition-all duration-500 ease-out cursor-pointer">
+          <div class="w-full aspect-[1/1] rounded-xl overflow-hidden bg-slate-100 shadow-inner">
             <img src="assets/gallery_13.jpeg" alt="Wedding Moments 13" class="w-full h-full object-cover">
           </div>
+          <div class="pt-3 pb-1 text-center px-1">
+            <p class="font-serif italic text-xs sm:text-sm text-slate-700 tracking-wide">
+              Where our story began ✨
+            </p>
+          </div>
+        </div>
 
-          <div class="carousel-item snap-center shrink-0 w-[60vw] sm:w-[50vw] lg:w-[30vw] aspect-[3/4] rounded-2xl overflow-hidden shadow-md border border-stone-200 transition-all duration-500 ease-out cursor-pointer">
+        <div
+          class="carousel-item snap-center shrink-0 w-[68vw] sm:w-[50vw] lg:w-[26vw] bg-white rounded-2xl p-3 sm:p-3.5 pb-4 sm:pb-5 shadow-xl border border-stone-200/90 flex flex-col justify-between transition-all duration-500 ease-out cursor-pointer">
+          <div class="w-full aspect-[1/1] rounded-xl overflow-hidden bg-slate-100 shadow-inner">
             <img src="assets/gallery_14.jpeg" alt="Wedding Moments 14" class="w-full h-full object-cover">
           </div>
+          <div class="pt-3 pb-1 text-center px-1">
+            <p class="font-serif italic text-xs sm:text-sm text-slate-700 tracking-wide">
+              Where our story began ✨
+            </p>
+          </div>
+        </div>
 
-          <div class="carousel-item snap-center shrink-0 w-[60vw] sm:w-[50vw] lg:w-[30vw] aspect-[3/4] rounded-2xl overflow-hidden shadow-md border border-stone-200 transition-all duration-500 ease-out cursor-pointer">
+        <div
+          class="carousel-item snap-center shrink-0 w-[68vw] sm:w-[50vw] lg:w-[26vw] bg-white rounded-2xl p-3 sm:p-3.5 pb-4 sm:pb-5 shadow-xl border border-stone-200/90 flex flex-col justify-between transition-all duration-500 ease-out cursor-pointer">
+          <div class="w-full aspect-[1/1] rounded-xl overflow-hidden bg-slate-100 shadow-inner">
             <img src="assets/gallery_19.jpeg" alt="Wedding Moments 19" class="w-full h-full object-cover">
           </div>
+          <div class="pt-3 pb-1 text-center px-1">
+            <p class="font-serif italic text-xs sm:text-sm text-slate-700 tracking-wide">
+              Where our story began ✨
+            </p>
+          </div>
+        </div>
 
-          <div class="carousel-item snap-center shrink-0 w-[60vw] sm:w-[50vw] lg:w-[30vw] aspect-[4/3] rounded-2xl overflow-hidden shadow-md border border-stone-200 transition-all duration-500 ease-out cursor-pointer">
+        <div
+          class="carousel-item snap-center shrink-0 w-[68vw] sm:w-[50vw] lg:w-[26vw] bg-white rounded-2xl p-3 sm:p-3.5 pb-4 sm:pb-5 shadow-xl border border-stone-200/90 flex flex-col justify-between transition-all duration-500 ease-out cursor-pointer">
+
+          <div class="w-full aspect-[4/3] rounded-xl overflow-hidden bg-slate-100 shadow-inner">
             <img src="assets/gallery_15.jpeg" alt="Wedding Moments 15" class="w-full h-full object-cover">
           </div>
 
-          <div class="carousel-item snap-center shrink-0 w-[60vw] sm:w-[50vw] lg:w-[30vw] aspect-[3/4] rounded-2xl overflow-hidden shadow-md border border-stone-200 transition-all duration-500 ease-out cursor-pointer">
+          <div class="pt-3 pb-1 text-center px-1">
+            <p class="font-serif italic text-xs sm:text-sm text-slate-700 tracking-wide">
+              Where our story began ✨
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="carousel-item snap-center shrink-0 w-[68vw] sm:w-[50vw] lg:w-[26vw] bg-white rounded-2xl p-3 sm:p-3.5 pb-4 sm:pb-5 shadow-xl border border-stone-200/90 flex flex-col justify-between transition-all duration-500 ease-out cursor-pointer">
+          <div class="w-full aspect-[1/1] rounded-xl overflow-hidden bg-slate-100 shadow-inner">
             <img src="assets/gallery_16.jpeg" alt="Wedding Moments 16" class="w-full h-full object-cover">
           </div>
+          <div class="pt-3 pb-1 text-center px-1">
+            <p class="font-serif italic text-xs sm:text-sm text-slate-700 tracking-wide">
+              Where our story began ✨
+            </p>
+          </div>
+        </div>
 
-          <div class="carousel-item snap-center shrink-0 w-[60vw] sm:w-[50vw] lg:w-[30vw] aspect-[3/4] rounded-2xl overflow-hidden shadow-md border border-stone-200 transition-all duration-500 ease-out cursor-pointer">
+        <div
+          class="carousel-item snap-center shrink-0 w-[68vw] sm:w-[50vw] lg:w-[26vw] bg-white rounded-2xl p-3 sm:p-3.5 pb-4 sm:pb-5 shadow-xl border border-stone-200/90 flex flex-col justify-between transition-all duration-500 ease-out cursor-pointer">
+          <div class="w-full aspect-[1/1] rounded-xl overflow-hidden bg-slate-100 shadow-inner">
             <img src="assets/gallery_8.jpeg" alt="Wedding Moments 8" class="w-full h-full object-cover">
           </div>
+          <div class="pt-3 pb-1 text-center px-1">
+            <p class="font-serif italic text-xs sm:text-sm text-slate-700 tracking-wide">
+              Where our story began ✨
+            </p>
+          </div>
+        </div>
 
-          <div class="carousel-item snap-center shrink-0 w-[60vw] sm:w-[50vw] lg:w-[30vw] aspect-[3/4] rounded-2xl overflow-hidden shadow-md border border-stone-200 transition-all duration-500 ease-out cursor-pointer">
+        <div
+          class="carousel-item snap-center shrink-0 w-[68vw] sm:w-[50vw] lg:w-[26vw] bg-white rounded-2xl p-3 sm:p-3.5 pb-4 sm:pb-5 shadow-xl border border-stone-200/90 flex flex-col justify-between transition-all duration-500 ease-out cursor-pointer">
+          <div class="w-full aspect-[1/1] rounded-xl overflow-hidden bg-slate-100 shadow-inner">
             <img src="assets/gallery_10.jpeg" alt="Wedding Moments 10" class="w-full h-full object-cover">
           </div>
+          <div class="pt-3 pb-1 text-center px-1">
+            <p class="font-serif italic text-xs sm:text-sm text-slate-700 tracking-wide">
+              Where our story began ✨
+            </p>
+          </div>
+        </div>
 
-          <div class="carousel-item snap-center shrink-0 w-[60vw] sm:w-[50vw] lg:w-[30vw] aspect-[4/3] rounded-2xl overflow-hidden shadow-md border border-stone-200 transition-all duration-500 ease-out cursor-pointer">
+        <div
+          class="carousel-item snap-center shrink-0 w-[68vw] sm:w-[50vw] lg:w-[26vw] bg-white rounded-2xl p-3 sm:p-3.5 pb-4 sm:pb-5 shadow-xl border border-stone-200/90 flex flex-col justify-between transition-all duration-500 ease-out cursor-pointer">
+
+          <div class="w-full aspect-[4/3] rounded-xl overflow-hidden bg-slate-100 shadow-inner">
             <img src="assets/gallery_5.jpeg" alt="Wedding Moments 5" class="w-full h-full object-cover">
           </div>
 
-          <div class="carousel-item snap-center shrink-0 w-[60vw] sm:w-[50vw] lg:w-[30vw] aspect-[4/3] rounded-2xl overflow-hidden shadow-md border border-stone-200 transition-all duration-500 ease-out cursor-pointer">
+          <div class="pt-3 pb-1 text-center px-1">
+            <p class="font-serif italic text-xs sm:text-sm text-slate-700 tracking-wide">
+              Where our story began ✨
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="carousel-item snap-center shrink-0 w-[68vw] sm:w-[50vw] lg:w-[26vw] bg-white rounded-2xl p-3 sm:p-3.5 pb-4 sm:pb-5 shadow-xl border border-stone-200/90 flex flex-col justify-between transition-all duration-500 ease-out cursor-pointer">
+
+          <div class="w-full aspect-[4/3] rounded-xl overflow-hidden bg-slate-100 shadow-inner">
             <img src="assets/gallery_6.jpeg" alt="Wedding Moments 6" class="w-full h-full object-cover">
           </div>
 
-          <div class="carousel-item snap-center shrink-0 w-[60vw] sm:w-[50vw] lg:w-[30vw] aspect-[4/3] rounded-2xl overflow-hidden shadow-md border border-stone-200 transition-all duration-500 ease-out cursor-pointer">
+          <div class="pt-3 pb-1 text-center px-1">
+            <p class="font-serif italic text-xs sm:text-sm text-slate-700 tracking-wide">
+              Where our story began ✨
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="carousel-item snap-center shrink-0 w-[68vw] sm:w-[50vw] lg:w-[26vw] bg-white rounded-2xl p-3 sm:p-3.5 pb-4 sm:pb-5 shadow-xl border border-stone-200/90 flex flex-col justify-between transition-all duration-500 ease-out cursor-pointer">
+
+          <div class="w-full aspect-[4/3] rounded-xl overflow-hidden bg-slate-100 shadow-inner">
             <img src="assets/gallery_18.jpeg" alt="Wedding Moments 18" class="w-full h-full object-cover">
           </div>
 
-          <div class="carousel-item snap-center shrink-0 w-[60vw] sm:w-[50vw] lg:w-[30vw] aspect-[3/4] rounded-2xl overflow-hidden shadow-md border border-stone-200 transition-all duration-500 ease-out cursor-pointer">
+          <div class="pt-3 pb-1 text-center px-1">
+            <p class="font-serif italic text-xs sm:text-sm text-slate-700 tracking-wide">
+              Where our story began ✨
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="carousel-item snap-center shrink-0 w-[68vw] sm:w-[50vw] lg:w-[26vw] bg-white rounded-2xl p-3 sm:p-3.5 pb-4 sm:pb-5 shadow-xl border border-stone-200/90 flex flex-col justify-between transition-all duration-500 ease-out cursor-pointer">
+          <div class="w-full aspect-[1/1] rounded-xl overflow-hidden bg-slate-100 shadow-inner">
             <img src="assets/gallery_20.jpeg" alt="Wedding Moments 20" class="w-full h-full object-cover">
           </div>
+          <div class="pt-3 pb-1 text-center px-1">
+            <p class="font-serif italic text-xs sm:text-sm text-slate-700 tracking-wide">
+              Where our story began ✨
+            </p>
+          </div>
+        </div>
 
-          <!-- <div class="carousel-item snap-center shrink-0 w-[60vw] sm:w-[50vw] lg:w-[30vw] aspect-[3/4] rounded-2xl overflow-hidden shadow-md border border-stone-200 transition-all duration-500 ease-out cursor-pointer">
+        <!-- <div
+          class="carousel-item snap-center shrink-0 w-[60vw] sm:w-[50vw] lg:w-[30vw] aspect-[4/3] rounded-2xl overflow-hidden shadow-md border border-stone-200 transition-all duration-500 ease-out cursor-pointer">
+          <img src="assets/gallery_1.jpeg" alt="Wedding Moments 1" class="w-full h-full object-cover">
+        </div> -->
+
+        <!-- <div
+          class="carousel-item snap-center shrink-0 w-[60vw] sm:w-[50vw] lg:w-[30vw] aspect-[4/3] rounded-2xl overflow-hidden shadow-md border border-stone-200 transition-all duration-500 ease-out cursor-pointer">
+          <img src="assets/gallery_11.jpeg" alt="Wedding Moments 11" class="w-full h-full object-cover">
+        </div> -->
+
+        <!-- <div
+          class="carousel-item snap-center shrink-0 w-[60vw] sm:w-[50vw] lg:w-[30vw] aspect-[3/4] rounded-2xl overflow-hidden shadow-md border border-stone-200 transition-all duration-500 ease-out cursor-pointer">
+          <img src="assets/gallery_14.jpeg" alt="Wedding Moments 14" class="w-full h-full object-cover">
+        </div> -->
+
+        <!-- <div
+          class="carousel-item snap-center shrink-0 w-[60vw] sm:w-[50vw] lg:w-[30vw] aspect-[3/4] rounded-2xl overflow-hidden shadow-md border border-stone-200 transition-all duration-500 ease-out cursor-pointer">
+          <img src="assets/gallery_19.jpeg" alt="Wedding Moments 19" class="w-full h-full object-cover">
+        </div> -->
+
+        <!-- <div
+          class="carousel-item snap-center shrink-0 w-[60vw] sm:w-[50vw] lg:w-[30vw] aspect-[4/3] rounded-2xl overflow-hidden shadow-md border border-stone-200 transition-all duration-500 ease-out cursor-pointer">
+          <img src="assets/gallery_15.jpeg" alt="Wedding Moments 15" class="w-full h-full object-cover">
+        </div> -->
+
+        <!-- <div
+          class="carousel-item snap-center shrink-0 w-[60vw] sm:w-[50vw] lg:w-[30vw] aspect-[3/4] rounded-2xl overflow-hidden shadow-md border border-stone-200 transition-all duration-500 ease-out cursor-pointer">
+          <img src="assets/gallery_16.jpeg" alt="Wedding Moments 16" class="w-full h-full object-cover">
+        </div> -->
+
+        <!-- <div
+          class="carousel-item snap-center shrink-0 w-[60vw] sm:w-[50vw] lg:w-[30vw] aspect-[3/4] rounded-2xl overflow-hidden shadow-md border border-stone-200 transition-all duration-500 ease-out cursor-pointer">
+          <img src="assets/gallery_8.jpeg" alt="Wedding Moments 8" class="w-full h-full object-cover">
+        </div> -->
+
+        <!-- <div
+          class="carousel-item snap-center shrink-0 w-[60vw] sm:w-[50vw] lg:w-[30vw] aspect-[3/4] rounded-2xl overflow-hidden shadow-md border border-stone-200 transition-all duration-500 ease-out cursor-pointer">
+          <img src="assets/gallery_10.jpeg" alt="Wedding Moments 10" class="w-full h-full object-cover">
+        </div> -->
+
+        <!-- <div
+          class="carousel-item snap-center shrink-0 w-[60vw] sm:w-[50vw] lg:w-[30vw] aspect-[4/3] rounded-2xl overflow-hidden shadow-md border border-stone-200 transition-all duration-500 ease-out cursor-pointer">
+          <img src="assets/gallery_5.jpeg" alt="Wedding Moments 5" class="w-full h-full object-cover">
+        </div> -->
+
+        <!-- <div
+          class="carousel-item snap-center shrink-0 w-[60vw] sm:w-[50vw] lg:w-[30vw] aspect-[4/3] rounded-2xl overflow-hidden shadow-md border border-stone-200 transition-all duration-500 ease-out cursor-pointer">
+          <img src="assets/gallery_6.jpeg" alt="Wedding Moments 6" class="w-full h-full object-cover">
+        </div> -->
+
+        <!-- <div
+          class="carousel-item snap-center shrink-0 w-[60vw] sm:w-[50vw] lg:w-[30vw] aspect-[4/3] rounded-2xl overflow-hidden shadow-md border border-stone-200 transition-all duration-500 ease-out cursor-pointer">
+          <img src="assets/gallery_18.jpeg" alt="Wedding Moments 18" class="w-full h-full object-cover">
+        </div> -->
+
+        <!-- <div
+          class="carousel-item snap-center shrink-0 w-[60vw] sm:w-[50vw] lg:w-[30vw] aspect-[3/4] rounded-2xl overflow-hidden shadow-md border border-stone-200 transition-all duration-500 ease-out cursor-pointer">
+          <img src="assets/gallery_20.jpeg" alt="Wedding Moments 20" class="w-full h-full object-cover">
+        </div> -->
+
+        <!-- <div class="carousel-item snap-center shrink-0 w-[60vw] sm:w-[50vw] lg:w-[30vw] aspect-[3/4] rounded-2xl overflow-hidden shadow-md border border-stone-200 transition-all duration-500 ease-out cursor-pointer">
             <img src="assets/gallery_7.jpeg" alt="Wedding Moments 7" class="w-full h-full object-cover">
           </div> -->
 
-          <!-- <div class="carousel-item snap-center shrink-0 w-[60vw] sm:w-[50vw] lg:w-[30vw] aspect-[4/3] rounded-2xl overflow-hidden shadow-md border border-stone-200 transition-all duration-500 ease-out cursor-pointer">
+        <!-- <div class="carousel-item snap-center shrink-0 w-[60vw] sm:w-[50vw] lg:w-[30vw] aspect-[4/3] rounded-2xl overflow-hidden shadow-md border border-stone-200 transition-all duration-500 ease-out cursor-pointer">
             <img src="assets/gallery_2.jpeg" alt="Wedding Moments 2" class="w-full h-full object-cover">
           </div> -->
 
-          <!-- <div class="carousel-item snap-center shrink-0 w-[60vw] sm:w-[50vw] lg:w-[30vw] aspect-[3/4] rounded-2xl overflow-hidden shadow-md border border-stone-200 transition-all duration-500 ease-out cursor-pointer">
+        <!-- <div class="carousel-item snap-center shrink-0 w-[60vw] sm:w-[50vw] lg:w-[30vw] aspect-[3/4] rounded-2xl overflow-hidden shadow-md border border-stone-200 transition-all duration-500 ease-out cursor-pointer">
             <img src="assets/gallery_3.jpeg" alt="Wedding Moments 3" class="w-full h-full object-cover">
           </div>
 
@@ -690,442 +965,540 @@
             <img src="assets/gallery_4.jpeg" alt="Wedding Moments 4" class="w-full h-full object-cover">
           </div> -->
 
-          <!-- <div class="carousel-item snap-center shrink-0 w-[60vw] sm:w-[50vw] lg:w-[30vw] aspect-[3/4] rounded-2xl overflow-hidden shadow-md border border-stone-200 transition-all duration-500 ease-out cursor-pointer">
+        <!-- <div class="carousel-item snap-center shrink-0 w-[60vw] sm:w-[50vw] lg:w-[30vw] aspect-[3/4] rounded-2xl overflow-hidden shadow-md border border-stone-200 transition-all duration-500 ease-out cursor-pointer">
             <img src="assets/gallery_9.jpeg" alt="Wedding Moments 9" class="w-full h-full object-cover">
           </div> -->
 
-          <!-- <div class="carousel-item snap-center shrink-0 w-[60vw] sm:w-[50vw] lg:w-[30vw] aspect-[3/4] rounded-2xl overflow-hidden shadow-md border border-stone-200 transition-all duration-500 ease-out cursor-pointer">
+        <!-- <div class="carousel-item snap-center shrink-0 w-[60vw] sm:w-[50vw] lg:w-[30vw] aspect-[3/4] rounded-2xl overflow-hidden shadow-md border border-stone-200 transition-all duration-500 ease-out cursor-pointer">
             <video src="assets/vid_1.mp4" autoplay loop muted playsinline alt="Wedding Moments 3" class="w-full h-full object-cover">
             </video>
           </div> -->
 
-          <!-- <div class="carousel-item snap-center shrink-0 w-[60vw] sm:w-[50vw] lg:w-[30vw] aspect-[3/4] rounded-2xl overflow-hidden shadow-md border border-stone-200 transition-all duration-500 ease-out cursor-pointer">
+        <!-- <div class="carousel-item snap-center shrink-0 w-[60vw] sm:w-[50vw] lg:w-[30vw] aspect-[3/4] rounded-2xl overflow-hidden shadow-md border border-stone-200 transition-all duration-500 ease-out cursor-pointer">
             <img src="assets/gallery_17.jpeg" alt="Wedding Moments 17" class="w-full h-full object-cover">
           </div> -->
-        </div>
       </div>
-    </section>
 
-    <!-- SECTION 6: WISHES & RSVP SECTION -->
-    <section id="rsvp" class="py-16 md:py-24 px-6 text-center flex flex-col items-center fade-in max-w-2xl mx-auto w-full">
-      <h3 data-i18n="wishesTitle" class="font-script text-4xl sm:text-5xl md:text-6xl text-white mb-6">Wishes for the couple</h3>
-
-      <!-- Wishes Carousel Container -->
-      <div class="w-full max-w-md mx-auto mb-8 relative">
-        <!-- Slide Track (1 item per view, horizontal snap) -->
-        <div 
-          id="wishesCarousel" 
-          class="flex overflow-x-auto snap-x snap-mandatory no-scrollbar scroll-smooth w-full"
-        >
-          <!-- Loading state placeholder -->
-          <div class="w-full shrink-0 snap-center px-2">
-            <div class="h-36 sm:h-40 flex flex-col justify-center items-center p-4 bg-white/10 rounded-2xl backdrop-blur-sm border border-white/20 text-center">
-              <i class="fa-solid fa-spinner fa-spin text-white/70 text-lg mb-2"></i>
-              <p class="font-serif italic text-xs sm:text-sm text-white/80">Loading wishes...</p>
-            </div>
+      <!-- Custom Heart Scrollbar (Half-screen size, rounded track, moving love icon) -->
+      <div class="w-1/2 max-w-xs sm:max-w-sm mx-auto mt-2 px-1">
+        <div id="carouselTrack"
+          class="relative w-full h-1.5 bg-stone-300/60 rounded-full cursor-pointer touch-none flex items-center shadow-inner">
+          <div id="carouselProgressFill"
+            class="absolute left-0 top-0 bottom-0 bg-cerulean/30 rounded-full w-0 pointer-events-none"></div>
+          <div id="carouselThumb"
+            class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 left-0 transition-transform duration-75 cursor-grab active:cursor-grabbing hover:scale-125 text-cerulean select-none flex items-center justify-center">
+            <i class="fa-solid fa-heart text-base drop-shadow-sm"></i>
           </div>
         </div>
-
-        <!-- Dynamic Carousel Dots Indicator -->
-        <div id="wishesDots" class="flex justify-center items-center gap-1.5 mt-4">
-          <!-- Handled by JavaScript -->
-        </div>
       </div>
+    </div>
+  </section>
 
-      <div class="mt-4 mb-6">
-        <h4 data-i18n="rsvpHeading" class="font-serif tracking-[0.2em] text-xs sm:text-sm font-semibold uppercase text-white">RSVP</h4>
-        <p data-i18n="rsvpDeadline" class="font-serif italic text-[11px] sm:text-xs text-white/80 mt-1">Please reply by 17th October 2026</p>
-      </div>
+  <!-- SECTION 6: WISHES & RSVP SECTION -->
+  <section id="rsvp"
+    class="py-16 md:py-24 px-6 text-center flex flex-col items-center fade-in max-w-2xl mx-auto w-full">
+    <h3 data-i18n="wishesTitle" class="font-script text-4xl sm:text-5xl md:text-6xl text-white mb-6">Wishes for the
+      couple</h3>
 
-      <form id="rsvpForm" class="w-full max-w-md space-y-4 text-left">
-        <div class="bg-white rounded-xl p-4 sm:p-5 shadow-lg text-slate-800">
-          <label data-i18n="labelName" class="block text-xs sm:text-sm font-semibold font-sans mb-1 text-slate-700">Name</label>
-          <input type="text" name="name" required data-i18n-ph="phName" placeholder="Your name" class="w-full text-xs sm:text-sm text-slate-600 border-b border-dashed border-slate-300 pb-1.5 focus:outline-none focus:border-cerulean bg-transparent">
-        </div>
-
-        <div class="bg-white rounded-xl p-4 sm:p-5 shadow-lg text-slate-800">
-          <label data-i18n="labelAttendance" class="block text-xs sm:text-sm font-semibold font-sans mb-2 text-slate-700">Attendance</label>
-          <div class="space-y-2">
-            <label class="flex items-center gap-2 text-xs sm:text-sm text-slate-600 cursor-pointer">
-              <input type="radio" name="attendance" value="yes" checked class="text-cerulean focus:ring-cerulean">
-              <span data-i18n="attendYes">Joyfully Attend</span>
-            </label>
-            <label class="flex items-center gap-2 text-xs sm:text-sm text-slate-600 cursor-pointer">
-              <input type="radio" name="attendance" value="no" class="text-cerulean focus:ring-cerulean">
-              <span data-i18n="attendNo">Regretfully Decline</span>
-            </label>
+    <!-- Wishes Carousel Container -->
+    <div class="w-full max-w-md mx-auto mb-8 relative">
+      <!-- Slide Track (1 item per view, horizontal snap) -->
+      <div id="wishesCarousel" class="flex overflow-x-auto snap-x snap-mandatory no-scrollbar scroll-smooth w-full">
+        <!-- Loading state placeholder -->
+        <div class="w-full shrink-0 snap-center px-2">
+          <div
+            class="h-36 sm:h-40 flex flex-col justify-center items-center p-4 bg-white/10 rounded-2xl backdrop-blur-sm border border-white/20 text-center">
+            <i class="fa-solid fa-spinner fa-spin text-white/70 text-lg mb-2"></i>
+            <p class="font-serif italic text-xs sm:text-sm text-white/80">Loading wishes...</p>
           </div>
         </div>
+      </div>
 
-        <div class="bg-white rounded-xl p-4 sm:p-5 shadow-lg text-slate-800">
-          <label data-i18n="labelPax" class="block text-xs sm:text-sm font-semibold font-sans mb-1 text-slate-700">Pax</label>
-          <input type="number" name="pax" min="1" required data-i18n-ph="phPax" placeholder="Number of guests" class="w-full text-xs sm:text-sm text-slate-600 border-b border-dashed border-slate-300 pb-1.5 focus:outline-none focus:border-cerulean bg-transparent">
+      <!-- Dynamic Carousel Dots Indicator -->
+      <div id="wishesDots" class="flex justify-center items-center gap-1.5 mt-4">
+        <!-- Handled by JavaScript -->
+      </div>
+    </div>
+
+    <div class="mt-4 mb-6">
+      <h4 data-i18n="rsvpHeading"
+        class="font-serif tracking-[0.2em] text-xs sm:text-sm font-semibold uppercase text-white">RSVP</h4>
+      <p data-i18n="rsvpDeadline" class="font-serif italic text-[11px] sm:text-xs text-white/80 mt-1">Please reply by
+        17th October 2026</p>
+    </div>
+
+    <form id="rsvpForm" class="w-full max-w-md space-y-4 text-left">
+      <div class="bg-white rounded-xl p-4 sm:p-5 shadow-lg text-slate-800">
+        <label data-i18n="labelName"
+          class="block text-xs sm:text-sm font-semibold font-sans mb-1 text-slate-700">Name</label>
+        <input type="text" name="name" required data-i18n-ph="phName" placeholder="Your name"
+          class="w-full text-xs sm:text-sm text-slate-600 border-b border-dashed border-slate-300 pb-1.5 focus:outline-none focus:border-cerulean bg-transparent">
+      </div>
+
+      <div class="bg-white rounded-xl p-4 sm:p-5 shadow-lg text-slate-800">
+        <label data-i18n="labelAttendance"
+          class="block text-xs sm:text-sm font-semibold font-sans mb-2 text-slate-700">Attendance</label>
+        <div class="space-y-2">
+          <label class="flex items-center gap-2 text-xs sm:text-sm text-slate-600 cursor-pointer">
+            <input type="radio" name="attendance" value="yes" checked class="text-cerulean focus:ring-cerulean">
+            <span data-i18n="attendYes">Joyfully Attend</span>
+          </label>
+          <label class="flex items-center gap-2 text-xs sm:text-sm text-slate-600 cursor-pointer">
+            <input type="radio" name="attendance" value="no" class="text-cerulean focus:ring-cerulean">
+            <span data-i18n="attendNo">Regretfully Decline</span>
+          </label>
         </div>
+      </div>
 
-        <div class="bg-white rounded-xl p-4 sm:p-5 shadow-lg text-slate-800">
-          <label data-i18n="labelWishes" class="block text-xs sm:text-sm font-semibold font-sans mb-1 text-slate-700">Send the couple your wishes</label>
-          <input type="text" name="wishes" data-i18n-ph="phWishes" placeholder="Write your wish..." class="w-full text-xs sm:text-sm text-slate-600 border-b border-dashed border-slate-300 pb-1.5 focus:outline-none focus:border-cerulean bg-transparent">
-        </div>
+      <div class="bg-white rounded-xl p-4 sm:p-5 shadow-lg text-slate-800">
+        <label data-i18n="labelPax"
+          class="block text-xs sm:text-sm font-semibold font-sans mb-1 text-slate-700">Pax</label>
+        <input type="number" name="pax" min="1" required data-i18n-ph="phPax" placeholder="Number of guests"
+          class="w-full text-xs sm:text-sm text-slate-600 border-b border-dashed border-slate-300 pb-1.5 focus:outline-none focus:border-cerulean bg-transparent">
+      </div>
 
-        <div class="text-center pt-2">
-          <button type="submit" id="submitBtn" data-i18n="submitBtn" class="px-8 sm:px-12 py-2.5 sm:py-3 bg-slate-200 hover:bg-white text-slate-800 rounded-lg text-xs sm:text-sm font-semibold tracking-wider font-sans shadow transition transform hover:scale-105 active:scale-95 cursor-pointer">
-            Submit
-          </button>
-        </div>
+      <div class="bg-white rounded-xl p-4 sm:p-5 shadow-lg text-slate-800">
+        <label data-i18n="labelWishes" class="block text-xs sm:text-sm font-semibold font-sans mb-1 text-slate-700">Send
+          the couple your wishes</label>
+        <input type="text" name="wishes" data-i18n-ph="phWishes" placeholder="Write your wish..."
+          class="w-full text-xs sm:text-sm text-slate-600 border-b border-dashed border-slate-300 pb-1.5 focus:outline-none focus:border-cerulean bg-transparent">
+      </div>
 
-        <div id="rsvpSuccess" data-i18n="rsvpSuccessMsg" class="hidden p-3 bg-white/20 backdrop-blur-sm border border-white/40 text-white text-xs sm:text-sm rounded-lg text-center font-serif italic mt-3">
-          Thank you! Your RSVP has been recorded.
-        </div>
-      </form>
-    </section>
+      <div class="text-center pt-2">
+        <button type="submit" id="submitBtn" data-i18n="submitBtn"
+          class="px-8 sm:px-12 py-2.5 sm:py-3 bg-slate-200 hover:bg-white text-slate-800 rounded-lg text-xs sm:text-sm font-semibold tracking-wider font-sans shadow transition transform hover:scale-105 active:scale-95 cursor-pointer">
+          Submit
+        </button>
+      </div>
 
-    <!-- FOOTER -->
-    <footer class="py-10 text-center bg-black/20 text-white/60 text-xs sm:text-sm w-full">
-      <p class="sideGroom font-script text-2xl sm:text-3xl text-white/90">Is & Mimi</p>
-      <p class="sideBride font-script text-2xl sm:text-3xl text-white/90">Mimi & Is</p>
-      <p data-i18n="footerSub" class="mt-1 text-[10px] sm:text-xs tracking-widest uppercase font-serif">24.10.2026 • Ideal Convention Centre, Shah Alam</p>
-      <!-- <div class="mt-4">
+      <div id="rsvpSuccess" data-i18n="rsvpSuccessMsg"
+        class="hidden p-3 bg-white/20 backdrop-blur-sm border border-white/40 text-white text-xs sm:text-sm rounded-lg text-center font-serif italic mt-3">
+        Thank you! Your RSVP has been recorded.
+      </div>
+    </form>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-10 text-center bg-black/20 text-white/60 text-xs sm:text-sm w-full">
+    <p class="sideGroom font-script text-2xl sm:text-3xl text-white/90">Is & Mimi</p>
+    <p class="sideBride font-script text-2xl sm:text-3xl text-white/90">Mimi & Is</p>
+    <p data-i18n="footerSub" class="mt-1 text-[10px] sm:text-xs tracking-widest uppercase font-serif">24.10.2026 • Ideal
+      Convention Centre, Shah Alam</p>
+    <!-- <div class="mt-4">
         <a href="print.html" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/20 text-white/80 hover:text-white text-[11px] font-serif transition border border-white/20">
           <i class="fa-solid fa-print text-[10px]"></i> Print Physical Card
         </a>
       </div> -->
-    </footer>
+  </footer>
 
-  </div>
+</div>
 
-  <script>
-    // ==================== I18N TRANSLATIONS ====================
-    const translations = {
-      en: {
-        gettingMarried: "We're Getting Married",
-        saveTheDate: "Save the Date!",
-        tapToOpen: "Tap to Open Invitation",
-        weddingOf: "Wedding of",
-        heroDateLocation: "24 Oct 2026 | Ideal Convention Centre, Shah Alam",
-        introGratitude: "With hearts full of gratitude to Almighty Allah,<br>we",
-        fatherGroom: "( Father of the Groom )",
-        motherGroom: "( Mother of the Groom )",
-        guardianBride: "( Grandmother & Guardian of the Bride )",
-        fatherBride: "( Father of the Bride )",
-        motherBride: "( Mother of the Bride )",
-        invitationHonorGroom: "request the honour of the presence of<br><span class=\"font-sans font-medium text-[11px] sm:text-xs md:text-sm tracking-wider\">YBhg. Dato' / Datin / Mr. / Mrs. / Ms.</span><br>at the reception of our son<br>and the love of his life",
-        invitationHonorBride: "request the honour of the presence of<br><span class=\"font-sans font-medium text-[11px] sm:text-xs md:text-sm tracking-wider\">YBhg. Dato' / Datin / Mr. / Mrs. / Ms.</span><br>at the reception of our daughter<br>and the love of her life",
-        eventDate: "Saturday | 24 October 2026",
-        addToCalendar: "Add to Calendar",
-        countdownTitle: "Counting on the big days",
-        days: "Days",
-        hours: "Hours",
-        minutes: "Minutes",
-        seconds: "Seconds",
-        orderOfEvents: "Order of Events",
-        event1: "Guest Arrival & Reception",
-        event2: "Arrival of Bride & Groom",
-        event3: "Cake Cutting & Lunch",
-        event4: "End of Ceremony",
-        wishesTitle: "Wishes for the couple",
-        rsvpHeading: "RSVP",
-        rsvpDeadline: "Please reply by 17th October 2026",
-        labelName: "Name",
-        phName: "Your name",
-        labelAttendance: "Attendance",
-        attendYes: "Joyfully Attend",
-        attendNo: "Regretfully Decline",
-        labelPax: "Pax",
-        phPax: "Number of guests",
-        labelWishes: "Send the couple your wishes",
-        phWishes: "Write your wish...",
-        submitBtn: "Submit",
-        submitBtnSending: "Submitting...",
-        rsvpSuccessMsg: "Thank you! Your RSVP has been recorded.",
-        footerSub: "24.10.2026 • Ideal Convention Centre, Shah Alam"
-      },
-      ms: {
-        gettingMarried: "Walimatulurus",
-        saveTheDate: "Simpan Tarikh Ini!",
-        tapToOpen: "Tekan untuk Buka Jemputan",
-        weddingOf: "Walimatulurus",
-        heroDateLocation: "24 Okt 2026 | Ideal Convention Centre, Shah Alam",
-        introGratitude: "Dengan penuh rasa kesyukuran ke hadrat Ilahi,<br>kami",
-        fatherGroom: "( Bapa Pengantin Lelaki )",
-        motherGroom: "( Ibu Pengantin Lelaki )",
-        guardianBride: "( Nenek & Penjaga Pengantin Perempuan )",
-        fatherBride: "( Bapa Pengantin Perempuan )",
-        motherBride: "( Ibu Pengantin Perempuan )",
-        invitationHonorGroom: "menjemput serta mempersilakan<br><span class=\"font-sans font-medium text-[11px] sm:text-xs md:text-sm tracking-wider\">YBhg. Dato' / Datin / Tuan / Puan / Encik / Cik</span><br>ke majlis perkahwinan putera kami<br>bersama pasangan hidupnya",
-        invitationHonorBride: "menjemput serta mempersilakan<br><span class=\"font-sans font-medium text-[11px] sm:text-xs md:text-sm tracking-wider\">YBhg. Dato' / Datin / Tuan / Puan / Encik / Cik</span><br>ke majlis perkahwinan puteri kami<wbr>bersama pasangan hidupnya",
-        eventDate: "Sabtu | 24 Oktober 2026",
-        addToCalendar: "Tambah ke Kalendar",
-        countdownTitle: "Menghitung Hari Bahagia",
-        days: "Hari",
-        hours: "Jam",
-        minutes: "Minit",
-        seconds: "Saat",
-        orderOfEvents: "Atur Cara Majlis",
-        event1: "Kehadiran Tetamu & Jamuan",
-        event2: "Ketibaan Pasangan Pengantin",
-        event3: "Upacara Memotong Kek & Makan Beradab",
-        event4: "Majlis Bersurai",
-        wishesTitle: "Ucapan & Doa",
-        rsvpHeading: "Pengesahan Kehadiran",
-        rsvpDeadline: "Sila sahkan sebelum 17 Oktober 2026",
-        labelName: "Nama",
-        phName: "Nama anda",
-        labelAttendance: "Kehadiran",
-        attendYes: "Hadir",
-        attendNo: "Tidak Dapat Hadir",
-        labelPax: "Bilangan Tetamu",
-        phPax: "Bilangan tetamu",
-        labelWishes: "Titipkan doa dan ucapan anda",
-        phWishes: "Tulis ucapan anda di sini...",
-        submitBtn: "Hantar",
-        submitBtnSending: "Sedang Dihantar...",
-        rsvpSuccessMsg: "Terima kasih! Pengesahan kehadiran anda telah direkodkan.",
-        footerSub: "24.10.2026 • Ideal Convention Centre, Shah Alam"
-      }
-    };
-
-    let currentLang = 'en';
-
-    function setLanguage(lang) {
-      currentLang = lang;
-      const dict = translations[lang] || translations.en;
-
-      // Update innerHTML / text for elements with data-i18n
-      document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        if (dict[key]) {
-          el.innerHTML = dict[key];
-        }
-      });
-
-      // Update input placeholders with data-i18n-ph
-      document.querySelectorAll('[data-i18n-ph]').forEach(el => {
-        const key = el.getAttribute('data-i18n-ph');
-        if (dict[key]) {
-          el.placeholder = dict[key];
-        }
-      });
-
-      // Update toggle button text to show the other language
-      const label = document.getElementById('currentLangLabel');
-      if (label) {
-        label.innerText = lang === 'en' ? 'BM' : 'EN';
-      }
-
-      try {
-        localStorage.setItem('preferredLang', lang);
-      } catch (e) {}
+<script>
+  // ==================== I18N TRANSLATIONS ====================
+  const translations = {
+    en: {
+      gettingMarried: "We're Getting Married",
+      saveTheDate: "Save the Date!",
+      tapToOpen: "Tap to Open Invitation",
+      weddingOf: "Wedding of",
+      heroDateLocation: "24 Oct 2026 | Ideal Convention Centre, Shah Alam",
+      introGratitude: "With hearts full of gratitude to Almighty Allah,<br>we",
+      fatherGroom: "( Father of the Groom )",
+      motherGroom: "( Mother of the Groom )",
+      guardianBride: "( Grandmother & Guardian of the Bride )",
+      fatherBride: "( Father of the Bride )",
+      motherBride: "( Mother of the Bride )",
+      invitationHonorGroom: "request the honour of the presence of<br><span class=\"font-sans font-medium text-[11px] sm:text-xs md:text-sm tracking-wider\">YBhg. Dato' / Datin / Mr. / Mrs. / Ms.</span><br>at the reception of our son<br>and the love of his life",
+      invitationHonorBride: "request the honour of the presence of<br><span class=\"font-sans font-medium text-[11px] sm:text-xs md:text-sm tracking-wider\">YBhg. Dato' / Datin / Mr. / Mrs. / Ms.</span><br>at the reception of our daughter<br>and the love of her life",
+      eventDate: "Saturday | 24 October 2026",
+      addToCalendar: "Add to Calendar",
+      countdownTitle: "Counting on the big days",
+      days: "Days",
+      hours: "Hours",
+      minutes: "Minutes",
+      seconds: "Seconds",
+      orderOfEvents: "Order of Events",
+      event1: "Guest Arrival & Reception",
+      event2: "Arrival of Bride & Groom",
+      event3: "Cake Cutting & Lunch",
+      event4: "End of Ceremony",
+      wishesTitle: "Wishes for the couple",
+      rsvpHeading: "RSVP",
+      rsvpDeadline: "Please reply by 17th October 2026",
+      labelName: "Name",
+      phName: "Your name",
+      labelAttendance: "Attendance",
+      attendYes: "Joyfully Attend",
+      attendNo: "Regretfully Decline",
+      labelPax: "Pax",
+      phPax: "Number of guests",
+      labelWishes: "Send the couple your wishes",
+      phWishes: "Write your wish...",
+      submitBtn: "Submit",
+      submitBtnSending: "Submitting...",
+      rsvpSuccessMsg: "Thank you! Your RSVP has been recorded.",
+      footerSub: "24.10.2026 • Ideal Convention Centre, Shah Alam"
+    },
+    ms: {
+      gettingMarried: "Walimatulurus",
+      saveTheDate: "Simpan Tarikh Ini!",
+      tapToOpen: "Tekan untuk Buka Jemputan",
+      weddingOf: "Walimatulurus",
+      heroDateLocation: "24 Okt 2026 | Ideal Convention Centre, Shah Alam",
+      introGratitude: "Dengan penuh rasa kesyukuran ke hadrat Ilahi,<br>kami",
+      fatherGroom: "( Bapa Pengantin Lelaki )",
+      motherGroom: "( Ibu Pengantin Lelaki )",
+      guardianBride: "( Nenek & Penjaga Pengantin Perempuan )",
+      fatherBride: "( Bapa Pengantin Perempuan )",
+      motherBride: "( Ibu Pengantin Perempuan )",
+      invitationHonorGroom: "menjemput serta mempersilakan<br><span class=\"font-sans font-medium text-[11px] sm:text-xs md:text-sm tracking-wider\">YBhg. Dato' / Datin / Tuan / Puan / Encik / Cik</span><br>ke majlis perkahwinan putera kami<br>bersama pasangan hidupnya",
+      invitationHonorBride: "menjemput serta mempersilakan<br><span class=\"font-sans font-medium text-[11px] sm:text-xs md:text-sm tracking-wider\">YBhg. Dato' / Datin / Tuan / Puan / Encik / Cik</span><br>ke majlis perkahwinan puteri kami<wbr>bersama pasangan hidupnya",
+      eventDate: "Sabtu | 24 Oktober 2026",
+      addToCalendar: "Tambah ke Kalendar",
+      countdownTitle: "Menghitung Hari Bahagia",
+      days: "Hari",
+      hours: "Jam",
+      minutes: "Minit",
+      seconds: "Saat",
+      orderOfEvents: "Atur Cara Majlis",
+      event1: "Kehadiran Tetamu & Jamuan",
+      event2: "Ketibaan Pasangan Pengantin",
+      event3: "Upacara Memotong Kek & Makan Beradab",
+      event4: "Majlis Bersurai",
+      wishesTitle: "Ucapan & Doa",
+      rsvpHeading: "Pengesahan Kehadiran",
+      rsvpDeadline: "Sila sahkan sebelum 17 Oktober 2026",
+      labelName: "Nama",
+      phName: "Nama anda",
+      labelAttendance: "Kehadiran",
+      attendYes: "Hadir",
+      attendNo: "Tidak Dapat Hadir",
+      labelPax: "Bilangan Tetamu",
+      phPax: "Bilangan tetamu",
+      labelWishes: "Titipkan doa dan ucapan anda",
+      phWishes: "Tulis ucapan anda di sini...",
+      submitBtn: "Hantar",
+      submitBtnSending: "Sedang Dihantar...",
+      rsvpSuccessMsg: "Terima kasih! Pengesahan kehadiran anda telah direkodkan.",
+      footerSub: "24.10.2026 • Ideal Convention Centre, Shah Alam"
     }
+  };
 
-    function toggleLanguage() {
-      setLanguage(currentLang === 'en' ? 'ms' : 'en');
-    }
+  let currentLang = 'en';
 
-    // ==================== SIDE / VERSION THEME TOGGLING ====================
-    let currentSide = 'bride';
+  function setLanguage(lang) {
+    currentLang = lang;
+    const dict = translations[lang] || translations.en;
 
-    function applySideTheme(side) {
-      currentSide = (side && side.toLowerCase() === 'groom') ? 'groom' : 'bride';
-      const isGroom = currentSide === 'groom';
-      const root = document.documentElement;
-      const groomEl = document.getElementsByClassName('sideGroom');
-      const brideEl = document.getElementsByClassName('sideBride');
-
-      if (isGroom) {
-        root.classList.add('theme-groom');
-        if (groomEl) {
-          for (let i = 0; i < groomEl.length; i++) {
-            groomEl[i].classList.remove('hidden');
-          }
-        }
-        if (brideEl) {
-          for (let i = 0; i < brideEl.length; i++) {
-            brideEl[i].classList.add('hidden');
-          }
-        }
-      } else {
-        root.classList.remove('theme-groom');
-        if (brideEl) {
-          for (let i = 0; i < brideEl.length; i++) {
-            brideEl[i].classList.remove('hidden');
-          }
-        }
-        if (groomEl) {
-          for (let i = 0; i < groomEl.length; i++) {
-            groomEl[i].classList.add('hidden');
-          }
-        }
+    // Update innerHTML / text for elements with data-i18n
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (dict[key]) {
+        el.innerHTML = dict[key];
       }
-    }
-
-    // Auto-detect language and side theme on load:
-    // Supports query parameters: ?side=groom / ?side=bride (also accepts ?from=groom or ?v=groom)
-    // Supports language parameter: ?lang=ms / ?lang=en
-    window.addEventListener('DOMContentLoaded', () => {
-      const urlParams = new URLSearchParams(window.location.search);
-      const langParam = urlParams.get('lang');
-      const sideParam = urlParams.get('side') || urlParams.get('from') || urlParams.get('v') || 'groom';
-
-      let savedLang = null;
-      try {
-        savedLang = localStorage.getItem('preferredLang');
-      } catch (e) {}
-
-      const initialLang = (langParam === 'ms' || langParam === 'en') ? langParam : (savedLang || 'en');
-      setLanguage(initialLang);
-
-      applySideTheme(sideParam);
     });
 
-    const audioPlayer = document.getElementById('bg-audio');
-    const musicIcon = document.getElementById('musicIcon');
+    // Update input placeholders with data-i18n-ph
+    document.querySelectorAll('[data-i18n-ph]').forEach(el => {
+      const key = el.getAttribute('data-i18n-ph');
+      if (dict[key]) {
+        el.placeholder = dict[key];
+      }
+    });
 
-    // Keep floating button icon in sync with playback state
+    // Update toggle button text to show the other language
+    const label = document.getElementById('currentLangLabel');
+    if (label) {
+      label.innerText = lang === 'en' ? 'BM' : 'EN';
+    }
+
+    try {
+      localStorage.setItem('preferredLang', lang);
+    } catch (e) { }
+  }
+
+  function toggleLanguage() {
+    setLanguage(currentLang === 'en' ? 'ms' : 'en');
+  }
+
+  // ==================== SIDE / VERSION THEME TOGGLING ====================
+  let currentSide = 'bride';
+
+  function applySideTheme(side) {
+    currentSide = (side && side.toLowerCase() === 'groom') ? 'groom' : 'bride';
+    const isGroom = currentSide === 'groom';
+    const root = document.documentElement;
+    const groomEl = document.getElementsByClassName('sideGroom');
+    const brideEl = document.getElementsByClassName('sideBride');
+
+    if (isGroom) {
+      root.classList.add('theme-groom');
+      if (groomEl) {
+        for (let i = 0; i < groomEl.length; i++) {
+          groomEl[i].classList.remove('hidden');
+        }
+      }
+      if (brideEl) {
+        for (let i = 0; i < brideEl.length; i++) {
+          brideEl[i].classList.add('hidden');
+        }
+      }
+    } else {
+      root.classList.remove('theme-groom');
+      if (brideEl) {
+        for (let i = 0; i < brideEl.length; i++) {
+          brideEl[i].classList.remove('hidden');
+        }
+      }
+      if (groomEl) {
+        for (let i = 0; i < groomEl.length; i++) {
+          groomEl[i].classList.add('hidden');
+        }
+      }
+    }
+  }
+
+  // Auto-detect language and side theme on load:
+  // Supports query parameters: ?side=groom / ?side=bride (also accepts ?from=groom or ?v=groom)
+  // Supports language parameter: ?lang=ms / ?lang=en
+  window.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const langParam = urlParams.get('lang');
+    const sideParam = urlParams.get('side') || urlParams.get('from') || urlParams.get('v') || 'groom';
+
+    let savedLang = null;
+    try {
+      savedLang = localStorage.getItem('preferredLang');
+    } catch (e) { }
+
+    const initialLang = (langParam === 'ms' || langParam === 'en') ? langParam : (savedLang || 'en');
+    setLanguage(initialLang);
+
+    applySideTheme(sideParam);
+  });
+
+  const audioPlayer = document.getElementById('bg-audio');
+  const musicIcon = document.getElementById('musicIcon');
+
+  // Keep floating button icon in sync with playback state
+  if (audioPlayer) {
+    audioPlayer.addEventListener('play', () => {
+      if (musicIcon) musicIcon.classList.add('fa-spin');
+    });
+    audioPlayer.addEventListener('pause', () => {
+      if (musicIcon) musicIcon.classList.remove('fa-spin');
+    });
+  }
+
+  // Toggle Play/Pause on music button click
+  function toggleAudio() {
+    if (!audioPlayer) return;
+
+    if (audioPlayer.paused) {
+      audioPlayer.play().catch(e => console.error("Playback error:", e));
+    } else {
+      audioPlayer.pause();
+    }
+  }
+
+  // Open invitation & handle music playback
+  function openInvitation() {
+    const cover = document.getElementById('frontCover');
+    const body = document.getElementById('invitationBody');
+    const musicBtn = document.getElementById('musicToggleBtn');
+
+    body.classList.remove('hidden');
+    cover.classList.add('hidden');
+
+    if (musicBtn) {
+      musicBtn.classList.remove('hidden');
+    }
+
+    window.scrollTo({ top: 0, behavior: 'instant' });
+
+    // Start audio playback on user tap (satisfies browser autoplay restriction)
     if (audioPlayer) {
-      audioPlayer.addEventListener('play', () => {
-        if (musicIcon) musicIcon.classList.add('fa-spin');
-      });
-      audioPlayer.addEventListener('pause', () => {
-        if (musicIcon) musicIcon.classList.remove('fa-spin');
+      audioPlayer.play().catch(e => {
+        console.error("Playback error:", e);
       });
     }
 
-    // Toggle Play/Pause on music button click
-    function toggleAudio() {
-      if (!audioPlayer) return;
+    initInvitation();
+  }
 
-      if (audioPlayer.paused) {
-        audioPlayer.play().catch(e => console.error("Playback error:", e));
+  function initInvitation() {
+    const targetDate = new Date('2026-10-24T11:30:00+08:00').getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const diff = targetDate - now;
+
+      if (diff > 0) {
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const secs = Math.floor((diff % (1000 * 60)) / 1000);
+
+        const dEl = document.getElementById('c-days');
+        const hEl = document.getElementById('c-hours');
+        const mEl = document.getElementById('c-mins');
+        const sEl = document.getElementById('c-secs');
+
+        if (dEl) dEl.innerText = String(days).padStart(2, '0');
+        if (hEl) hEl.innerText = String(hours).padStart(2, '0');
+        if (mEl) mEl.innerText = String(mins).padStart(2, '0');
+        if (sEl) sEl.innerText = String(secs).padStart(2, '0');
+      }
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    const rsvpForm = document.getElementById('rsvpForm');
+    if (rsvpForm) {
+      rsvpForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        document.getElementById('rsvpSuccess').classList.remove('hidden');
+        this.reset();
+      });
+    }
+
+    setTimeout(() => {
+      updateCenterItem();
+      updateCarouselScrollbar();
+    }, 50);
+  }
+
+  const carousel = document.getElementById('carousel');
+  const items = document.querySelectorAll('.carousel-item');
+  const carouselTrack = document.getElementById('carouselTrack');
+  const carouselThumb = document.getElementById('carouselThumb');
+  const carouselProgressFill = document.getElementById('carouselProgressFill');
+
+  function updateCenterItem() {
+    if (!carousel) return;
+    const carouselRect = carousel.getBoundingClientRect();
+    const carouselCenter = carouselRect.left + carouselRect.width / 2;
+
+    let closestItem = null;
+    let minDistance = Infinity;
+
+    // Find the item whose center is closest to the viewport/carousel center
+    items.forEach(item => {
+      const itemRect = item.getBoundingClientRect();
+      const itemCenter = itemRect.left + itemRect.width / 2;
+      const distance = Math.abs(carouselCenter - itemCenter);
+
+      if (distance < minDistance) {
+        minDistance = distance;
+        closestItem = item;
+      }
+    });
+
+    // Update classes: Enlarge only the closest item, shrink all others
+    items.forEach(item => {
+      if (item === closestItem) {
+        item.classList.remove('scale-90');
+        item.classList.add('scale-100');
       } else {
-        audioPlayer.pause();
+        item.classList.remove('scale-100');
+        item.classList.add('scale-90');
       }
+    });
+  }
+
+  function updateCarouselScrollbar() {
+    if (!carousel || !carouselTrack || !carouselThumb) return;
+    const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+    const progress = maxScroll > 0 ? Math.min(1, Math.max(0, carousel.scrollLeft / maxScroll)) : 0;
+
+    const trackWidth = carouselTrack.clientWidth;
+    const thumbPos = progress * trackWidth;
+
+    carouselThumb.style.left = `${thumbPos}px`;
+    if (carouselProgressFill) {
+      carouselProgressFill.style.width = `${thumbPos}px`;
     }
+  }
 
-    // Open invitation & handle music playback
-    function openInvitation() {
-      const cover = document.getElementById('frontCover');
-      const body = document.getElementById('invitationBody');
-      const musicBtn = document.getElementById('musicToggleBtn');
+  // Allow clicking or dragging on track to smoothly scroll the carousel
+  if (carouselTrack && carousel) {
+    let isDragging = false;
 
-      body.classList.remove('hidden');
-      cover.classList.add('hidden');
-      
-      if (musicBtn) {
-        musicBtn.classList.remove('hidden');
-      }
-
-      window.scrollTo({ top: 0, behavior: 'instant' });
-
-      // Start audio playback on user tap (satisfies browser autoplay restriction)
-      if (audioPlayer) {
-        audioPlayer.play().catch(e => {
-          console.error("Playback error:", e);
-        });
-      }
-
-      initInvitation();
-    }
-
-    function initInvitation() {
-      const targetDate = new Date('2026-10-24T11:00:00+08:00').getTime();
-
-      function updateCountdown() {
-        const now = new Date().getTime();
-        const diff = targetDate - now;
-
-        if (diff > 0) {
-          const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-          const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-          const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-          const secs = Math.floor((diff % (1000 * 60)) / 1000);
-
-          const dEl = document.getElementById('c-days');
-          const hEl = document.getElementById('c-hours');
-          const mEl = document.getElementById('c-mins');
-          const sEl = document.getElementById('c-secs');
-
-          if (dEl) dEl.innerText = String(days).padStart(2, '0');
-          if (hEl) hEl.innerText = String(hours).padStart(2, '0');
-          if (mEl) mEl.innerText = String(mins).padStart(2, '0');
-          if (sEl) sEl.innerText = String(secs).padStart(2, '0');
-        }
-      }
-
-      setInterval(updateCountdown, 1000);
-      updateCountdown();
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-          }
-        });
-      }, { threshold: 0.1 });
-
-      document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-      const rsvpForm = document.getElementById('rsvpForm');
-      if (rsvpForm) {
-        rsvpForm.addEventListener('submit', function(e) {
-          e.preventDefault();
-          document.getElementById('rsvpSuccess').classList.remove('hidden');
-          this.reset();
-        });
-      }
-    }
-
-    const carousel = document.getElementById('carousel');
-    const items = document.querySelectorAll('.carousel-item');
-
-    function updateCenterItem() {
-      const carouselRect = carousel.getBoundingClientRect();
-      const carouselCenter = carouselRect.left + carouselRect.width / 2;
-
-      let closestItem = null;
-      let minDistance = Infinity;
-
-      // Find the item whose center is closest to the viewport/carousel center
-      items.forEach(item => {
-        const itemRect = item.getBoundingClientRect();
-        const itemCenter = itemRect.left + itemRect.width / 2;
-        const distance = Math.abs(carouselCenter - itemCenter);
-
-        if (distance < minDistance) {
-          minDistance = distance;
-          closestItem = item;
-        }
-      });
-
-      // Update classes: Enlarge only the closest item, shrink all others
-      items.forEach(item => {
-        if (item === closestItem) {
-          item.classList.remove('scale-90');
-          item.classList.add('scale-100');
-        } else {
-          item.classList.remove('scale-100');
-          item.classList.add('scale-90');
-        }
+    function handleTrackInteraction(e) {
+      const rect = carouselTrack.getBoundingClientRect();
+      const clientX = e.clientX !== undefined ? e.clientX : (e.touches && e.touches[0] ? e.touches[0].clientX : 0);
+      const clickX = Math.min(rect.width, Math.max(0, clientX - rect.left));
+      const percentage = clickX / rect.width;
+      const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+      carousel.scrollTo({
+        left: percentage * maxScroll,
+        behavior: isDragging ? 'auto' : 'smooth'
       });
     }
 
-    // Run on scroll and initial load
-    carousel.addEventListener('scroll', updateCenterItem, { passive: true });
-    window.addEventListener('load', updateCenterItem);
+    carouselTrack.addEventListener('pointerdown', (e) => {
+      isDragging = true;
+      try { carouselTrack.setPointerCapture(e.pointerId); } catch (err) { }
+      handleTrackInteraction(e);
+    });
 
-    // ==================== WISHES HORIZONTAL CAROUSEL & GOOGLE SHEETS ====================
-    const wishesCarousel = document.getElementById('wishesCarousel');
-    const wishesDots = document.getElementById('wishesDots');
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbwdUS6BTqcEUSB7EOyPvPQfEcTQ0Ull-FALUKurEico6cJBAYMGR8Ig7nNkRLhQXMn_VQ/exec';
+    carouselTrack.addEventListener('pointermove', (e) => {
+      if (isDragging) {
+        handleTrackInteraction(e);
+      }
+    });
 
-    function escapeHtml(text) {
-      if (!text) return '';
-      const div = document.createElement('div');
-      div.textContent = text;
-      return div.innerHTML;
-    }
+    carouselTrack.addEventListener('pointerup', (e) => {
+      isDragging = false;
+      try { carouselTrack.releasePointerCapture(e.pointerId); } catch (err) { }
+    });
 
-    function createWishCardHtml(name, wish) {
-      return `
+    carouselTrack.addEventListener('pointercancel', () => {
+      isDragging = false;
+    });
+  }
+
+  // Run on scroll and initial load/resize
+  if (carousel) {
+    carousel.addEventListener('scroll', () => {
+      updateCenterItem();
+      updateCarouselScrollbar();
+    }, { passive: true });
+  }
+  window.addEventListener('load', () => {
+    updateCenterItem();
+    updateCarouselScrollbar();
+  });
+  window.addEventListener('resize', () => {
+    updateCenterItem();
+    updateCarouselScrollbar();
+  });
+
+  // ==================== WISHES HORIZONTAL CAROUSEL & GOOGLE SHEETS ====================
+  const wishesCarousel = document.getElementById('wishesCarousel');
+  const wishesDots = document.getElementById('wishesDots');
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbwdUS6BTqcEUSB7EOyPvPQfEcTQ0Ull-FALUKurEico6cJBAYMGR8Ig7nNkRLhQXMn_VQ/exec';
+
+  function escapeHtml(text) {
+    if (!text) return '';
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+  }
+
+  function createWishCardHtml(name, wish) {
+    return `
         <div class="w-full shrink-0 snap-center px-2">
           <div class="h-36 sm:h-40 flex flex-col justify-between p-4 bg-white/10 rounded-2xl backdrop-blur-sm border border-white/20 text-center">
             <div class="overflow-y-auto wish-content-scroll pr-1 my-auto">
@@ -1136,127 +1509,127 @@
             <p class="font-serif italic text-xs sm:text-sm text-white/80 mt-2 shrink-0 font-medium">${escapeHtml(name || 'Guest')}</p>
           </div>
         </div>`;
-    }
+  }
 
-    function renderWishes(wishesArray) {
-      if (!wishesCarousel || !Array.isArray(wishesArray) || wishesArray.length === 0) return;
-      wishesCarousel.innerHTML = wishesArray.map(item => createWishCardHtml(item.name, item.wish)).join('');
-      updateWishesDots();
-    }
+  function renderWishes(wishesArray) {
+    if (!wishesCarousel || !Array.isArray(wishesArray) || wishesArray.length === 0) return;
+    wishesCarousel.innerHTML = wishesArray.map(item => createWishCardHtml(item.name, item.wish)).join('');
+    updateWishesDots();
+  }
 
-    async function loadWishesFromSheet() {
-      if (!wishesCarousel) return;
-      try {
-        const res = await fetch(scriptURL);
-        const data = await res.json();
-        if (Array.isArray(data) && data.length > 0) {
-          renderWishes(data);
-        } else {
-          // If no wishes submitted yet
-          wishesCarousel.innerHTML = `
+  async function loadWishesFromSheet() {
+    if (!wishesCarousel) return;
+    try {
+      const res = await fetch(scriptURL);
+      const data = await res.json();
+      if (Array.isArray(data) && data.length > 0) {
+        renderWishes(data);
+      } else {
+        // If no wishes submitted yet
+        wishesCarousel.innerHTML = `
             <div class="w-full shrink-0 snap-center px-2">
               <div class="h-36 sm:h-40 flex flex-col justify-center items-center p-4 bg-white/10 rounded-2xl backdrop-blur-sm border border-white/20 text-center">
                 <p class="font-serif italic text-xs sm:text-sm text-white/90">Be the first to leave a wish for the happy couple below!</p>
               </div>
             </div>`;
-          updateWishesDots();
-        }
-      } catch (err) {
-        console.warn('Could not load live wishes from Google Sheets:', err);
-      }
-    }
-
-    function updateWishesDots() {
-      if (!wishesCarousel || !wishesDots) return;
-      const cards = wishesCarousel.querySelectorAll('.snap-center');
-      const total = cards.length;
-      if (total <= 1) {
-        wishesDots.innerHTML = '';
-        return;
-      }
-
-      const scrollLeft = wishesCarousel.scrollLeft;
-      const cardWidth = wishesCarousel.offsetWidth || 1;
-      const activeIdx = Math.min(total - 1, Math.max(0, Math.round(scrollLeft / cardWidth)));
-
-      wishesDots.innerHTML = '';
-
-      // Windowing parameters: show up to 7 dots max
-      const maxDots = 7;
-      let startIdx = 0;
-      let endIdx = total;
-
-      if (total > maxDots) {
-        const half = Math.floor(maxDots / 2);
-        startIdx = Math.max(0, activeIdx - half);
-        endIdx = startIdx + maxDots;
-
-        if (endIdx > total) {
-          endIdx = total;
-          startIdx = total - maxDots;
-        }
-      }
-
-      for (let i = startIdx; i < endIdx; i++) {
-        const dot = document.createElement('button');
-        dot.type = 'button';
-        dot.setAttribute('aria-label', `Go to wish ${i + 1}`);
-
-        // Distance from current active index in the visible window
-        const isCurrent = i === activeIdx;
-        const isEdge = total > maxDots && ((i === startIdx && startIdx > 0) || (i === endIdx - 1 && endIdx < total));
-
-        let sizeClasses = 'w-2 h-2';
-        let bgClasses = isCurrent ? 'bg-white scale-125' : 'bg-white/40 hover:bg-white/70';
-
-        if (isEdge) {
-          sizeClasses = 'w-1 h-1';
-          bgClasses = 'bg-white/30';
-        }
-
-        dot.className = `${sizeClasses} rounded-full transition-all duration-300 ${bgClasses}`;
-        dot.addEventListener('click', () => {
-          wishesCarousel.scrollTo({ left: i * cardWidth, behavior: 'smooth' });
-        });
-        wishesDots.appendChild(dot);
-      }
-    }
-
-    if (wishesCarousel) {
-      wishesCarousel.addEventListener('scroll', updateWishesDots, { passive: true });
-      window.addEventListener('load', () => {
         updateWishesDots();
-        loadWishesFromSheet();
-      });
-      window.addEventListener('resize', updateWishesDots);
+      }
+    } catch (err) {
+      console.warn('Could not load live wishes from Google Sheets:', err);
+    }
+  }
+
+  function updateWishesDots() {
+    if (!wishesCarousel || !wishesDots) return;
+    const cards = wishesCarousel.querySelectorAll('.snap-center');
+    const total = cards.length;
+    if (total <= 1) {
+      wishesDots.innerHTML = '';
+      return;
     }
 
-    const form = document.getElementById('rsvpForm');
-    const successDiv = document.getElementById('rsvpSuccess');
-    const submitBtn = document.getElementById('submitBtn');
+    const scrollLeft = wishesCarousel.scrollLeft;
+    const cardWidth = wishesCarousel.offsetWidth || 1;
+    const activeIdx = Math.min(total - 1, Math.max(0, Math.round(scrollLeft / cardWidth)));
 
-    form.addEventListener('submit', e => {
-      e.preventDefault();
-      const dict = translations[currentLang] || translations.en;
-      submitBtn.disabled = true;
-      submitBtn.textContent = dict.submitBtnSending || 'Submitting...';
+    wishesDots.innerHTML = '';
 
-      const formData = new FormData(form);
-      const data = {
-        name: formData.get('name'),
-        attendance: formData.get('attendance'),
-        pax: formData.get('pax'),
-        wishes: formData.get('wishes')
-      };
+    // Windowing parameters: show up to 7 dots max
+    const maxDots = 7;
+    let startIdx = 0;
+    let endIdx = total;
 
-      fetch(scriptURL, {
-        method: 'POST',
-        mode: 'no-cors', // Required for Google Apps Script simple web apps
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data)
-      })
+    if (total > maxDots) {
+      const half = Math.floor(maxDots / 2);
+      startIdx = Math.max(0, activeIdx - half);
+      endIdx = startIdx + maxDots;
+
+      if (endIdx > total) {
+        endIdx = total;
+        startIdx = total - maxDots;
+      }
+    }
+
+    for (let i = startIdx; i < endIdx; i++) {
+      const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.setAttribute('aria-label', `Go to wish ${i + 1}`);
+
+      // Distance from current active index in the visible window
+      const isCurrent = i === activeIdx;
+      const isEdge = total > maxDots && ((i === startIdx && startIdx > 0) || (i === endIdx - 1 && endIdx < total));
+
+      let sizeClasses = 'w-2 h-2';
+      let bgClasses = isCurrent ? 'bg-white scale-125' : 'bg-white/40 hover:bg-white/70';
+
+      if (isEdge) {
+        sizeClasses = 'w-1 h-1';
+        bgClasses = 'bg-white/30';
+      }
+
+      dot.className = `${sizeClasses} rounded-full transition-all duration-300 ${bgClasses}`;
+      dot.addEventListener('click', () => {
+        wishesCarousel.scrollTo({ left: i * cardWidth, behavior: 'smooth' });
+      });
+      wishesDots.appendChild(dot);
+    }
+  }
+
+  if (wishesCarousel) {
+    wishesCarousel.addEventListener('scroll', updateWishesDots, { passive: true });
+    window.addEventListener('load', () => {
+      updateWishesDots();
+      loadWishesFromSheet();
+    });
+    window.addEventListener('resize', updateWishesDots);
+  }
+
+  const form = document.getElementById('rsvpForm');
+  const successDiv = document.getElementById('rsvpSuccess');
+  const submitBtn = document.getElementById('submitBtn');
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const dict = translations[currentLang] || translations.en;
+    submitBtn.disabled = true;
+    submitBtn.textContent = dict.submitBtnSending || 'Submitting...';
+
+    const formData = new FormData(form);
+    const data = {
+      name: formData.get('name'),
+      attendance: formData.get('attendance'),
+      pax: formData.get('pax'),
+      wishes: formData.get('wishes')
+    };
+
+    fetch(scriptURL, {
+      method: 'POST',
+      mode: 'no-cors', // Required for Google Apps Script simple web apps
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data)
+    })
       .then(() => {
         successDiv.classList.remove('hidden');
 
@@ -1282,7 +1655,8 @@
         submitBtn.disabled = false;
         submitBtn.textContent = dict.submitBtn || 'Submit';
       });
-    });
-  </script>
+  });
+</script>
 </body>
+
 </html>
