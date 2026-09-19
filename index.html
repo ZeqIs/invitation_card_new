@@ -121,8 +121,53 @@
       color: var(--color-primary-deep) !important;
     }
 
+    html.theme-groom .bg-cerulean {
+      background-color: var(--color-primary) !important;
+    }
+
+    html.theme-groom .hover\:bg-cerulean-dark:hover,
+    html.theme-groom .hover\:bg-cerulean:hover {
+      background-color: var(--color-primary-dark) !important;
+    }
+
+    html.theme-groom .border-cerulean {
+      border-color: var(--color-primary) !important;
+    }
+
     html.theme-groom .focus\:border-cerulean:focus {
       border-color: var(--color-primary) !important;
+    }
+
+    html.theme-groom .focus\:ring-cerulean:focus {
+      --tw-ring-color: var(--color-primary) !important;
+    }
+
+    html.theme-groom .bg-cerulean\/5 {
+      background-color: rgba(70, 83, 94, 0.05) !important;
+    }
+
+    html.theme-groom .bg-cerulean\/10 {
+      background-color: rgba(70, 83, 94, 0.1) !important;
+    }
+
+    html.theme-groom .bg-cerulean\/15 {
+      background-color: rgba(70, 83, 94, 0.15) !important;
+    }
+
+    html.theme-groom .bg-cerulean\/20 {
+      background-color: rgba(70, 83, 94, 0.2) !important;
+    }
+
+    html.theme-groom .bg-cerulean\/30 {
+      background-color: rgba(70, 83, 94, 0.3) !important;
+    }
+
+    html.theme-groom .border-cerulean\/20 {
+      border-color: rgba(70, 83, 94, 0.2) !important;
+    }
+
+    html.theme-groom .border-cerulean\/30 {
+      border-color: rgba(70, 83, 94, 0.3) !important;
     }
 
     .bg-theme-primary {
@@ -1074,6 +1119,87 @@
     </form>
   </section>
 
+  <!-- SECTION 7: GIFT REGISTRY SECTION -->
+  <section id="gift-registry"
+    class="py-16 md:py-24 px-6 text-center flex flex-col items-center fade-in w-full bg-theme-secondary text-slate-800 border-t border-stone-200">
+    <div class="max-w-2xl mx-auto w-full flex flex-col items-center">
+      <h3 data-i18n="giftRegistryTitle" class="font-script text-4xl sm:text-5xl md:text-6xl text-cerulean mb-2">Gift Registry</h3>
+      <p data-i18n="giftRegistrySubtitle" class="font-serif italic text-xs sm:text-sm text-slate-600 mb-8 max-w-md">
+        Bless the newlyweds with a gift of your choice
+      </p>
+
+      <!-- Gifts List Container -->
+      <div id="giftsContainer" class="w-full max-w-md space-y-3.5 text-left">
+        <!-- Loading placeholder -->
+        <div class="p-6 bg-white/80 rounded-2xl border border-stone-200 shadow-sm text-center">
+          <i class="fa-solid fa-spinner fa-spin text-cerulean text-lg mb-2"></i>
+          <p data-i18n="giftLoading" class="font-serif italic text-xs sm:text-sm text-slate-600">Loading gift registry...</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GIFT BOOKING MODAL -->
+  <div id="giftModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm transition-opacity duration-300">
+    <div class="bg-white rounded-2xl p-5 sm:p-6 shadow-2xl max-w-md w-full text-slate-800 relative transform transition-all border border-slate-100">
+      <!-- Close Button -->
+      <button type="button" onclick="closeGiftModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 w-8 h-8 flex items-center justify-center rounded-full hover:bg-slate-100 transition cursor-pointer">
+        <i class="fa-solid fa-xmark text-lg"></i>
+      </button>
+
+      <!-- Header -->
+      <div class="text-center mb-5">
+        <div class="w-12 h-12 bg-cerulean/10 text-cerulean rounded-full flex items-center justify-center mx-auto mb-2 text-xl">
+          <i class="fa-solid fa-gift"></i>
+        </div>
+        <h4 data-i18n="giftModalTitle" class="font-serif text-lg sm:text-xl font-bold text-slate-800">Book a Wedding Gift</h4>
+        <p data-i18n="giftModalSubtitle" class="text-xs text-slate-500 font-sans mt-1">Please fill in your details to reserve this gift</p>
+      </div>
+
+      <!-- Selected Gift Preview Card -->
+      <div class="bg-slate-50 border border-slate-200 rounded-xl p-3 mb-4 flex items-center gap-3">
+        <div class="w-8 h-8 rounded-lg bg-cerulean/15 text-cerulean flex items-center justify-center text-sm shrink-0">
+          <i class="fa-solid fa-box-open"></i>
+        </div>
+        <div class="min-w-0 flex-1">
+          <span data-i18n="giftModalItemLabel" class="text-[10px] uppercase tracking-wider text-cerulean font-semibold block">Selected Gift</span>
+          <p id="giftModalItemName" class="font-serif font-semibold text-slate-800 text-sm truncate"></p>
+        </div>
+      </div>
+
+      <!-- Booking Form -->
+      <form id="giftBookingForm" class="space-y-4">
+        <input type="hidden" id="giftModalItemId" name="giftId">
+        <input type="hidden" id="giftModalItemTitle" name="giftName">
+
+        <div>
+          <label data-i18n="giftModalNameLabel" class="block text-xs font-semibold font-sans mb-1 text-slate-700">Your Name <span class="text-rose-500">*</span></label>
+          <input type="text" id="giftGuestName" name="name" required data-i18n-ph="giftModalPhName" placeholder="Enter your full name"
+            class="w-full text-xs sm:text-sm text-slate-800 border border-slate-300 rounded-lg p-2.5 focus:outline-none focus:border-cerulean focus:ring-1 focus:ring-cerulean bg-white">
+        </div>
+
+        <div>
+          <label data-i18n="giftModalPhoneLabel" class="block text-xs font-semibold font-sans mb-1 text-slate-700">Phone Number <span class="text-rose-500">*</span></label>
+          <input type="tel" id="giftGuestPhone" name="phone" required data-i18n-ph="giftModalPhPhone" placeholder="e.g. 012-3456789"
+            class="w-full text-xs sm:text-sm text-slate-800 border border-slate-300 rounded-lg p-2.5 focus:outline-none focus:border-cerulean focus:ring-1 focus:ring-cerulean bg-white">
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="flex items-center gap-2 pt-2">
+          <button type="button" onclick="closeGiftModal()" data-i18n="giftModalCancelBtn"
+            class="w-1/2 py-2.5 rounded-lg border border-slate-300 text-slate-700 hover:bg-slate-100 font-sans text-xs sm:text-sm font-semibold transition cursor-pointer">
+            Cancel
+          </button>
+          <button type="submit" id="giftSubmitBtn"
+            class="w-1/2 py-2.5 rounded-lg bg-cerulean hover:bg-cerulean-dark text-white font-sans text-xs sm:text-sm font-semibold shadow transition transform hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-1.5 cursor-pointer">
+            <i class="fa-solid fa-check text-xs"></i>
+            <span data-i18n="giftModalConfirmBtn">Confirm Booking</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
   <!-- FOOTER -->
   <footer class="py-10 text-center bg-black/20 text-white/60 text-xs sm:text-sm w-full">
     <p class="sideGroom font-script text-2xl sm:text-3xl text-white/90">Is & Mimi</p>
@@ -1133,6 +1259,24 @@
       submitBtn: "Submit",
       submitBtnSending: "Submitting...",
       rsvpSuccessMsg: "Thank you! Your RSVP has been recorded.",
+      giftRegistryTitle: "Gift Registry",
+      giftRegistrySubtitle: "Bless the newlyweds with a gift of your choice",
+      giftLoading: "Loading gift registry...",
+      giftEmpty: "No gifts available at the moment.",
+      giftBookBtn: "Book Gift",
+      giftBookedBy: "Booked by",
+      giftModalTitle: "Book a Wedding Gift",
+      giftModalSubtitle: "Please fill in your details to reserve this gift",
+      giftModalItemLabel: "Selected Gift",
+      giftModalNameLabel: "Your Name",
+      giftModalPhName: "Enter your full name",
+      giftModalPhoneLabel: "Phone Number",
+      giftModalPhPhone: "e.g. 012-3456789",
+      giftModalConfirmBtn: "Confirm Booking",
+      giftModalCancelBtn: "Cancel",
+      giftModalBookingBtn: "Booking...",
+      giftBookingSuccess: "Thank you! You have successfully booked this gift.",
+      giftBookingFailed: "Something went wrong. Please try again.",
       footerSub: "24.10.2026 • Ideal Convention Centre, Shah Alam"
     },
     ms: {
@@ -1176,6 +1320,24 @@
       submitBtn: "Hantar",
       submitBtnSending: "Sedang Dihantar...",
       rsvpSuccessMsg: "Terima kasih! Pengesahan kehadiran anda telah direkodkan.",
+      giftRegistryTitle: "Senarai Hadiah",
+      giftRegistrySubtitle: "Hadiahkan tanda ingatan buat pasangan pengantin",
+      giftLoading: "Memuatkan senarai hadiah...",
+      giftEmpty: "Tiada senarai hadiah buat masa ini.",
+      giftBookBtn: "Hadiahkan",
+      giftBookedBy: "Ditempah oleh",
+      giftModalTitle: "Tempah Hadiah Kahwin",
+      giftModalSubtitle: "Sila lengkapkan maklumat anda untuk menempah hadiah ini",
+      giftModalItemLabel: "Hadiah Dipilih",
+      giftModalNameLabel: "Nama Anda",
+      giftModalPhName: "Masukkan nama penuh anda",
+      giftModalPhoneLabel: "Nombor Telefon",
+      giftModalPhPhone: "cth: 012-3456789",
+      giftModalConfirmBtn: "Sahkan Tempahan",
+      giftModalCancelBtn: "Batal",
+      giftModalBookingBtn: "Sedang Menempah...",
+      giftBookingSuccess: "Terima kasih! Anda telah berjaya menempah hadiah ini.",
+      giftBookingFailed: "Ralat berlaku. Sila cuba lagi.",
       footerSub: "24.10.2026 • Ideal Convention Centre, Shah Alam"
     }
   };
@@ -1211,6 +1373,10 @@
     try {
       localStorage.setItem('preferredLang', lang);
     } catch (e) { }
+
+    if (typeof renderGifts === 'function') {
+      renderGifts();
+    }
   }
 
   function toggleLanguage() {
@@ -1359,15 +1525,6 @@
     }, { threshold: 0.1 });
 
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-    const rsvpForm = document.getElementById('rsvpForm');
-    if (rsvpForm) {
-      rsvpForm.addEventListener('submit', function (e) {
-        e.preventDefault();
-        document.getElementById('rsvpSuccess').classList.remove('hidden');
-        this.reset();
-      });
-    }
 
     setTimeout(() => {
       updateCenterItem();
@@ -1651,6 +1808,295 @@
         submitBtn.disabled = false;
         submitBtn.textContent = dict.submitBtn || 'Submit';
       });
+  });
+
+  // ==================== GIFT REGISTRY & GOOGLE SHEETS ====================
+  const giftScriptURL = scriptURL; // Google Apps Script URL for gifts
+  const giftsContainer = document.getElementById('giftsContainer');
+  const giftModal = document.getElementById('giftModal');
+  const giftBookingForm = document.getElementById('giftBookingForm');
+  const giftModalItemId = document.getElementById('giftModalItemId');
+  const giftModalItemTitle = document.getElementById('giftModalItemTitle');
+  const giftModalItemName = document.getElementById('giftModalItemName');
+  const giftGuestName = document.getElementById('giftGuestName');
+  const giftGuestPhone = document.getElementById('giftGuestPhone');
+  const giftSubmitBtn = document.getElementById('giftSubmitBtn');
+
+  // Default registry items (used as initial list / fallback)
+  const defaultGifts = [
+    {
+      id: 'gift_1',
+      name: 'Espresso Coffee Machine',
+      name_ms: 'Mesin Kopi Espresso',
+      description: 'De\'Longhi Dedica Deluxe / Nespresso Coffee Maker',
+      booked: false,
+      booked_by: ''
+    },
+    {
+      id: 'gift_2',
+      name: 'Digital Air Fryer',
+      name_ms: 'Air Fryer Digital',
+      description: 'Philips Essential Air Fryer (4.1L - 6.2L)',
+      booked: false,
+      booked_by: ''
+    },
+    {
+      id: 'gift_3',
+      name: 'Smart Robot Vacuum Cleaner',
+      name_ms: 'Pembersih Vakum Robot Pintar',
+      description: 'Xiaomi / Dreame Robot Vacuum & Mop',
+      booked: false,
+      booked_by: ''
+    },
+    {
+      id: 'gift_4',
+      name: 'Porcelain Dinnerware Set',
+      name_ms: 'Set Pinggan Mangkuk Porselin',
+      description: '16-Piece Ceramic Dinner Set (4 pax luxury dining)',
+      booked: false,
+      booked_by: ''
+    },
+    {
+      id: 'gift_5',
+      name: 'Egyptian Cotton Bedding Set',
+      name_ms: 'Set Cadar Kapas Mesir',
+      description: 'King Size 1000TC Luxury Fitted Bedsheet & Quilt Cover',
+      booked: false,
+      booked_by: ''
+    },
+    {
+      id: 'gift_6',
+      name: 'Electric Kettle & Toaster Set',
+      name_ms: 'Set Cerek Elektrik & Pembakar Roti',
+      description: 'Matching Retro Breakfast Series (Cream / Chrome)',
+      booked: false,
+      booked_by: ''
+    }
+  ];
+
+  let currentGifts = [];
+
+  function loadLocalGifts() {
+    try {
+      const saved = localStorage.getItem('weddingGiftsRegistry');
+      if (saved) {
+        return JSON.parse(saved);
+      }
+    } catch (e) { }
+    return defaultGifts;
+  }
+
+  function saveLocalGifts(gifts) {
+    try {
+      localStorage.setItem('weddingGiftsRegistry', JSON.stringify(gifts));
+    } catch (e) { }
+  }
+
+  function renderGifts(giftsList = currentGifts) {
+    if (!giftsContainer) return;
+    if (!giftsList || giftsList.length === 0) {
+      const dict = translations[currentLang] || translations.en;
+      giftsContainer.innerHTML = `
+        <div class="p-6 bg-white/80 rounded-2xl border border-stone-200 shadow-sm text-center">
+          <p class="font-serif italic text-xs sm:text-sm text-slate-600">${dict.giftEmpty || 'No gifts available at the moment.'}</p>
+        </div>`;
+      return;
+    }
+
+    const dict = translations[currentLang] || translations.en;
+
+    giftsContainer.innerHTML = giftsList.map(item => {
+      const isBooked = item.booked || (item.booked_by && item.booked_by.trim() !== '');
+      const bookedName = item.booked_by || item.bookedBy || '';
+      const displayName = (currentLang === 'ms' && item.name_ms) ? item.name_ms : (item.name || item.item || 'Gift');
+      const displayDesc = item.description || '';
+
+      if (isBooked) {
+        return `
+          <div class="bg-stone-100/80 rounded-xl p-3.5 sm:p-4 shadow-xs text-slate-800 border border-stone-200/80 transition-all duration-300" data-gift-id="${escapeHtml(String(item.id))}">
+            <div class="flex items-center justify-between gap-3">
+              <div class="flex items-center gap-3 min-w-0 flex-1">
+                <div class="w-9 h-9 rounded-full bg-stone-200/70 text-slate-400 flex items-center justify-center text-sm shrink-0 border border-stone-300/50">
+                  <i class="fa-solid fa-gift text-cerulean/70"></i>
+                </div>
+                <div class="min-w-0 flex-1">
+                  <h5 class="font-serif font-semibold text-slate-500 text-xs sm:text-sm truncate line-through decoration-slate-400 opacity-80">${escapeHtml(displayName)}</h5>
+                  ${displayDesc ? `<p class="text-[11px] text-slate-400 font-sans truncate mt-0.5">${escapeHtml(displayDesc)}</p>` : ''}
+                </div>
+              </div>
+              <div class="shrink-0">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-cerulean/10 text-cerulean-deep text-[11px] font-sans font-medium border border-cerulean/20 shadow-xs">
+                  <i class="fa-solid fa-circle-check text-[11px] text-cerulean"></i>
+                  <span>${dict.giftBookedBy || 'Booked by'} <strong>${escapeHtml(bookedName || 'Guest')}</strong></span>
+                </span>
+              </div>
+            </div>
+          </div>`;
+      } else {
+        return `
+          <div class="bg-white rounded-xl p-3.5 sm:p-4 shadow-md text-slate-800 border border-stone-200/90 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5" data-gift-id="${escapeHtml(String(item.id))}">
+            <div class="flex items-center justify-between gap-3">
+              <div class="flex items-center gap-3 min-w-0 flex-1">
+                <div class="w-9 h-9 rounded-full bg-cerulean/10 text-cerulean flex items-center justify-center text-sm shrink-0">
+                  <i class="fa-solid fa-gift"></i>
+                </div>
+                <div class="min-w-0 flex-1">
+                  <h5 class="font-serif font-semibold text-slate-800 text-xs sm:text-sm truncate">${escapeHtml(displayName)}</h5>
+                  ${displayDesc ? `<p class="text-[11px] text-slate-500 font-sans truncate mt-0.5">${escapeHtml(displayDesc)}</p>` : ''}
+                </div>
+              </div>
+              <div class="shrink-0">
+                <button type="button" onclick="openGiftModal('${escapeHtml(String(item.id))}', '${escapeHtml(displayName).replace(/'/g, "\\'")}')"
+                  class="px-3.5 py-1.5 sm:px-4 sm:py-2 bg-cerulean hover:bg-cerulean-dark text-white rounded-lg text-xs font-semibold tracking-wider font-sans shadow transition transform hover:scale-105 active:scale-95 flex items-center gap-1.5 cursor-pointer">
+                  <i class="fa-solid fa-bookmark text-[10px]"></i>
+                  <span>${dict.giftBookBtn || 'Book Gift'}</span>
+                </button>
+              </div>
+            </div>
+          </div>`;
+      }
+    }).join('');
+  }
+
+  async function loadGiftsFromSheet() {
+    currentGifts = loadLocalGifts();
+    renderGifts(currentGifts);
+
+    try {
+      const res = await fetch(`${giftScriptURL}?action=get_gifts`);
+      const data = await res.json();
+      if (Array.isArray(data) && data.length > 0 && (data[0].item || data[0].name)) {
+        currentGifts = data.map((d, index) => ({
+          id: d.id || `gift_${index + 1}`,
+          name: d.name || d.item || 'Gift Item',
+          name_ms: d.name_ms || d.nama || '',
+          description: d.description || d.deskripsi || '',
+          booked: d.booked === true || String(d.booked).toLowerCase() === 'true' || Boolean(d.booked_by || d.bookedBy),
+          booked_by: d.booked_by || d.bookedBy || ''
+        }));
+        saveLocalGifts(currentGifts);
+        renderGifts(currentGifts);
+      }
+    } catch (err) {
+      // Retain local gifts if offline or Google Script not returning gift array yet
+    }
+  }
+
+  function openGiftModal(id, name) {
+    if (!giftModal) return;
+    giftModalItemId.value = id;
+    giftModalItemTitle.value = name;
+    giftModalItemName.textContent = name;
+    giftGuestName.value = '';
+    giftGuestPhone.value = '';
+    giftModal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+    setTimeout(() => {
+      if (giftGuestName) giftGuestName.focus();
+    }, 100);
+  }
+
+  function closeGiftModal() {
+    if (!giftModal) return;
+    giftModal.classList.add('hidden');
+    document.body.style.overflow = '';
+  }
+
+  // Close modal when clicking outside of modal container
+  if (giftModal) {
+    giftModal.addEventListener('click', (e) => {
+      if (e.target === giftModal) {
+        closeGiftModal();
+      }
+    });
+  }
+
+  // Close modal on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && giftModal && !giftModal.classList.contains('hidden')) {
+      closeGiftModal();
+    }
+  });
+
+  if (giftBookingForm) {
+    giftBookingForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const dict = translations[currentLang] || translations.en;
+      const id = giftModalItemId.value;
+      const itemName = giftModalItemTitle.value;
+      const name = giftGuestName.value.trim();
+      const phone = giftGuestPhone.value.trim();
+
+      if (!name || !phone) {
+        alert(currentLang === 'ms' ? 'Sila masukkan nama dan nombor telefon.' : 'Please enter your name and phone number.');
+        return;
+      }
+
+      if (giftSubmitBtn) {
+        giftSubmitBtn.disabled = true;
+        giftSubmitBtn.innerHTML = `<i class="fa-solid fa-spinner fa-spin text-xs"></i> <span>${dict.giftModalBookingBtn || 'Booking...'}</span>`;
+      }
+
+      const bookingPayload = {
+        action: 'book_gift',
+        giftId: id,
+        giftName: itemName,
+        name: name,
+        phone: phone,
+        timestamp: new Date().toISOString()
+      };
+
+      // Send booking request to Google Apps Script
+      fetch(giftScriptURL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(bookingPayload)
+      })
+      .then(() => {
+        // Update item in local state
+        const targetIndex = currentGifts.findIndex(g => String(g.id) === String(id));
+        if (targetIndex !== -1) {
+          currentGifts[targetIndex].booked = true;
+          currentGifts[targetIndex].booked_by = name;
+        } else {
+          currentGifts.push({
+            id: id,
+            name: itemName,
+            booked: true,
+            booked_by: name
+          });
+        }
+        saveLocalGifts(currentGifts);
+
+        // Re-render UI immediately to replace button with "Booked by [name]"
+        renderGifts(currentGifts);
+
+        closeGiftModal();
+
+        alert(dict.giftBookingSuccess || 'Thank you! You have successfully booked this gift.');
+
+        if (giftSubmitBtn) {
+          giftSubmitBtn.disabled = false;
+          giftSubmitBtn.innerHTML = `<i class="fa-solid fa-check text-xs"></i> <span>${dict.giftModalConfirmBtn || 'Confirm Booking'}</span>`;
+        }
+      })
+      .catch(error => {
+        console.error('Error booking gift:', error);
+        alert(dict.giftBookingFailed || 'Something went wrong. Please try again.');
+        if (giftSubmitBtn) {
+          giftSubmitBtn.disabled = false;
+          giftSubmitBtn.innerHTML = `<i class="fa-solid fa-check text-xs"></i> <span>${dict.giftModalConfirmBtn || 'Confirm Booking'}</span>`;
+        }
+      });
+    });
+  }
+
+  // Load gifts on page load
+  window.addEventListener('load', () => {
+    loadGiftsFromSheet();
   });
 </script>
 </body>
