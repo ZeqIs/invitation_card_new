@@ -5,6 +5,27 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>#MimiIsinlove</title>
+  <meta name="title" content="#MimiIsinlove" />
+  <meta name="description"
+    content="Wedding invitation of Zeqry Iskandar & Fatini Syamimi | Jemputan ke majlis perkahwinan Zeqry Iskandar & Fatini Syamimi" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://zeqis.github.io/invitation_card_new/" />
+  <meta property="og:title" content="#MimiIsinlove" />
+  <meta property="og:description"
+    content="Wedding invitation of Zeqry Iskandar & Fatini Syamimi | Jemputan ke majlis perkahwinan Zeqry Iskandar & Fatini Syamimi" />
+  <meta property="og:image" content="/assets/b_roll_1.jpeg" />
+
+  <!-- X (Twitter) -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://zeqis.github.io/invitation_card_new/" />
+  <meta property="twitter:title" content="#MimiIsinlove" />
+  <meta property="twitter:description"
+    content="Wedding invitation of Zeqry Iskandar & Fatini Syamimi | Jemputan ke majlis perkahwinan Zeqry Iskandar & Fatini Syamimi" />
+  <meta property="twitter:image" content="/assets/b_roll_1.jpeg" />
+
+  <!-- Meta Tags Generated with https://metatags.io -->
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -1138,7 +1159,8 @@
   <section id="gift-registry"
     class="py-16 md:py-24 px-6 text-center flex flex-col items-center fade-in w-full bg-theme-secondary text-slate-800 border-t border-stone-200">
     <div class="max-w-2xl mx-auto w-full flex flex-col items-center">
-      <h3 data-i18n="giftRegistryTitle" class="font-script text-4xl sm:text-5xl md:text-6xl text-cerulean mb-2">Gift Registry</h3>
+      <h3 data-i18n="giftRegistryTitle" class="font-script text-4xl sm:text-5xl md:text-6xl text-cerulean mb-2">Gift
+        Registry</h3>
       <p data-i18n="giftRegistrySubtitle" class="font-serif italic text-xs sm:text-sm text-slate-600 mb-8 max-w-md">
         Bless the newlyweds with a gift of your choice
       </p>
@@ -1148,27 +1170,34 @@
         <!-- Loading placeholder -->
         <div class="p-6 bg-white/80 rounded-2xl border border-stone-200 shadow-sm text-center">
           <i class="fa-solid fa-spinner fa-spin text-cerulean text-lg mb-2"></i>
-          <p data-i18n="giftLoading" class="font-serif italic text-xs sm:text-sm text-slate-600">Loading gift registry...</p>
+          <p data-i18n="giftLoading" class="font-serif italic text-xs sm:text-sm text-slate-600">Loading gift
+            registry...</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- GIFT BOOKING MODAL -->
-  <div id="giftModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm transition-opacity duration-300">
-    <div class="bg-white rounded-2xl p-5 sm:p-6 shadow-2xl max-w-md w-full text-slate-800 relative transform transition-all border border-slate-100">
+  <div id="giftModal"
+    class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm transition-opacity duration-300">
+    <div
+      class="bg-white rounded-2xl p-5 sm:p-6 shadow-2xl max-w-md w-full text-slate-800 relative transform transition-all border border-slate-100">
       <!-- Close Button -->
-      <button type="button" onclick="closeGiftModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 w-8 h-8 flex items-center justify-center rounded-full hover:bg-slate-100 transition cursor-pointer">
+      <button type="button" onclick="closeGiftModal()"
+        class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 w-8 h-8 flex items-center justify-center rounded-full hover:bg-slate-100 transition cursor-pointer">
         <i class="fa-solid fa-xmark text-lg"></i>
       </button>
 
       <!-- Header -->
       <div class="text-center mb-5">
-        <div class="w-12 h-12 bg-cerulean/10 text-cerulean rounded-full flex items-center justify-center mx-auto mb-2 text-xl">
+        <div
+          class="w-12 h-12 bg-cerulean/10 text-cerulean rounded-full flex items-center justify-center mx-auto mb-2 text-xl">
           <i class="fa-solid fa-gift"></i>
         </div>
-        <h4 data-i18n="giftModalTitle" class="font-serif text-lg sm:text-xl font-bold text-slate-800">Book a Wedding Gift</h4>
-        <p data-i18n="giftModalSubtitle" class="text-xs text-slate-500 font-sans mt-1">Please fill in your details to reserve this gift</p>
+        <h4 data-i18n="giftModalTitle" class="font-serif text-lg sm:text-xl font-bold text-slate-800">Book a Wedding
+          Gift</h4>
+        <p data-i18n="giftModalSubtitle" class="text-xs text-slate-500 font-sans mt-1">Please fill in your details to
+          reserve this gift</p>
       </div>
 
       <!-- Selected Gift Preview Card -->
@@ -1177,7 +1206,8 @@
           <i class="fa-solid fa-box-open"></i>
         </div>
         <div class="min-w-0 flex-1">
-          <span data-i18n="giftModalItemLabel" class="text-[10px] uppercase tracking-wider text-cerulean font-semibold block">Selected Gift</span>
+          <span data-i18n="giftModalItemLabel"
+            class="text-[10px] uppercase tracking-wider text-cerulean font-semibold block">Selected Gift</span>
           <p id="giftModalItemName" class="font-serif font-semibold text-slate-800 text-sm truncate"></p>
         </div>
       </div>
@@ -1188,14 +1218,18 @@
         <input type="hidden" id="giftModalItemTitle" name="giftName">
 
         <div>
-          <label data-i18n="giftModalNameLabel" class="block text-xs font-semibold font-sans mb-1 text-slate-700">Your Name <span class="text-rose-500">*</span></label>
-          <input type="text" id="giftGuestName" name="name" required data-i18n-ph="giftModalPhName" placeholder="Enter your full name"
+          <label data-i18n="giftModalNameLabel" class="block text-xs font-semibold font-sans mb-1 text-slate-700">Your
+            Name <span class="text-rose-500">*</span></label>
+          <input type="text" id="giftGuestName" name="name" required data-i18n-ph="giftModalPhName"
+            placeholder="Enter your full name"
             class="w-full text-xs sm:text-sm text-slate-800 border border-slate-300 rounded-lg p-2.5 focus:outline-none focus:border-cerulean focus:ring-1 focus:ring-cerulean bg-white">
         </div>
 
         <div>
-          <label data-i18n="giftModalPhoneLabel" class="block text-xs font-semibold font-sans mb-1 text-slate-700">Phone Number <span class="text-rose-500">*</span></label>
-          <input type="tel" id="giftGuestPhone" name="phone" required data-i18n-ph="giftModalPhPhone" placeholder="e.g. 012-3456789"
+          <label data-i18n="giftModalPhoneLabel" class="block text-xs font-semibold font-sans mb-1 text-slate-700">Phone
+            Number <span class="text-rose-500">*</span></label>
+          <input type="tel" id="giftGuestPhone" name="phone" required data-i18n-ph="giftModalPhPhone"
+            placeholder="e.g. 012-3456789"
             class="w-full text-xs sm:text-sm text-slate-800 border border-slate-300 rounded-lg p-2.5 focus:outline-none focus:border-cerulean focus:ring-1 focus:ring-cerulean bg-white">
         </div>
 
@@ -2071,42 +2105,42 @@
         },
         body: JSON.stringify(bookingPayload)
       })
-      .then(() => {
-        // Update item in local state
-        const targetIndex = currentGifts.findIndex(g => String(g.id) === String(id));
-        if (targetIndex !== -1) {
-          currentGifts[targetIndex].booked = true;
-          currentGifts[targetIndex].booked_by = name;
-        } else {
-          currentGifts.push({
-            id: id,
-            name: itemName,
-            booked: true,
-            booked_by: name
-          });
-        }
-        saveLocalGifts(currentGifts);
+        .then(() => {
+          // Update item in local state
+          const targetIndex = currentGifts.findIndex(g => String(g.id) === String(id));
+          if (targetIndex !== -1) {
+            currentGifts[targetIndex].booked = true;
+            currentGifts[targetIndex].booked_by = name;
+          } else {
+            currentGifts.push({
+              id: id,
+              name: itemName,
+              booked: true,
+              booked_by: name
+            });
+          }
+          saveLocalGifts(currentGifts);
 
-        // Re-render UI immediately to replace button with "Booked by [name]"
-        renderGifts(currentGifts);
+          // Re-render UI immediately to replace button with "Booked by [name]"
+          renderGifts(currentGifts);
 
-        closeGiftModal();
+          closeGiftModal();
 
-        alert(dict.giftBookingSuccess || 'Thank you! You have successfully booked this gift.');
+          alert(dict.giftBookingSuccess || 'Thank you! You have successfully booked this gift.');
 
-        if (giftSubmitBtn) {
-          giftSubmitBtn.disabled = false;
-          giftSubmitBtn.innerHTML = `<i class="fa-solid fa-check text-xs"></i> <span>${dict.giftModalConfirmBtn || 'Confirm Booking'}</span>`;
-        }
-      })
-      .catch(error => {
-        console.error('Error booking gift:', error);
-        alert(dict.giftBookingFailed || 'Something went wrong. Please try again.');
-        if (giftSubmitBtn) {
-          giftSubmitBtn.disabled = false;
-          giftSubmitBtn.innerHTML = `<i class="fa-solid fa-check text-xs"></i> <span>${dict.giftModalConfirmBtn || 'Confirm Booking'}</span>`;
-        }
-      });
+          if (giftSubmitBtn) {
+            giftSubmitBtn.disabled = false;
+            giftSubmitBtn.innerHTML = `<i class="fa-solid fa-check text-xs"></i> <span>${dict.giftModalConfirmBtn || 'Confirm Booking'}</span>`;
+          }
+        })
+        .catch(error => {
+          console.error('Error booking gift:', error);
+          alert(dict.giftBookingFailed || 'Something went wrong. Please try again.');
+          if (giftSubmitBtn) {
+            giftSubmitBtn.disabled = false;
+            giftSubmitBtn.innerHTML = `<i class="fa-solid fa-check text-xs"></i> <span>${dict.giftModalConfirmBtn || 'Confirm Booking'}</span>`;
+          }
+        });
     });
   }
 
